@@ -1,7 +1,8 @@
 import React from "react"
+import { FinancialReport } from "../components"
 
 function Finance() {
-  return <div>Finance</div>
+  return <div><FinancialReport/></div>
 }
 
 export default Finance

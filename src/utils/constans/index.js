@@ -1,17 +1,17 @@
-import { MdTrackChanges } from "react-icons/md"
+import { LuUsers } from "react-icons/lu";
 import { MdHomeFilled } from "react-icons/md"
 import { MdCardMembership } from "react-icons/md"
 import { HiSpeakerphone } from "react-icons/hi"
 import { IoAnalyticsOutline } from "react-icons/io5"
-import { TbWorld } from "react-icons/tb"
+import { BsClipboard2 } from "react-icons/bs";
 import { createTheme } from "@mui/material"
 export const MENUS = [
   { name: "Dashboard", link: "/", icon: MdHomeFilled },
-  { name: "Clients", link: "/clients", icon: MdTrackChanges },
+  { name: "Clients", link: "/clients", icon: LuUsers },
   { name: "Finance", link: "/finance", icon: IoAnalyticsOutline },
   { name: "Marketing Items", link: "/marketing", icon: HiSpeakerphone },
   { name: "Membership", link: "/membership", icon: MdCardMembership },
-  { name: "Leave Management", link: "/leavemanage", icon: TbWorld },
+  { name: "Leave Management", link: "/leavemanage", icon: BsClipboard2 },
 ]
 
 export const theme = createTheme({

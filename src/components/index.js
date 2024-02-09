@@ -4,4 +4,17 @@ import MobileSideBar from "./MobileSideBar"
 import WelcomeGreeting from "./Greeting/WelcomeGreeting"
 import ThanksGreeting from "./Greeting/ThanksGreeting"
 import UserProfileModal from "./UserProfileModal"
-export { NavBar, SideBar, MobileSideBar, WelcomeGreeting, ThanksGreeting, UserProfileModal }
+import Dashboards from "./Dashboard/Dashboards"
+import FinancialReport from "./Finance/FinancialReport"
+import Memberships from "./Membership/Memberships"
+export {
+  NavBar,
+  SideBar,
+  MobileSideBar,
+  WelcomeGreeting,
+  ThanksGreeting,
+  UserProfileModal,
+  Dashboards,
+  FinancialReport,
+  Memberships,
+}

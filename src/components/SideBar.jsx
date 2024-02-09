@@ -21,7 +21,7 @@ const SideBar = () => {
         <div className="flex justify-end py-3">
           <Link to="/" className="flex flex-col items-center justify-center">
             <img src={ActivPassImage} className={`${open ? "h-11" : "hidden"}`} alt="Logo" />
-            <p className={`${open ? "text-center" : "hidden"} `}>ERP PORTAL</p>
+            <p className={`${open ? "text-center" : "hidden"} tracking-wider` }>BizPass</p>
           </Link>
           <HiMenuAlt3 size={30} className="cursor-pointer" onClick={() => setOpen(!open)} />
         </div>
