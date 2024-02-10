@@ -2,8 +2,10 @@ import React, { useState } from "react"
 import { Tables } from "../../utils/components/index"
 import { Link } from "react-router-dom"
 import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2"
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md"
 import PieChart from "./PieChart"
+import { Button } from "@mui/material"
+
 
 const Memberships = () => {
   const [page, setPage] = useState(0)
@@ -48,10 +50,10 @@ const Memberships = () => {
           </div>
         </Link>
         <Link to="#">
-        <div className="text-xl bg-red-500 text-gray-100 rounded-full flex items-center justify-center h-8 w-8 ">
-        <MdDeleteForever />
-        </div>
-            </Link>
+          <div className="text-xl bg-red-500 text-gray-100 rounded-full flex items-center justify-center h-8 w-8 ">
+            <MdDeleteForever />
+          </div>
+        </Link>
       </div>
     ),
   }))
@@ -70,40 +72,69 @@ const Memberships = () => {
       item.name.toLowerCase().includes(filter.toLowerCase()) || item.role.toLowerCase().includes(filter.toLowerCase())
   )
 
-  const partnerName = "Sakthi Pandiyan"
+  const user = {
+    partnerName: "Wolf Fitness Center",
+    name: "Sakthi Pandiyan",
+    team: "Team Wolf",
+    email: "pandi@gmail.com",
+    phone: "6381458872",
+    status: "Active",
+  }
+
+  const toggleStatus = () => {
+    setUser(prevUser => ({
+      ...prevUser,
+      status: prevUser.status === "Active" ? "Inactive" : "Active",
+    }))
+  }
+
+  const handlePayNow = () => {
+    alert("Payment initiated for user:", user.name);
+  };
 
   return (
     <div className="p-1 sm:p-5">
       <div className="text-base font-bold mb-2">Your Details</div>
       <section className="grid grid-flow-rows gap-4 sm:grid-flow-col sm:grid-cols-2  sm:gap-4">
-        <main className="bg-gray-200  rounded-md m-0 sm:mr-8 ">
-          <aside className="flex">
+        <main className="bg-gray-200  rounded-md m-0 sm:mr-8">
+          <aside className="flex flex-grow justify-between">
             <div className="text-3xl bg-gray-400 rounded-full m-2 sm:m-4 flex items-center justify-center h-20 w-20 ">
-              {partnerName.slice(0, 1).toUpperCase()}
+              {user.partnerName.slice(0, 1).toUpperCase()}
             </div>
             <div className="m-2 sm:m-4">
-              <h2 className="text-md font-bold">Wolf Fitness Center</h2>
-              <p className="text-sm opacity-50">Sakthi Pandiyan</p>
-              <p className="text-sm opacity-50">Team Wolf</p>
+              <h2 className="font-bold">{user.partnerName}</h2>
+              <p className="text-sm opacity-50">{user.name}</p>
+              <p className="text-sm opacity-50">{user.team}</p>
+            </div>
+            <div className="p-4 flex flex-col gap-3">
+              <Button variant="contained" size="small" color={user.status === "Active" ? "success" : "error"} onClick={toggleStatus}>
+                {user.status === "Active" ? "Active" : "Inactive"}
+              </Button>
+              {user.status !== "Active" && (
+                <Button variant="contained" color="primary" onClick={handlePayNow} >
+                  Renewal
+                </Button>
+              )}
             </div>
           </aside>
           <article className="m-4">
             <h3 className="text-md font-bold">Contact Email</h3>
-            <p className="text-sm opacity-50">pandi@gmail.com</p>
+            <p className="text-sm opacity-50">{user.email}</p>
             <h3 className="text-md font-bold mt-3">Contact Phone</h3>
-            <p className="text-sm opacity-50">6381458872</p>
+            <p className="text-sm opacity-50">{user.phone}</p>
           </article>
         </main>
+
         <main className="bg-gray-200 sm:w-full sm:h-full w-full h-52 rounded-md">
           <p className=" p-3">Attendance record</p>
-          <PieChart/>
+          <PieChart />
         </main>
       </section>
       <div className="flex items-center justify-between">
         <p className="text-xs sm:text-base font-semibold mt-2">Employee Informations</p>
         <div className="flex space-x-4">
           <Link
-            to="#"
+            to="/addemployee"
             className="text-black hover:bg-black hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle items-center rounded"
           >
             <HiMiniPlusSmall className="text-3xl" /> Add Employee

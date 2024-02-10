@@ -7,6 +7,8 @@ import UserProfileModal from "./UserProfileModal"
 import Dashboards from "./Dashboard/Dashboards"
 import FinancialReport from "./Finance/FinancialReport"
 import Memberships from "./Membership/Memberships"
+import AddEmployeeForm from "./Membership/AddEmployeeForm"
+
 export {
   NavBar,
   SideBar,
@@ -17,4 +19,5 @@ export {
   Dashboards,
   FinancialReport,
   Memberships,
+  AddEmployeeForm,
 }
