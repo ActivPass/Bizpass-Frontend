@@ -6,7 +6,6 @@ import { MdDeleteForever } from "react-icons/md"
 import PieChart from "./PieChart"
 import { Button } from "@mui/material"
 
-
 const Memberships = () => {
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(5)
@@ -15,6 +14,7 @@ const Memberships = () => {
   const data = [
     {
       id: 1,
+      empid: "EMP0001",
       name: "Perumal",
       role: "Coach / Trainer",
       phone: "9500319273",
@@ -23,6 +23,7 @@ const Memberships = () => {
     },
     {
       id: 2,
+      empid: "EMP0002",
       name: "Sakthivel",
       role: "Coach / Trainer",
       phone: "6381458872",
@@ -32,16 +33,22 @@ const Memberships = () => {
   ]
 
   const columns = [
+    {id: "empid" , label:"Employe ID",},
     { id: "name", label: "Name" },
     { id: "role", label: "Role", isMobileDisable: true },
     { id: "phone", label: "Contact Phone", isMobileDisable: true },
-    { id: "email", label: "Contact Email", isSortDisable: true },
-    { id: "joiningDate", label: "Joining Date", isSortDisable: true, isMobileDisable: true },
+    { id: "email", label: "Contact Email",isMobileDisable: true },
+    { id: "joiningDate", label: "Joining Date", isMobileDisable: true },
     { id: "action", label: "Action", isMobileDisable: true, isSortDisable: true },
   ]
 
   const res_data = data.map(item => ({
     ...item,
+    name: (
+      <Link className="underline text-blue-500" to={"/employeecard"} rel="noopener noreferrer">
+        {item.name}
+      </Link>
+    ),
     action: (
       <div className="flex flex-row gap-3">
         <Link to="#">
@@ -69,7 +76,7 @@ const Memberships = () => {
 
   const filteredData = res_data.filter(
     item =>
-      item.name.toLowerCase().includes(filter.toLowerCase()) || item.role.toLowerCase().includes(filter.toLowerCase())
+      item.empid.toLowerCase().includes(filter.toLowerCase()) || item.role.toLowerCase().includes(filter.toLowerCase())
   )
 
   const user = {
@@ -94,7 +101,7 @@ const Memberships = () => {
 
   return (
     <div className="p-1 sm:p-5">
-      <div className="text-base font-bold mb-2">Your Details</div>
+      <div className="text-base mb-2">Your Profile</div>
       <section className="grid grid-flow-rows gap-4 sm:grid-flow-col sm:grid-cols-2  sm:gap-4">
         <main className="bg-gray-200  rounded-md m-0 sm:mr-8">
           <aside className="flex flex-grow justify-between">

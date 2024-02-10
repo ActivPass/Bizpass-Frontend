@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import ApexCharts from 'apexcharts';
+import React, { useState } from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 const generateMonthlyData = (startYear, months) => {
   const data = [];
@@ -18,110 +18,67 @@ const generateMonthLabels = (startYear, months) => {
 };
 
 const MyChart = () => {
-  const chartRef = useRef(null);
-
   const [selectedYear, setSelectedYear] = useState(2024);
 
-  const [state, setState] = useState({
-    series: [
-      {
-        name: 'income',
-        data: generateMonthlyData(selectedYear, 12),
-      },
-    ],
+  const chartData = {
+    series: [{
+      name: 'Income',
+      data: generateMonthlyData(selectedYear, 12)
+    }],
     options: {
       chart: {
         type: 'bar',
-        height: 250,
+        height: 250
       },
       xaxis: {
         categories: generateMonthLabels(selectedYear, 12),
         labels: {
           style: {
             fontSize: '10px',
-            fontWeight: 700,
-          },
-        },
+            fontWeight: 700
+          }
+        }
       },
       plotOptions: {
         bar: {
           borderRadius: 8,
           columnWidth: '50%',
           colors: {
-            ranges: [
-              {
-                from: 0,
-                to: 10000,
-                color: '#2E93fA',
-              },
-            ],
-          },
-        },
+            ranges: [{
+              from: 0,
+              to: 10000,
+              color: '#2E93fA'
+            }]
+          }
+        }
       },
       dataLabels: {
-        enabled: false,
+        enabled: false
       },
       yaxis: {
-        show: true,
+        show: true
       },
       grid: {
         show: true,
-        borderColor: '#f1f1f1',
-      },
-    },
-  });
-
-  useEffect(() => {
-    setState({
-      series: [
-        {
-          name: 'income',
-          data: generateMonthlyData(selectedYear, 12),
-        },
-      ],
-      options: {
-        ...state.options,
-        xaxis: {
-          categories: generateMonthLabels(selectedYear, 12),
-          labels: {
-            style: {
-              fontSize: '10px',
-              fontWeight: 700,
-            },
-          },
-        },
-      },
-    });
-  }, [selectedYear]);
-
-  useEffect(() => {
-    const chartOptions = {
-      ...state.options,
-      series: state.series,
-    };
-
-    const chart = new ApexCharts(chartRef.current, chartOptions);
-    chart.render();
-
-    return () => {
-      chart.destroy();
-    };
-  }, [state]);
+        borderColor: '#f1f1f1'
+      }
+    }
+  };
 
   return (
     <div>
-        <div className="flex flex-row justify-between">
-            <div className="">Monthly Report</div>
-                  <div>
-            <label>Select Year: </label>
-            <select className='outline-none' value={selectedYear} onChange={(e) => setSelectedYear(parseInt(e.target.value))}>
-              <option value={2024}>2024</option>
-              <option value={2025}>2025</option>
-              <option value={2026}>2026</option>
-            </select>
-                  </div>
+      <div className="flex flex-row justify-between">
+        <div className="">Monthly Report</div>
+        <div>
+          <label>Select Year: </label>
+          <select className='outline-none' value={selectedYear} onChange={(e) => setSelectedYear(parseInt(e.target.value))}>
+            <option value={2024}>2024</option>
+            <option value={2025}>2025</option>
+            <option value={2026}>2026</option>
+          </select>
         </div>
-      <div ref={chartRef} />
+      </div>
+      <ReactApexChart options={chartData.options} series={chartData.series} type="bar" height={250} />
     </div>
   );
 };

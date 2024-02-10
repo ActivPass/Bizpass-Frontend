@@ -8,6 +8,7 @@ import Dashboards from "./Dashboard/Dashboards"
 import FinancialReport from "./Finance/FinancialReport"
 import Memberships from "./Membership/Memberships"
 import AddEmployeeForm from "./Membership/AddEmployeeForm"
+import EmployeeCard from "./Membership/EmployeeCard"
 
 export {
   NavBar,
@@ -20,4 +21,5 @@ export {
   FinancialReport,
   Memberships,
   AddEmployeeForm,
+  EmployeeCard,
 }

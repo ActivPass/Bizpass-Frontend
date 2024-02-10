@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import ApexCharts from 'apexcharts';
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
 
-const MyChart = () => {
-  const chartRef = useRef(null);
-  const [chartInstance, setChartInstance] = useState(null);
 
+const MyChartComponent = () => {
   const chartData = {
     series: [44, 55, 13, 43, 22],
     options: {
@@ -27,26 +25,11 @@ const MyChart = () => {
     }
   };
 
-  useEffect(() => {
-    if (!chartInstance) {
-      const chart = new ApexCharts(chartRef.current, chartData.options);
-      chart.render();
-      setChartInstance(chart);
-    } else {
-      chartInstance.updateOptions(chartData.options);
-      chartInstance.updateSeries(chartData.series);
-    }
-  }, [chartInstance, chartData]);
-
-  useEffect(() => {
-    return () => {
-      if (chartInstance) {
-        chartInstance.destroy();
-      }
-    };
-  }, [chartInstance]);
-
-  return <div ref={chartRef} />;
+  return (
+    <div id="chart">
+      <ReactApexChart options={chartData.options} series={chartData.series} type="pie" width={380} />
+    </div>
+  );
 };
 
-export default MyChart;
+export default MyChartComponent;

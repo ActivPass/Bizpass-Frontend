@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom"
 import { LoginPage, Dashboard, Client, Finance, Marketing, Membership, LeaveManagement } from "./pages"
 import Layout from "./Layout"
-import { AddEmployeeForm } from "./components"
+import { AddEmployeeForm, EmployeeCard } from "./components"
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -14,6 +14,7 @@ const route = createBrowserRouter(
         <Route path="/membership" element={<Membership />} />
         <Route path="/leavemanage" element={<LeaveManagement />} />
         <Route path="/addemployee" element={<AddEmployeeForm/>} />
+        <Route path="/employeecard" element={<EmployeeCard/>} />
       </Route>
     </Route>
   )
