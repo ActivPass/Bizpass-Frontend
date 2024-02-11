@@ -9,6 +9,9 @@ import FinancialReport from "./Finance/FinancialReport"
 import Memberships from "./Membership/Memberships"
 import AddEmployeeForm from "./Membership/AddEmployeeForm"
 import EmployeeCard from "./Membership/EmployeeCard"
+import AddClientForm from "./Client/AddClientForm"
+import ClientTable from "./Client/ClientTable"
+import ClientCard from "./Client/ClientCard"
 
 export {
   NavBar,
@@ -22,4 +25,7 @@ export {
   Memberships,
   AddEmployeeForm,
   EmployeeCard,
+  AddClientForm,
+  ClientTable,
+  ClientCard,
 }

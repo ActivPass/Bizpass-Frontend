@@ -11,7 +11,7 @@ export const MENUS = [
   { name: "Finance", link: "/finance", icon: IoAnalyticsOutline },
   { name: "Marketing Items", link: "/marketing", icon: HiSpeakerphone },
   { name: "Membership", link: "/membership", icon: MdCardMembership },
-  { name: "Leave Management", link: "/leavemanage", icon: BsClipboard2 },
+  { name: "Leave Management", link: "/leavemanagement", icon: BsClipboard2 },
 ]
 
 export const theme = createTheme({

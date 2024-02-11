@@ -33,11 +33,11 @@ const Memberships = () => {
   ]
 
   const columns = [
-    {id: "empid" , label:"Employe ID",},
+    { id: "empid", label: "Employe ID" },
     { id: "name", label: "Name" },
     { id: "role", label: "Role", isMobileDisable: true },
     { id: "phone", label: "Contact Phone", isMobileDisable: true },
-    { id: "email", label: "Contact Email",isMobileDisable: true },
+    { id: "email", label: "Contact Email", isMobileDisable: true },
     { id: "joiningDate", label: "Joining Date", isMobileDisable: true },
     { id: "action", label: "Action", isMobileDisable: true, isSortDisable: true },
   ]
@@ -96,8 +96,8 @@ const Memberships = () => {
   }
 
   const handlePayNow = () => {
-    alert("Payment initiated for user:", user.name);
-  };
+    alert("Payment initiated for user:", user.name)
+  }
 
   return (
     <div className="p-1 sm:p-5">
@@ -114,11 +114,16 @@ const Memberships = () => {
               <p className="text-sm opacity-50">{user.team}</p>
             </div>
             <div className="p-4 flex flex-col gap-3">
-              <Button variant="contained" size="small" color={user.status === "Active" ? "success" : "error"} onClick={toggleStatus}>
+              <Button
+                variant="contained"
+                size="small"
+                color={user.status === "Active" ? "success" : "error"}
+                onClick={toggleStatus}
+              >
                 {user.status === "Active" ? "Active" : "Inactive"}
               </Button>
               {user.status !== "Active" && (
-                <Button variant="contained" color="primary" onClick={handlePayNow} >
+                <Button variant="contained" color="primary" onClick={handlePayNow}>
                   Renewal
                 </Button>
               )}
@@ -138,7 +143,7 @@ const Memberships = () => {
         </main>
       </section>
       <div className="flex items-center justify-between">
-        <p className="text-xs sm:text-base font-semibold mt-2">Employee Informations</p>
+        <p className="text-xs sm:text-base font-semibold mt-2">List Of Employees</p>
         <div className="flex space-x-4">
           <Link
             to="/addemployee"

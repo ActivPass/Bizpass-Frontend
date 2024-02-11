@@ -10,9 +10,9 @@ import { useNavigate } from "react-router-dom"
 import MobileQRscanner from "./pages/MobileQRscanner"
 
 const is2faEnabled = localStorage.getItem("is2faEnabled")
-console.log(is2faEnabled)
+// console.log(is2faEnabled)
 const isVerified = localStorage.getItem("isVerified")
-console.log(isVerified)
+// console.log(isVerified)
 
 const Layout = () => {
   const navigate = useNavigate()
