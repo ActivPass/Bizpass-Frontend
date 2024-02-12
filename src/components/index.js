@@ -12,6 +12,11 @@ import EmployeeCard from "./Membership/EmployeeCard"
 import AddClientForm from "./Client/AddClientForm"
 import ClientTable from "./Client/ClientTable"
 import ClientCard from "./Client/ClientCard"
+import NewLeaveRequest from "./Leave Management/NewLeaveRequest"
+import EditLeaveRequest from "./Leave Management/EditLeaveRequest"
+import AllLeaveRequest from "./Leave Management/AllLeaveRequest"
+import EditClientForm from "./Client/EditClientForm"
+import EditEmployeeForm from "./Membership/EditEmployeeForm"
 
 export {
   NavBar,
@@ -24,8 +29,13 @@ export {
   FinancialReport,
   Memberships,
   AddEmployeeForm,
+  EditEmployeeForm,
   EmployeeCard,
   AddClientForm,
   ClientTable,
   ClientCard,
+  EditClientForm,
+  NewLeaveRequest,
+  EditLeaveRequest,
+  AllLeaveRequest,
 }

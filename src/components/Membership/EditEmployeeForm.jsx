@@ -7,12 +7,12 @@ import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 
 
-const AddEmployeeForm = () => {
+const EditEmployeeForm = () => {
   return (
     <div className="m-1 sm:m-5">
       <div className="flex items-center align-middle  mb-4">
           <p className="text-2xl font-bold">
-          Employees <span className="text-3xl opacity-40"> |</span>{" "}
+          Edit Employee <span className="text-3xl opacity-40"> |</span>{" "}
           </p>
           &nbsp;&nbsp;
           <Link to={"/"}>
@@ -28,12 +28,12 @@ const AddEmployeeForm = () => {
           <div className=" text-xs sm:text-base">Membership</div>
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
-          <div className=" text-xs sm:text-base">Add Employee</div>
+          <div className=" text-xs sm:text-base">Edit Employee</div>
         </div>
       <div className="p-6 bg-gray-100 rounded-lg shadow-lg">
         <h2 className="font-semibold mb-4">
           {" "}
-          <strong>Add</strong> Employee
+          <strong>Edit</strong> Employee
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -100,4 +100,4 @@ const AddEmployeeForm = () => {
   )
 }
 
-export default AddEmployeeForm
+export default EditEmployeeForm

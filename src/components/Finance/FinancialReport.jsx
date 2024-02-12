@@ -4,7 +4,9 @@ import { Tables } from "../../utils/components/index"
 import TwelveMonthReportChart from "./TwelveMonthReportChart"
 import { Loading, Error } from "../../utils/components"
 import { Link } from "react-router-dom"
-import { ImFilePdf } from "react-icons/im";
+import { ImFilePdf } from "react-icons/im"
+import { GoChevronRight } from "react-icons/go"
+import { FaHome } from "react-icons/fa"
 
 const FinancialReport = () => {
   const error = false
@@ -170,7 +172,23 @@ const FinancialReport = () => {
   return (
     <>
       <div className="px-1 sm:p-5 overflow-x-hidden">
-        <p className="text-base font-semibold mb-2">Finance</p>
+        <div className="flex items-center align-middle  mb-4">
+          <p className="text-2xl font-bold">
+            Finance <span className="text-3xl opacity-40"> |</span>{" "}
+          </p>
+          &nbsp;&nbsp;
+          <Link to={"/"}>
+            <FaHome className="sm:text-2xl" />
+          </Link>
+          &nbsp;
+          <GoChevronRight className="sm:text-xl opacity-40 " />
+          <Link to={"/"} className=" text-xs sm:text-base font-semibold opacity-40">
+            Home
+          </Link>
+          <GoChevronRight className="sm:text-xl opacity-40 " />
+          <div className=" text-xs sm:text-base">Finance</div>
+        </div>
+        {/* <p className="text-base font-semibold my-2">Finance</p> */}
         <div className="grid sm:grid-cols-5 sm:gap-6">
           <div className="col-span-3">
             <section className="">

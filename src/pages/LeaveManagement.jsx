@@ -1,7 +1,8 @@
 import React from "react"
+import { AllLeaveRequest } from "../components"
 
 function LeaveManagement() {
-  return <div>LeaveManagement</div>
+  return <div><AllLeaveRequest/></div>
 }
 
 export default LeaveManagement

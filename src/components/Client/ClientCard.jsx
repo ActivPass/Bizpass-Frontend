@@ -1,11 +1,31 @@
-import React from "react"
-import { Button } from "@mui/material"
+import React from "react";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { GoChevronRight } from "react-icons/go";
+import { FaHome } from "react-icons/fa";
+
 
 const user = { status: "Active" }
 
 function ClientCard() {
   return (
     <div className="m-1 sm:m-5">
+      <div className="flex items-center align-middle">
+          <p className="text-2xl font-bold">Client Profile<span className="text-3xl opacity-40"> |</span> </p>&nbsp;&nbsp;
+          <Link to={"/"}>
+          <FaHome className="sm:text-2xl" />
+          </Link>&nbsp;
+          <GoChevronRight className="sm:text-xl opacity-40 " />
+          <Link to={"/"} className=" text-xs sm:text-base font-semibold opacity-40">
+           Home
+          </Link>
+          <GoChevronRight className="sm:text-xl opacity-40 " />
+          <Link to={"/clients"} className=" text-xs sm:text-base font-semibold opacity-40">
+          All Clients
+          </Link>
+          <GoChevronRight className="sm:text-xl opacity-40 " />
+          <div className=" text-xs sm:text-base ">Client Profile</div>
+        </div>
       <div className=" mt-5">
         <p className=" my-3">Client Profile</p>
         <div className="bg-black text-white flex justify-between items-center p-4">

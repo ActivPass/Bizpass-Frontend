@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 
-const AddClientForm = () => {
+const EditClientForm = () => {
   const [selectedState, setSelectedState] = useState("")
   const [selectedDistrict, setSelectedDistrict] = useState("")
 
@@ -24,7 +24,7 @@ const AddClientForm = () => {
     <div className="m-1 sm:m-5">
       <div className="flex items-center align-middle  mb-4">
           <p className="text-2xl font-bold">
-          Add Clients <span className="text-3xl opacity-40"> |</span>{" "}
+          Edit Clients <span className="text-3xl opacity-40"> |</span>{" "}
           </p>
           &nbsp;&nbsp;
           <Link to={"/"}>
@@ -40,12 +40,12 @@ const AddClientForm = () => {
           <div className=" text-xs sm:text-base">Clients</div>
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
-          <div className=" text-xs sm:text-base">Add Client</div>
+          <div className=" text-xs sm:text-base">Edit Client</div>
         </div>
       <div className="bg-gray-100 p-5 rounded-lg">
           <div className="font-semibold mb-4">
             <h2>
-              <strong>Add</strong> Client
+              <strong>Edit</strong> Client
             </h2>
           </div>
           <div className="body">
@@ -152,4 +152,4 @@ const AddClientForm = () => {
   )
 }
 
-export default AddClientForm
+export default EditClientForm
