@@ -7,8 +7,8 @@ import UserProfileModal from "./UserProfileModal"
 import Dashboards from "./Dashboard/Dashboards"
 import FinancialReport from "./Finance/FinancialReport"
 import Memberships from "./Membership/Memberships"
-import AddEmployeeForm from "./Membership/AddEmployeeForm"
-import EmployeeCard from "./Membership/EmployeeCard"
+import AddEmployeeForm from "./ Employees/AddEmployeeForm"
+import EmployeeCard from "./ Employees/EmployeeCard"
 import AddClientForm from "./Client/AddClientForm"
 import ClientTable from "./Client/ClientTable"
 import ClientCard from "./Client/ClientCard"
@@ -16,7 +16,11 @@ import NewLeaveRequest from "./Leave Management/NewLeaveRequest"
 import EditLeaveRequest from "./Leave Management/EditLeaveRequest"
 import AllLeaveRequest from "./Leave Management/AllLeaveRequest"
 import EditClientForm from "./Client/EditClientForm"
-import EditEmployeeForm from "./Membership/EditEmployeeForm"
+import EditEmployeeForm from "./ Employees/EditEmployeeForm"
+import Employees from "./ Employees/Employees"
+import Payslip from "./Payroll/Payslip"
+import Payrolls from "./Payroll/Payrolls"
+import AddSalaryForm from "./Payroll/AddSalaryForm"
 
 export {
   NavBar,
@@ -28,6 +32,7 @@ export {
   Dashboards,
   FinancialReport,
   Memberships,
+  Employees,
   AddEmployeeForm,
   EditEmployeeForm,
   EmployeeCard,
@@ -38,4 +43,7 @@ export {
   NewLeaveRequest,
   EditLeaveRequest,
   AllLeaveRequest,
+  Payslip,
+  Payrolls,
+  AddSalaryForm,
 }

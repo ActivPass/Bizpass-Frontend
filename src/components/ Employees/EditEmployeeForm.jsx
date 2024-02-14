@@ -24,8 +24,8 @@ const EditEmployeeForm = () => {
             Home
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
-          <Link to={"/membership"} className=" text-xs sm:text-base font-semibold opacity-40">
-          <div className=" text-xs sm:text-base">Membership</div>
+          <Link to={"/employees"} className=" text-xs sm:text-base font-semibold opacity-40">
+          <div className=" text-xs sm:text-base">Employees</div>
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
           <div className=" text-xs sm:text-base">Edit Employee</div>
@@ -57,12 +57,12 @@ const EditEmployeeForm = () => {
               <MenuItem disabled value="">
                 Select designation
               </MenuItem>
-              <MenuItem value="coach">Coach</MenuItem>
-              <MenuItem value="trainer">Trainer</MenuItem>
-              <MenuItem value="supervisor">Supervisor</MenuItem>
-              <MenuItem value="manager">Manager</MenuItem>
-              <MenuItem value="Accountant">accountant</MenuItem>
-              <MenuItem value="housekeeping">Housekeeping</MenuItem>
+              <MenuItem value="Coach">Coach</MenuItem>
+              <MenuItem value="Trainer">Trainer</MenuItem>
+              <MenuItem value="Supervisor">Supervisor</MenuItem>
+              <MenuItem value="Manager">Manager</MenuItem>
+              <MenuItem value="Accountant">Accountant</MenuItem>
+              <MenuItem value="Housekeeping">Housekeeping</MenuItem>
             </TextField>
           </div>
           <div>
@@ -70,9 +70,9 @@ const EditEmployeeForm = () => {
               <MenuItem disabled value="">
                 Select gender
               </MenuItem>
-              <MenuItem value="male">Male</MenuItem>
-              <MenuItem value="female">Female</MenuItem>
-              <MenuItem value="female">Transgender</MenuItem>
+              <MenuItem value="Male">Male</MenuItem>
+              <MenuItem value="Female">Female</MenuItem>
+              <MenuItem value="Transgender">Transgender</MenuItem>
             </TextField>
           </div>
         </div>

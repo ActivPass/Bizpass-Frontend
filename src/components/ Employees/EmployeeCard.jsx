@@ -24,8 +24,8 @@ function UserCard() {
           Home
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
-        <Link to={"/membership"} className=" text-xs sm:text-base font-semibold opacity-40">
-          Membership
+        <Link to={"/employees"} className=" text-xs sm:text-base font-semibold opacity-40">
+        Employees
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base">Employee Profile</div>

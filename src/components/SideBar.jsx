@@ -35,8 +35,8 @@ const SideBar = () => {
                 }}
                 to={menu.link}
                 className={` ${menu.margin && "mt-3"} group flex items-center ${
-                  active === i ? "bg-black text-white" : "bg-white text-black"
-                } text-base gap-3 font-medium p-2 hover-bg-gray-800 rounded-md ${open && "w-[13rem]"}`}
+                  active === i ? "bg-[#5D87FF] text-white" : "bg-white text-black"
+                } text-base gap-3 font-medium p-2 hover:bg-[#e6f2ff] hover:text-[#3b5bb1] rounded-md ${open && "w-[13rem]"}`}
               >
                 <div>{React.createElement(menu.icon, { size: "20" })}</div>
                 <h2
@@ -60,10 +60,10 @@ const SideBar = () => {
                       }}
                       to={subMenuItem.link}
                       className={` ${subMenuItem.margin && "mt-5"} ${
-                        subActive === j ? "font-bold bg-gray-200 mt-2" : ""
-                      } group flex items-center text-sm gap-2 mt-2  p-2 rounded-md`}
+                        subActive === j ? "bg-[#e6f2ff] text-[#3b5bb1] mt-2" : ""
+                      } group flex items-center text-sm gap-2 mt-2 ${open ? "pl-10" : ""} p-2 rounded-md hover:bg-[#e6f2ff] hover:text-[#3b5bb1]`}
                     >
-                      <div>{React.createElement(subMenuItem.icon, { size: "20" })}</div>
+                      {/* <div>{React.createElement(subMenuItem.icon, { size: "20" })}</div> */}
                       <h2
                         // style={{
                         //   transitionDelay: `${i + 3}00ms`,

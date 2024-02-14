@@ -123,13 +123,13 @@ const FinancialReport = () => {
       status: (
         <div className="">
           {item.status === "Paid" && (
-            <span className="bg-green-500 status-span   text-white px-2 py-1 rounded">Paid</span>
+            <span className="text-center bg-green-50 text-green-500 border border-green-500  status-span  px-2 py-1 rounded">Paid</span>
           )}
           {item.status === "Unpaid" && (
-            <span className="bg-red-500 status-span text-white px-2 py-1 rounded">Unpaid</span>
+            <span className="text-center bg-red-50 text-red-500 border border-red-500 status-span px-2 py-1 rounded">Unpaid</span>
           )}
           {item.status === "Pending" && (
-            <span className="bg-yellow-500 status-span text-white px-2 py-1 rounded">Pending</span>
+            <span className="text-center bg-yellow-50 text-yellow-500 border border-yellow-500 status-span px-2 py-1 rounded">Pending</span>
           )}
         </div>
       ),

@@ -63,7 +63,7 @@ const EditLeaveRequest = () => {
             </div>
           </div>
           <div className="mt-10">
-            <TextField id="remark" label="Remark" multiline rows={3} variant="standard" className="w-full" required />
+            <TextField id="reason" label="Reason" multiline rows={3} variant="standard" className="w-full" required />
           </div>
           <div className="mt-6 text-center">
             <Button variant="contained" color="primary">

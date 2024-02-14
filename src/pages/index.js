@@ -8,7 +8,8 @@ import Membership from "./Membership"
 import LeaveManagement from "./LeaveManagement"
 import QRScanner from "./QRscanner"
 import MobileQRScanner from "./MobileQRscanner"
-
+import Employee from "./Employee"
+import Payroll from "./Payroll"
 export {
   LoginPage,
   Popup,
@@ -20,4 +21,6 @@ export {
   LeaveManagement,
   QRScanner,
   MobileQRScanner,
+  Employee,
+  Payroll,
 }
