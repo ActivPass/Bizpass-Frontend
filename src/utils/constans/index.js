@@ -5,7 +5,7 @@ import { MdCardMembership } from "react-icons/md"
 import { HiSpeakerphone } from "react-icons/hi"
 import { IoAnalyticsOutline } from "react-icons/io5"
 import { BsClipboard2 } from "react-icons/bs"
-import { FaRegMoneyBillAlt } from "react-icons/fa";
+import { FaRegMoneyBillAlt } from "react-icons/fa"
 import { createTheme } from "@mui/material"
 export const MENUS = [
   { name: "Dashboard", link: "/", icon: MdHomeFilled },
@@ -13,7 +13,10 @@ export const MENUS = [
     name: "Employees",
     link: "/employees",
     icon: LuUser,
-    submenu: [{ name: "Leave Management", link: "/leavemanagement", icon: BsClipboard2 }],
+    submenu: [
+      { name: "Leave Management", link: "/leavemanagement", icon: BsClipboard2 },
+      { name: "Leave Settings", link: "/leave-setting", icon: BsClipboard2 },
+    ],
   },
   { name: "Clients", link: "/clients", icon: LiaUsersSolid },
   {

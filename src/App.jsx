@@ -10,6 +10,7 @@ import {
   EditEmployeeForm,
   EditLeaveRequest,
   EmployeeCard,
+  LeaveSettings,
   NewLeaveRequest,
   Payslip,
 } from "./components"
@@ -33,6 +34,7 @@ const route = createBrowserRouter(
         <Route path="/leavemanagement" element={<LeaveManagement />} />
         <Route path="/add-leave" element={<NewLeaveRequest />} />
         <Route path="/edit-leave" element={<EditLeaveRequest />} />
+        <Route path="/leave-setting" element={<LeaveSettings/>} />
         <Route path="/payslip" element={<Payslip />} />
         <Route path="/payroll" element={<Payroll />} />
         <Route path="/add-salary" element={<AddSalaryForm />} />

@@ -45,12 +45,16 @@ const NewLeaveRequest = () => {
             <div>
               <TextField id="leavetype" select label="Leave Type" variant="standard" className="w-full" required>
                 <MenuItem disabled value="">
-                Leave Type
+               Select Leave Type
                 </MenuItem>
-                <MenuItem value="Privilege Leave">Privilege Leave</MenuItem>
-                <MenuItem value="Casual Leave">Casual Leave</MenuItem>
+                <MenuItem value="Annual leave">Annual leave</MenuItem>
                 <MenuItem value="Sick Leave">Sick Leave</MenuItem>
+                <MenuItem value="Casual Leave">Casual Leave</MenuItem>
                 <MenuItem value="Maternity Leave">Maternity Leave</MenuItem>
+                <MenuItem value="Paternity Leave">Paternity leave</MenuItem>
+                <MenuItem value="Bereavement leave">Bereavement leave</MenuItem>
+                <MenuItem value="Marriage leave"> Marriage leave</MenuItem>
+                <MenuItem value="Unpaid leave">Unpaid leave ( LOP )</MenuItem>
               </TextField>
             </div>
           </div>

@@ -21,6 +21,7 @@ import Employees from "./ Employees/Employees"
 import Payslip from "./Payroll/Payslip"
 import Payrolls from "./Payroll/Payrolls"
 import AddSalaryForm from "./Payroll/AddSalaryForm"
+import LeaveSettings from "./Leave Management/LeaveSettings"
 
 export {
   NavBar,
@@ -46,4 +47,5 @@ export {
   Payslip,
   Payrolls,
   AddSalaryForm,
+  LeaveSettings,
 }
