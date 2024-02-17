@@ -49,11 +49,11 @@ const NavBar = ({ user, setOpen }) => {
   }
 
   return (
-    <nav className="dark:bg-gray-800 dark:text-white bg-white border-gray-200 shadow-md ring-gray-300 ring-offset-0 ring-offset-b-4 ">
+    <nav className="dark:bg-gray-800 dark:text-white bg-white ">
       <div className="flex items-center justify-between w-full p-2 py-4">
         {!isMobile ? (
           <div className="flex items-center  gap-10 px-5">
-            <p className="text-xl font-bold">Dashboard</p>
+            {/* <p className="text-xl font-bold">Dashboard</p> */}
             <TextField
               label="Search"
               size="small"

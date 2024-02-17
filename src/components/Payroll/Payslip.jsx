@@ -130,7 +130,7 @@ const Payslip = () => {
           <p className="font-semibold">
             <b>Net Salary: $59698</b> (Fifty nine thousand six hundred and ninety eight only.)
           </p>
-          <button className="flex items-center bg-blue-500 text-white py-2 px-4 border border-gray-300 hover:bg-blue-600">
+          <button className="flex items-center rounded-md bg-blue-500 text-white py-2 px-4 border border-gray-300 hover:bg-blue-600">
             Download PDF
           </button>
         </div>

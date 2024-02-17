@@ -13,18 +13,21 @@ const Dashboard = () => {
       name: "Client Entries",
       sub: "Today Tap",
       price: "145",
+      css:"bg-blue-50 text-blue-500",
     },
     {
       id: 2,
       name: "Weekly Client Entries",
       sub: "This Week",
       price: "800",
+      css:"bg-orange-50 text-orange-400",
     },
     {
       id: 3,
       name: "Monthly Client Entries",
       sub: "This Month",
       price: "4000",
+      css:"bg-emerald-50 text-emerald-500",
     },
     
     {
@@ -32,6 +35,7 @@ const Dashboard = () => {
       name: "Client Entries",
       sub: "Over All",
       price: "14,745",
+      css:"bg-rose-50 text-rose-500",
     },
   ]
 
@@ -63,13 +67,13 @@ const Dashboard = () => {
                 })}
               </div>
             </section>
-            <section className=" h-auto  rounded-md bg-gray-200">
+            <section className=" h-auto  rounded-md border border-gray-100 bg-gray-100">
               <p className="py-7 px-2 font-bold">Today&apos; s Income</p>
               <div className="mt-[-3rem]"></div>
               <MyChart />
             </section>
           </div>
-          <div className="sm:col-span-2 col-span-8 bg-gray-200  overflow-hidden h-[30rem]">
+          <div className="sm:col-span-2 col-span-8 bg-blue-50  overflow-hidden h-[30rem]">
           </div> 
         </div>
       </section>
