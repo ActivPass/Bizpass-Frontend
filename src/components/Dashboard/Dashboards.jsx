@@ -10,31 +10,31 @@ const Dashboard = () => {
   let Incomes = [
     {
       id: 1,
-      name: "Client Entries",
-      sub: "Today Tap",
-      price: "145",
-      css:"bg-blue-50 text-blue-500",
-    },
-    {
-      id: 2,
-      name: "Weekly Client Entries",
-      sub: "This Week",
-      price: "800",
+      name: "Total Clients",
+      sub: "Over All",
+      price: "1200",
       css:"bg-orange-50 text-orange-400",
     },
     {
+      id: 2,
+      name: "Client Entries",
+      sub: "Today Tap",
+      price: "845",
+      css:"bg-blue-50 text-blue-500",
+    },
+    {
       id: 3,
-      name: "Monthly Client Entries",
+      name: "New Clients  Entries",
       sub: "This Month",
-      price: "4000",
+      price: "400",
       css:"bg-emerald-50 text-emerald-500",
     },
     
     {
       id: 4,
-      name: "Client Entries",
-      sub: "Over All",
-      price: "14,745",
+      name: "Monthly Revenue",
+      sub: "This Month",
+      price: "224,74",
       css:"bg-rose-50 text-rose-500",
     },
   ]

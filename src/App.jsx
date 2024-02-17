@@ -12,6 +12,9 @@ import {
   EmployeeCard,
   LeaveSettings,
   NewLeaveRequest,
+  OverTime,
+  OverTimeEditForm,
+  OverTimeForm,
   Payslip,
 } from "./components"
 const route = createBrowserRouter(
@@ -35,6 +38,9 @@ const route = createBrowserRouter(
         <Route path="/add-leave" element={<NewLeaveRequest />} />
         <Route path="/edit-leave" element={<EditLeaveRequest />} />
         <Route path="/leave-setting" element={<LeaveSettings/>} />
+        <Route path="/over-time" element={<OverTime/>} />
+        <Route path="/edit-overtime" element={<OverTimeEditForm/>} />
+        <Route path="/add-overtime" element={<OverTimeForm/>} />
         <Route path="/payslip" element={<Payslip />} />
         <Route path="/payroll" element={<Payroll />} />
         <Route path="/add-salary" element={<AddSalaryForm />} />

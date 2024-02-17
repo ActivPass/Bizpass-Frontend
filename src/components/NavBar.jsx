@@ -14,6 +14,7 @@ import { MdQrCodeScanner } from "react-icons/md"
 import QRscanner from "../pages/QRscanner"
 import Popup from "../pages/Popup"
 import { MdOutlineSupportAgent } from "react-icons/md"
+import { FaSearch } from "react-icons/fa"
 
 const NavBar = ({ user, setOpen }) => {
   const [showDropDown, setShowDropDown] = useState(false)
@@ -53,8 +54,8 @@ const NavBar = ({ user, setOpen }) => {
       <div className="flex items-center justify-between w-full p-2 py-4">
         {!isMobile ? (
           <div className="flex items-center  gap-10 px-5">
-            {/* <p className="text-xl font-bold">Dashboard</p> */}
-            <TextField
+            <p className="text-xl font-bold">Dashboard</p>
+            {/* <TextField
               label="Search"
               size="small"
               InputProps={{
@@ -64,7 +65,13 @@ const NavBar = ({ user, setOpen }) => {
                   width: "25rem",
                 },
               }}
-            />
+            /> */}
+            <div className="search-box sm:absolute sm:left-[30%] sm:top-9 md:block xl:absolute xl:left-1/6 xl:top-1.7">
+              <input className="search-text" type="text" placeholder="Search Anything" />
+              <a href="#" className="search-btn">
+                <FaSearch />
+              </a>
+            </div>
           </div>
         ) : (
           <FiMenu className="text-3xl ml-5 my-3" onClick={() => setOpen(true)} />

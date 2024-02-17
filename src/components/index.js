@@ -22,6 +22,9 @@ import Payslip from "./Payroll/Payslip"
 import Payrolls from "./Payroll/Payrolls"
 import AddSalaryForm from "./Payroll/AddSalaryForm"
 import LeaveSettings from "./Leave Management/LeaveSettings"
+import OverTime from "./ Employees/OverTime"
+import OverTimeForm from "./ Employees/OverTimeForm"
+import OverTimeEditForm from "./ Employees/OverTimeEditForm"
 
 export {
   NavBar,
@@ -48,4 +51,7 @@ export {
   Payrolls,
   AddSalaryForm,
   LeaveSettings,
+  OverTime,
+  OverTimeForm,
+  OverTimeEditForm,
 }

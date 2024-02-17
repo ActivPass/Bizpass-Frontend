@@ -34,3 +34,64 @@
 body {
   font-family: "Kollektif", sans-serif;
 }
+
+/* search-box */
+
+.search-box {
+  /* position: absolute;
+  top : 5.5%;
+  left: 30%; */
+  transform: translate(-50%, -50%);
+  background: #f0f0f0;
+  height: 60px;
+  border-radius: 40px;
+  padding: 10px;
+  
+}
+
+.search-box:hover > .search-text{
+  width: 240px;
+  padding: 0 6px;
+}
+
+.search-box:hover > .search-btn{
+  background: white;
+  color: black;
+  
+}
+
+.search-btn {
+  color: #ffff;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #5D87FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+
+.search-text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+  
+/*   width: 250px; */
+  
+  
+  
+}

@@ -16,6 +16,7 @@ export const MENUS = [
     submenu: [
       { name: "Leave Management", link: "/leavemanagement", icon: BsClipboard2 },
       { name: "Leave Settings", link: "/leave-setting", icon: BsClipboard2 },
+      { name: "Overtime", link: "/over-time", icon: BsClipboard2 },
     ],
   },
   { name: "Clients", link: "/clients", icon: LiaUsersSolid },
