@@ -51,11 +51,11 @@ const AllLeaveRequest = () => {
     { id: "empid", label: "Emp ID" },
     { id: "name", label: "Name" },
     { id: "applyDate", label: "Apply Date", isMobileDisable: true, isSortDisable: true },
-    { id: "status", label: "Status", isMobileDisable: true, isSortDisable: true },
+    { id: "leavetype", label: "Leave Type", isMobileDisable: true, isSortDisable: true },
     { id: "leavefrom", label: "Leave From", isMobileDisable: true, isSortDisable: true },
     { id: "toleave", label: "To Leave", isMobileDisable: true, isSortDisable: true },
-    { id: "leavetype", label: "Leave Type", isMobileDisable: true, isSortDisable: true },
     { id: "reason", label: "Reason", isMobileDisable: true, isSortDisable: true },
+    { id: "status", label: "Status", isMobileDisable: true, isSortDisable: true },
     { id: "action", label: "Action", isMobileDisable: true, isSortDisable: true },
   ]
 

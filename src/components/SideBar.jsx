@@ -10,7 +10,7 @@ const SideBar = () => {
   const [open, setOpen] = useState(true)
 
   return (
-    <section className="flex h-screen overflow-y-scroll scrollbar-hide gap-6 border border-l-gray-100 p-3">
+    <section className="flex h-screen overflow-y-scroll  gap-6 border border-l-gray-100 p-3">
       <div
         className={`bg-white dark:bg-gray-800 dark:text-white  ${
           open ? "w-50" : "w-16"

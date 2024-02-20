@@ -22,9 +22,13 @@ import Payslip from "./Payroll/Payslip"
 import Payrolls from "./Payroll/Payrolls"
 import AddSalaryForm from "./Payroll/AddSalaryForm"
 import LeaveSettings from "./Leave Management/LeaveSettings"
-import OverTime from "./ Employees/OverTime"
-import OverTimeForm from "./ Employees/OverTimeForm"
-import OverTimeEditForm from "./ Employees/OverTimeEditForm"
+import OverTime from "./ Employees/Overtime/OverTime"
+import OverTimeForm from "./ Employees/Overtime/OverTimeForm"
+import OverTimeEditForm from "./ Employees/Overtime/OverTimeEditForm"
+import ShiftAndSchedule from "./ Employees/Shift & Schedule /ShiftAndSchedule"
+import AddShiftForm from "./ Employees/Shift & Schedule /AddShiftForm"
+import ShiftList from "./ Employees/Shift & Schedule /ShiftList"
+import EditShiftForm from "./ Employees/Shift & Schedule /EditShiftForm"
 
 export {
   NavBar,
@@ -54,4 +58,8 @@ export {
   OverTime,
   OverTimeForm,
   OverTimeEditForm,
+  ShiftAndSchedule,
+  AddShiftForm,
+  ShiftList,
+  EditShiftForm,
 }

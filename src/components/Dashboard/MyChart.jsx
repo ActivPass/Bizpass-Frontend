@@ -7,8 +7,8 @@ const MyChart = () => {
   const [state, setState] = useState({
     series: [
       {
-        name: 'income',
-        data: [14000, 13000, 7200, 2780, 11890,3400],
+        name: 'Income',
+        data: [14000, 13000, 7200, 27803, 11890,3400,1200],
       },
     ],
     options: {
@@ -18,7 +18,7 @@ const MyChart = () => {
        
       },
       xaxis: {
-        categories: ["Morning", "Mid-Day", "Afternoon", "Evening", "Night","Mid-Night"],
+        categories: ["Monday","Tuesday","Wednesday","Thursday", "Friday","Saturday","Sunday"],
         labels: {
           style: {
             fontSize: '10px',

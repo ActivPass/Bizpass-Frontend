@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2"
 import { MdDeleteForever } from "react-icons/md"
-import { Tables } from "../../utils/components/index"
+import { Tables } from "../../../utils/components/index"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 
@@ -143,7 +143,7 @@ const OverTime = () => {
         </div>
         <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
           <div className="stats-info bg-red-50 text-red-500 border border-red-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Request</h6>
+            <h6 className="font-semibold">Reject Request</h6>
             <h4 className="text-2xl font-bold text-center">5</h4>
           </div>
         </div>

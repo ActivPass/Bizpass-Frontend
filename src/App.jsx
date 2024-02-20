@@ -5,10 +5,12 @@ import {
   AddClientForm,
   AddEmployeeForm,
   AddSalaryForm,
+  AddShiftForm,
   ClientCard,
   EditClientForm,
   EditEmployeeForm,
   EditLeaveRequest,
+  EditShiftForm,
   EmployeeCard,
   LeaveSettings,
   NewLeaveRequest,
@@ -16,6 +18,8 @@ import {
   OverTimeEditForm,
   OverTimeForm,
   Payslip,
+  ShiftAndSchedule,
+  ShiftList,
 } from "./components"
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +48,10 @@ const route = createBrowserRouter(
         <Route path="/payslip" element={<Payslip />} />
         <Route path="/payroll" element={<Payroll />} />
         <Route path="/add-salary" element={<AddSalaryForm />} />
+        <Route path="/shift-schedule" element={<ShiftAndSchedule />} />
+        <Route path="/add-shift" element={<AddShiftForm />} />
+        <Route path="/shift-list" element={<ShiftList />} />
+        <Route path="/edit-shift" element={<EditShiftForm/>} />
       </Route>
     </Route>
   )
