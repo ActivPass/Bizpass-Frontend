@@ -26,9 +26,9 @@ import { theme } from "../../utils/index";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-    fontSize: 16,
+    backgroundColor: "#e6f2ff",
+    color: theme.palette.common.black,
+    fontSize: 14,
     
   },
   [`&.${tableCellClasses.body}`]: {
@@ -37,12 +37,12 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
+  // "&:nth-of-type(odd)": {
+  //   backgroundColor: theme.palette.action.hover,
+  // },
+  // "&:last-child td, &:last-child th": {
+  //   border: 0,
+  // },
 }));
 
 const Tables = ({
@@ -128,11 +128,11 @@ const Tables = ({
                           onClick={() => handleRequestSort(column.id)}
                         >
                           {order === "asc" && orderBy === column.id ? (
-                            <TiArrowSortedUp style={{ color: "white" }} />
+                            <TiArrowSortedUp style={{ color: "black" }} />
                           ) : order === "desc" && orderBy === column.id ? (
-                            <TiArrowSortedDown style={{ color: "white" }} />
+                            <TiArrowSortedDown style={{ color: "black" }} />
                           ) : (
-                            <TiArrowUnsorted style={{ color: "white" }} />
+                            <TiArrowUnsorted style={{ color: "black" }} />
                           )}
                         </IconButton>
                       ) : null}

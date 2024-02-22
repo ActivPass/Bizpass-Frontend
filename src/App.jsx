@@ -1,5 +1,5 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom"
-import { LoginPage, Dashboard, Client, Finance, Marketing, Membership, LeaveManagement, Employee, Payroll } from "./pages"
+import { LoginPage, Dashboard, Client, Finance, Marketing, Membership, LeaveManagement, Employee, Payroll, WorkOutManagement } from "./pages"
 import Layout from "./Layout"
 import {
   AddClientForm,
@@ -52,6 +52,7 @@ const route = createBrowserRouter(
         <Route path="/add-shift" element={<AddShiftForm />} />
         <Route path="/shift-list" element={<ShiftList />} />
         <Route path="/edit-shift" element={<EditShiftForm/>} />
+        <Route path="/workout-management" element={<WorkOutManagement/>} />
       </Route>
     </Route>
   )

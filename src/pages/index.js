@@ -10,6 +10,7 @@ import QRScanner from "./QRscanner"
 import MobileQRScanner from "./MobileQRscanner"
 import Employee from "./Employee"
 import Payroll from "./Payroll"
+import WorkOutManagement from "./WorkOutManagement"
 export {
   LoginPage,
   Popup,
@@ -23,4 +24,5 @@ export {
   MobileQRScanner,
   Employee,
   Payroll,
+  WorkOutManagement,
 }

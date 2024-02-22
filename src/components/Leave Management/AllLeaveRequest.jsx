@@ -131,6 +131,12 @@ const AllLeaveRequest = () => {
       {/* Leave matrix start*/}
 
       <div className="flex flex-row gap-5 text-center">
+      <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
+          <div className="stats-info bg-gray-50 text-gray-500 border border-gray-500 p-4 rounded-md shadow-md">
+            <h6 className="font-semibold">Overall Leave Request</h6>
+            <h4 className="text-2xl font-bold">12</h4>
+          </div>
+        </div>
         <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
           <div className="stats-info bg-blue-50 text-blue-500 border border-blue-500 p-4 rounded-md shadow-md">
             <h6 className="font-semibold">New Leave Request</h6>

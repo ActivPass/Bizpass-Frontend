@@ -52,6 +52,7 @@ body {
 .search-box:hover > .search-text{
   width: 240px;
   padding: 0 6px;
+  color: black;
 }
 
 .search-box:hover > .search-btn{

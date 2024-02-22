@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { TextField } from "@mui/material"
+// import { TextField } from "@mui/material"
 import { IoIosNotifications } from "react-icons/io"
 import { ThanksGreeting, UserProfileModal } from "../components"
 import { IoChatbox, IoSettings } from "react-icons/io5"
@@ -15,12 +15,16 @@ import QRscanner from "../pages/QRscanner"
 import Popup from "../pages/Popup"
 import { MdOutlineSupportAgent } from "react-icons/md"
 import { FaSearch } from "react-icons/fa"
+import AppLinks from "./AppLinks"
+import {HiChevronDown} from "react-icons/hi"
+
 
 const NavBar = ({ user, setOpen }) => {
   const [showDropDown, setShowDropDown] = useState(false)
   const [showGreeting, setShowGreeting] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const userProfileModalRef = useRef(null)
+  const [showAppLinks, setShowAppLinks] = useState(false)
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   const navigate = useNavigate()
@@ -54,7 +58,8 @@ const NavBar = ({ user, setOpen }) => {
       <div className="flex items-center justify-between w-full p-2 py-4">
         {!isMobile ? (
           <div className="flex items-center  gap-10 px-5">
-            <p className="text-xl font-bold">Dashboard</p>
+            <img src={ActivPassImage} className={"h-11"} alt="Logo" />
+            {/* <p className="text-xl font-bold">Dashboard</p> */}
             {/* <TextField
               label="Search"
               size="small"
@@ -66,7 +71,7 @@ const NavBar = ({ user, setOpen }) => {
                 },
               }}
             /> */}
-            <div className="search-box sm:absolute sm:left-[30%] sm:top-9 md:block xl:absolute xl:left-1/6 xl:top-1.7">
+            <div className="search-box sm:absolute sm:left-[13.5%] sm:top-9 md:block xl:absolute xl:left-1/6 xl:top-1.7">
               <input className="search-text" type="text" placeholder="Search Anything" />
               <a href="#" className="search-btn">
                 <FaSearch />
@@ -76,6 +81,17 @@ const NavBar = ({ user, setOpen }) => {
         ) : (
           <FiMenu className="text-3xl ml-5 my-3" onClick={() => setOpen(true)} />
         )}
+
+        <div className="ml-[6%]">
+          <ul className="flex flex-row gap-5 items-center">
+            <li className="flex flex-row gap-1 items-center align-middle" onClick={() => setShowAppLinks(!showAppLinks)}><a href="#" className="">Apps </a><HiChevronDown/></li>
+            <li><a href="#" className="">Chat</a></li>
+            <li><a href="#" className="">Calendar</a></li>
+            <li><a href="#" className="">Email</a></li>
+          </ul>
+
+          {showAppLinks && <AppLinks />}
+        </div>
 
         <div className="flex flex-row w-full justify-end gap-4">
           <div className=" ">
