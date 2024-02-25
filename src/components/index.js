@@ -25,10 +25,10 @@ import LeaveSettings from "./Leave Management/LeaveSettings"
 import OverTime from "./ Employees/Overtime/OverTime"
 import OverTimeForm from "./ Employees/Overtime/OverTimeForm"
 import OverTimeEditForm from "./ Employees/Overtime/OverTimeEditForm"
-import ShiftAndSchedule from "./ Employees/Shift & Schedule /ShiftAndSchedule"
-import AddShiftForm from "./ Employees/Shift & Schedule /AddShiftForm"
-import ShiftList from "./ Employees/Shift & Schedule /ShiftList"
-import EditShiftForm from "./ Employees/Shift & Schedule /EditShiftForm"
+import ShiftAndSchedule from "./ Employees/ShiftAndSchedule/ShiftAndSchedule"
+import AddShiftForm from "./ Employees/ShiftAndSchedule/AddShiftForm"
+import ShiftList from "./ Employees/ShiftAndSchedule/ShiftList"
+import EditShiftForm from "./ Employees/ShiftAndSchedule/EditShiftForm"
 
 export {
   NavBar,
