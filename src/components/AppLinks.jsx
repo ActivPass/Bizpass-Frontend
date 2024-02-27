@@ -20,7 +20,7 @@ function AppLinks() {
           <div onMouseEnter={() => toggleSubMenu(index)} onMouseLeave={() => toggleSubMenu(index)}>
             <Link
               to={menuItem.link}
-              className={`block p-2 border border-gray-300 rounded-md  hover:bg-[#e6f2ff] hover:text-[#3b5bb1] ${
+              className={`block p-2  rounded-md  hover:bg-[#e6f2ff] hover:text-[#3b5bb1] ${
                 active === index ? "bg-[#5D87FF] text-white" : "text-black"
               }`}
               onClick={() => {
@@ -32,7 +32,7 @@ function AppLinks() {
                 {menuItem.icon && <menuItem.icon className="w-6 h-6 mr-2" />}
                 <Typography
                   variant="subtitle2"
-                  className={`text-base font-medium ${active === index ? "text-white" : "text-gray-900"}`}
+                  className={`text-base font-medium hover:text-[#3b5bb1] ${active === index ? "text-white" : "text-gray-900"}`}
                 >
                   {menuItem.name}
                 </Typography>
@@ -47,7 +47,7 @@ function AppLinks() {
                   <Link
                     key={subIndex}
                     to={subItem.link}
-                    className={`p-2  border border-gray-300 rounded-md   hover:bg-[#e6f2ff] hover:text-[#3b5bb1]  group flex items-center text-sm gap-2 mt-2 ${
+                    className={`p-2 rounded-md   hover:bg-[#e6f2ff] hover:text-[#3b5bb1]  group flex items-center text-sm gap-2 mt-2 ${
                       activeSubMenu === subIndex ? "bg-[#e6f2ff] text-[#3b5bb1]" : "text-black"
                     }`}
                     onClick={() => setActiveSubMenu(subIndex)}

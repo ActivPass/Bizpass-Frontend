@@ -29,6 +29,7 @@ import ShiftAndSchedule from "./ Employees/ShiftAndSchedule/ShiftAndSchedule"
 import AddShiftForm from "./ Employees/ShiftAndSchedule/AddShiftForm"
 import ShiftList from "./ Employees/ShiftAndSchedule/ShiftList"
 import EditShiftForm from "./ Employees/ShiftAndSchedule/EditShiftForm"
+import UpgradePlan from "./Upgrade/UpgradePlan"
 
 export {
   NavBar,
@@ -62,4 +63,5 @@ export {
   AddShiftForm,
   ShiftList,
   EditShiftForm,
+  UpgradePlan,
 }

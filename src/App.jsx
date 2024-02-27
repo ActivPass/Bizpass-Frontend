@@ -20,6 +20,7 @@ import {
   Payslip,
   ShiftAndSchedule,
   ShiftList,
+  UpgradePlan,
 } from "./components"
 const route = createBrowserRouter(
   createRoutesFromElements(
@@ -53,6 +54,7 @@ const route = createBrowserRouter(
         <Route path="/shift-list" element={<ShiftList />} />
         <Route path="/edit-shift" element={<EditShiftForm/>} />
         <Route path="/workout-management" element={<WorkOutManagement/>} />
+        <Route path="/upgrade" element={<UpgradePlan/>} />
       </Route>
     </Route>
   )
