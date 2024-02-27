@@ -1,3 +1,4 @@
+import React from "react"
 import { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { IoIosNotifications } from "react-icons/io"
@@ -7,7 +8,6 @@ import { BiSolidContact } from "react-icons/bi"
 import { CiLogout } from "react-icons/ci"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import { theme } from "../utils/index"
-import { FiMenu } from "react-icons/fi"
 import ActivPassImage from "../assets/images/ActivPass.png"
 import UpgradeImage from "../assets/images/upgrade.png"
 import { MdQrCodeScanner } from "react-icons/md"
@@ -16,12 +16,13 @@ import Popup from "../pages/Popup"
 import { MdOutlineSupportAgent } from "react-icons/md"
 import { FaSearch } from "react-icons/fa"
 import AppLinks from "./AppLinks"
-import { HiChevronDown } from "react-icons/hi"
+import { MobileNav, IconButton } from "@material-tailwind/react"
 
 const NavBar = ({ user, setOpen }) => {
   const [showDropDown, setShowDropDown] = useState(false)
   const [showGreeting, setShowGreeting] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [openNav, setOpenNav] = React.useState(false)
   const userProfileModalRef = useRef(null)
   const [showAppLinks, setShowAppLinks] = useState(false)
 
@@ -52,71 +53,89 @@ const NavBar = ({ user, setOpen }) => {
     return <ThanksGreeting />
   }
 
+  const navList = (
+    <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      {/* <li className="flex flex-row gap-1 items-center align-middle" onClick={() => setShowAppLinks(!showAppLinks)}>
+        <a href="#" className="">
+          Apps{" "}
+        </a>
+        <HiChevronDown />
+      </li> */}
+      <li>
+        <a href="#" className="">
+          Chat
+        </a>
+      </li>
+      <li>
+        <a href="#" className="">
+          Calendar
+        </a>
+      </li>
+      <li>
+        <a href="#" className="">
+          Email
+        </a>
+      </li>
+    </ul>
+  )
+
   return (
-    <nav className="dark:bg-gray-800 dark:text-white bg-white ">
-      <div className="flex items-center justify-between w-full p-2 py-4">
-        {!isMobile ? (
-          <div className="flex items-center  gap-10 px-5">
+    <nav className="flex p-4 justify-between w-full dark:bg-gray-800 dark:text-white bg-white shadow-md">
+      {isMobile ? (
+        <div>
+          <div>
+            <IconButton
+              variant="text"
+              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              ripple={false}
+              onClick={() => setOpenNav(!openNav)}
+            >
+              {openNav ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  className="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </IconButton>
+          </div>
+          <MobileNav open={openNav} className={openNav ? "my-10" : ""}>
+            {navList}
+          </MobileNav>
+        </div>
+      ) : null}
+      <div className="flex justify-between items-start w-full">
+        <div className="flex gap-10">
+          <div className="flex items-center gap-10">
             <img src={ActivPassImage} className={"h-11"} alt="Logo" />
-            {/* <p className="text-xl font-bold">Dashboard</p> */}
-            {/* <TextField
-              label="Search"
-              size="small"
-              InputProps={{
-                style: {
-                  backgroundColor: "#f6f6f6",
-                  borderRadius: "50px",
-                  width: "25rem",
-                },
-              }}
-            /> */}
-            <div className="search-box sm:absolute sm:left-[13%] sm:top-9 md:block xl:absolute xl:left-1/6 xl:top-1.7">
-              <input className="search-text" type="text" placeholder="Search Anything" />
-              <a href="#" className="search-btn">
+            <div>
+              <a href="#">
                 <FaSearch />
               </a>
             </div>
           </div>
-        ) : (
-          <FiMenu className="text-3xl ml-5 my-3" onClick={() => setOpen(true)} />
-        )}
-
-        <div className="ml-[6%]">
-          <ul className="flex flex-row gap-5 items-center">
-            <li
-              className="flex flex-row gap-1 items-center align-middle"
-              onClick={() => setShowAppLinks(!showAppLinks)}
-            >
-              <a href="#" className="">
-                Apps{" "}
-              </a>
-              <HiChevronDown />
-            </li>
-            <li>
-              <a href="#" className="">
-                Chat
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                Calendar
-              </a>
-            </li>
-            <li>
-              <a href="#" className="">
-                Email
-              </a>
-            </li>
-          </ul>
-
-          {showAppLinks && <AppLinks />}
-        </div>
-
-        <div className="flex flex-row w-full justify-end gap-4">
-          <div className=" ">
-            <img src={ActivPassImage} className="sm:hidden h-10" alt="Logo" />
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:block">{navList}</div>
           </div>
+        </div>
+        <div className="flex justify-center">{showAppLinks && <AppLinks />}</div>
 
+        <div className="flex gap-4">
           <div className="flex items-center">
             <div className="hidden md:block lg:block">
               <div onClick={handleIconClick} className="cursor-pointer">
