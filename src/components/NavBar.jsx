@@ -15,6 +15,7 @@ import QRscanner from "../pages/QRscanner"
 import Popup from "../pages/Popup"
 import { MdOutlineSupportAgent } from "react-icons/md"
 import { FaSearch } from "react-icons/fa"
+import { HiChevronDown } from "react-icons/hi"
 import AppLinks from "./AppLinks"
 import { MobileNav, IconButton } from "@material-tailwind/react"
 
@@ -55,12 +56,12 @@ const NavBar = ({ user, setOpen }) => {
 
   const navList = (
     <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      {/* <li className="flex flex-row gap-1 items-center align-middle" onClick={() => setShowAppLinks(!showAppLinks)}>
+      <li className="flex flex-row gap-1 items-center align-middle" onClick={() => setShowAppLinks(!showAppLinks)}>
         <a href="#" className="">
           Apps{" "}
         </a>
         <HiChevronDown />
-      </li> */}
+      </li>
       <li>
         <a href="#" className="">
           Chat
@@ -80,7 +81,7 @@ const NavBar = ({ user, setOpen }) => {
   )
 
   return (
-    <nav className="flex p-4 justify-between w-full dark:bg-gray-800 dark:text-white bg-white shadow-md">
+    <nav className="flex p-4 justify-between w-screen dark:bg-gray-800 dark:text-white bg-white shadow-md">
       {isMobile ? (
         <div>
           <div>
@@ -119,9 +120,9 @@ const NavBar = ({ user, setOpen }) => {
           </MobileNav>
         </div>
       ) : null}
-      <div className="flex justify-between items-start w-full">
-        <div className="flex gap-10">
-          <div className="flex items-center gap-10">
+      <div className="flex relative justify-between items-start w-full">
+        <div className="flex justify-around w-[40%]">
+          <div className="flex items-center">
             <img src={ActivPassImage} className={"h-11"} alt="Logo" />
             <div>
               <a href="#">
@@ -129,13 +130,13 @@ const NavBar = ({ user, setOpen }) => {
               </a>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center">
             <div className="hidden lg:block">{navList}</div>
           </div>
         </div>
-        <div className="flex justify-center">{showAppLinks && <AppLinks />}</div>
+        {showAppLinks && <AppLinks />}
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 py-1">
           <div className="flex items-center">
             <div className="hidden md:block lg:block">
               <div onClick={handleIconClick} className="cursor-pointer">

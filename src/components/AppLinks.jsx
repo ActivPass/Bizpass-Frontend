@@ -14,7 +14,7 @@ function AppLinks() {
   }
 
   return (
-    <div className="absolute z-50 grid grid-cols-2 gap-3 sm:grid-cols-12 w-3/6 bg-white p-5 rounded-lg border border-gray-200" >
+    <div className="absolute top-10 z-50 grid grid-cols-2 gap-3 sm:grid-cols-12 w-5/6 lg:w-3/6 bg-white p-5 rounded-lg border border-gray-200">
       {MENUS.map((menuItem, index) => (
         <div key={index} className="sm:col-span-6">
           <div onMouseEnter={() => toggleSubMenu(index)} onMouseLeave={() => toggleSubMenu(index)}>
@@ -32,7 +32,9 @@ function AppLinks() {
                 {menuItem.icon && <menuItem.icon className="w-6 h-6 mr-2" />}
                 <Typography
                   variant="subtitle2"
-                  className={`text-base font-medium hover:text-[#3b5bb1] ${active === index ? "text-white" : "text-gray-900"}`}
+                  className={`text-base font-medium hover:text-[#3b5bb1] ${
+                    active === index ? "text-white" : "text-gray-900"
+                  }`}
                 >
                   {menuItem.name}
                 </Typography>
@@ -42,7 +44,7 @@ function AppLinks() {
               </div>
             </Link>
             {menuItem.submenu && openSubMenuIndex === index && (
-              <div className="ml-8 relative">
+              <div className="relative">
                 {menuItem.submenu.map((subItem, subIndex) => (
                   <Link
                     key={subIndex}
