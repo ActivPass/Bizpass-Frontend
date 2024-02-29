@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import { Tables } from "../../utils/components/index"
 import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2"
 import { MdDeleteForever } from "react-icons/md"
+import { GoChevronRight } from "react-icons/go"
+import { FaHome } from "react-icons/fa"
 
 const LeaveTypes = () => {
   const [page, setPage] = useState(0)
@@ -114,6 +116,25 @@ const LeaveTypes = () => {
   )
   return (
     <div className="">
+       <div className="flex items-center align-middle my-5">
+        <p className="text-2xl font-bold">
+        All Leave Types <span className="text-3xl opacity-40"> |</span>{" "}
+        </p>
+        &nbsp;&nbsp;
+        <Link to={"/"}>
+          <FaHome className="sm:text-2xl" />
+        </Link>
+        &nbsp;
+        <GoChevronRight className="sm:text-xl opacity-40 " />
+        <Link
+          to={"/"}
+          className=" text-xs sm:text-base font-semibold opacity-40"
+        >
+          Home
+        </Link>
+        <GoChevronRight className="sm:text-xl opacity-40 " />
+        <div className=" text-xs sm:text-base ">All Leave Types</div>
+      </div>
         <div className="flex items-center justify-between">
         <p className="text-xs sm:text-base font-semibold mt-2">All Leave Types</p>
         <div className="flex space-x-4">

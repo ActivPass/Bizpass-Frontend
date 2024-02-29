@@ -142,7 +142,7 @@ const AllLeaveRequest = () => {
       {LeaveMatrix.map((item, index) => (
           <div key={index} className="w-full md:w-1/4 transform transition-transform hover:scale-105">
             <div
-              className={`stats-info bg-${item.color}-50 text-${item.color}-500 border border-${item.color}-500 p-4 rounded-md shadow-md`}
+              className={`stats-info bg-${item.color}-50 text-${item.color}-500 border border-${item.color}-500 p-3 rounded-md shadow-md`}
             >
               <h6 className="font-semibold">{item.label}</h6>
               <h4 className="text-2xl font-bold">{item.value}</h4>
