@@ -4,15 +4,18 @@ import Layout from "./Layout"
 import {
   AddClientForm,
   AddEmployeeForm,
+  AddNewLeaveType,
   AddSalaryForm,
   AddShiftForm,
   ClientCard,
   EditClientForm,
   EditEmployeeForm,
   EditLeaveRequest,
+  EditLeaveTypes,
   EditShiftForm,
   EmployeeCard,
   LeaveSettings,
+  LeaveTypes,
   NewLeaveRequest,
   OverTime,
   OverTimeEditForm,
@@ -43,6 +46,9 @@ const route = createBrowserRouter(
         <Route path="/add-leave" element={<NewLeaveRequest />} />
         <Route path="/edit-leave" element={<EditLeaveRequest />} />
         <Route path="/leave-setting" element={<LeaveSettings/>} />
+        <Route path="/add-leave-newtype" element={<AddNewLeaveType/>} />
+        <Route path="/edit-leave-type" element={<EditLeaveTypes/>} />
+        <Route path="/leave-types" element={<LeaveTypes/>} />
         <Route path="/over-time" element={<OverTime/>} />
         <Route path="/edit-overtime" element={<OverTimeEditForm/>} />
         <Route path="/add-overtime" element={<OverTimeForm/>} />

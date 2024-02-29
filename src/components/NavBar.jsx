@@ -167,7 +167,7 @@ const NavBar = ({ user, setOpen }) => {
               <Link to="/login">Login</Link>
             )}
             {showDropDown && (
-              <ul tabIndex={0} className="dropdown-content z-[2] menu  shadow bg-base-100 rounded-box w-76 text-[16px]">
+              <ul tabIndex={0} className="dropdown-content z-50 menu  shadow bg-base-100 rounded-box w-76 text-[16px]">
                 <div className="px-4 flex flex-row">
                   <label tabIndex={0} className="rounded" onClick={() => setShowDropDown(prev => !prev)}>
                     <div className="text-3xl bg-amber-400 rounded-full mr-4 flex items-center justify-center h-20 w-20">
