@@ -145,19 +145,19 @@ const AllLeaveRequest = () => {
         </div>
         <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
           <div className="stats-info bg-green-50 text-green-500 border border-green-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Approved Leave Request</h6>
+            <h6 className="font-semibold">Approved Leave</h6>
             <h4 className="text-2xl font-bold">3</h4>
           </div>
         </div>
         <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
           <div className="stats-info bg-yellow-50 text-yellow-500 border border-yellow-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Pending Leave Request</h6>
+            <h6 className="font-semibold">Pending Leave</h6>
             <h4 className="text-2xl font-bold">4</h4>
           </div>
         </div>
         <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
           <div className="stats-info bg-red-50 text-red-500 border border-red-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Rejected Leave Request</h6>
+            <h6 className="font-semibold">Rejected Leave</h6>
             <h4 className="text-2xl font-bold text-center">5</h4>
           </div>
         </div>

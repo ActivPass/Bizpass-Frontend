@@ -73,7 +73,7 @@ const Layout = () => {
         <nav className="">
           <NavBar user={data.partner} setOpen={setOpen} />
         </nav>
-        <div className="md:h-[90vh] h-[100%] md:mx-[10%] xl:mx-[15%] scrollbar-hide overflow-y-auto">
+        <div className="md:h-[90vh] h-[100%] mx-0 md:mx-[10%] xl:mx-[10%] scrollbar-hide overflow-y-auto">
           {<Outlet />} {<MobileQRscanner />}
         </div>
       </div>

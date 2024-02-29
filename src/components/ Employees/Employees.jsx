@@ -5,6 +5,11 @@ import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2"
 import { MdDeleteForever } from "react-icons/md"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
+import Card from "./Card"
+import EmpImg from "../../assets/images/employee.svg"
+import Present from "../../assets/images/present.svg"
+import Absent from "../../assets/images/absent.svg"
+import Money from "../../assets/images/money.svg"
 
 const Employees = () => {
   const [page, setPage] = useState(0)
@@ -79,27 +84,68 @@ const Employees = () => {
       item.empid.toLowerCase().includes(filter.toLowerCase()) || item.role.toLowerCase().includes(filter.toLowerCase())
   )
 
+  let Incomes = [
+    {
+      id: 1,
+      name: "Total Employee",
+      sub: "Over All",
+      price: "1200",
+      img:EmpImg,
+      css: "bg-orange-50 text-orange-400",
+    },
+    
+    {
+      id: 2,
+      name: "Present",
+      sub: "Today",
+      price: "1180",
+      img:Present,
+      css: "bg-green-50 text-green-500",
+    },
+    {
+      id: 3,
+      name: "Absent",
+      sub: "Today",
+      price: "20",
+      img:Absent,
+      css: "bg-rose-50 text-rose-500",
+    },
+    {
+      id: 4,
+      name: "Salary",
+      sub: "This Month",
+      price: "$ 1012342",
+      img:Money,
+      css: "bg-blue-50 text-blue-500",
+    },
+  ]
 
-
-  
   return (
     <div className="p-1 sm:p-5">
       <div className="flex items-center align-middle  mb-4">
-          <p className="text-2xl font-bold">
+        <p className="text-2xl font-bold">
           Employees <span className="text-3xl opacity-40"> |</span>{" "}
-          </p>
-          &nbsp;&nbsp;
-          <Link to={"/"}>
-            <FaHome className="sm:text-2xl" />
-          </Link>
-          &nbsp;
-          <GoChevronRight className="sm:text-xl opacity-40 " />
-          <Link to={"/"} className=" text-xs sm:text-base font-semibold opacity-40">
-            Home
-          </Link>
-          <GoChevronRight className="sm:text-xl opacity-40 " />
-          <div className=" text-xs sm:text-base">Employees</div>
+        </p>
+        &nbsp;&nbsp;
+        <Link to={"/"}>
+          <FaHome className="sm:text-2xl" />
+        </Link>
+        &nbsp;
+        <GoChevronRight className="sm:text-xl opacity-40 " />
+        <Link to={"/"} className=" text-xs sm:text-base font-semibold opacity-40">
+          Home
+        </Link>
+        <GoChevronRight className="sm:text-xl opacity-40 " />
+        <div className=" text-xs sm:text-base">Employees</div>
+      </div>
+
+      <section className="">
+        <div className="grid sm:grid-cols-4 grid-flow-row pb-6 gap-6">
+          {Incomes.map(obj => {
+            return <Card data={obj} key={obj.id}></Card>
+          })}
         </div>
+      </section>
 
       <div className="flex items-center justify-between">
         <p className="text-xs sm:text-base font-semibold mt-2">List Of Employees</p>
