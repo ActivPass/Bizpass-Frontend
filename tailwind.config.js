@@ -10,6 +10,9 @@ const darkModeConfig = {
       textColor: {
         dark: "#fff",
       },
+      fontFamily: {
+        custom: ["Plus Jakarta Sans", "sans-serif"],
+      },
     },
   },
 }

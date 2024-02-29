@@ -3,7 +3,7 @@ import { Dashboards } from "../components"
 
 function Dashboard() {
   return (
-    <div>
+    <div className="font-custom">
       <Dashboards />
     </div>
   )
