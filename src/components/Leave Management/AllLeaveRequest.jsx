@@ -59,6 +59,14 @@ const AllLeaveRequest = () => {
     { id: "action", label: "Action", isMobileDisable: true, isSortDisable: true },
   ]
 
+ const LeaveMatrix = [
+  { label: "Overall Leave Request", value: 12, color: "gray" },
+  { label: "New Leave Request", value: 12, color: "blue" },
+  { label: "Approved Leave", value: 3, color: "green" },
+  { label: "Pending Leave", value: 4, color: "yellow" },
+  { label: "Rejected Leave", value: 5, color: "red" },
+]
+
   const res_data = data.map(item => ({
     ...item,
     name: (
@@ -131,38 +139,17 @@ const AllLeaveRequest = () => {
       {/* Leave matrix start*/}
 
       <div className="flex flex-row gap-5 text-center">
-      <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-gray-50 text-gray-500 border border-gray-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Overall Leave Request</h6>
-            <h4 className="text-2xl font-bold">12</h4>
+      {LeaveMatrix.map((item, index) => (
+          <div key={index} className="w-full md:w-1/4 transform transition-transform hover:scale-105">
+            <div
+              className={`stats-info bg-${item.color}-50 text-${item.color}-500 border border-${item.color}-500 p-4 rounded-md shadow-md`}
+            >
+              <h6 className="font-semibold">{item.label}</h6>
+              <h4 className="text-2xl font-bold">{item.value}</h4>
+            </div>
           </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-blue-50 text-blue-500 border border-blue-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">New Leave Request</h6>
-            <h4 className="text-2xl font-bold">12</h4>
-          </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-green-50 text-green-500 border border-green-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Approved Leave</h6>
-            <h4 className="text-2xl font-bold">3</h4>
-          </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-yellow-50 text-yellow-500 border border-yellow-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Pending Leave</h6>
-            <h4 className="text-2xl font-bold">4</h4>
-          </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-red-50 text-red-500 border border-red-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Rejected Leave</h6>
-            <h4 className="text-2xl font-bold text-center">5</h4>
-          </div>
-        </div>
+        ))}
       </div>
-
       {/* Leave matrix end*/}
 
       <div className="flex items-center justify-between">

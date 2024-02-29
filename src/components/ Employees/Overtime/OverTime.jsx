@@ -1,15 +1,15 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2"
-import { MdDeleteForever } from "react-icons/md"
-import { Tables } from "../../../utils/components/index"
-import { GoChevronRight } from "react-icons/go"
-import { FaHome } from "react-icons/fa"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2";
+import { MdDeleteForever } from "react-icons/md";
+import { Tables } from "../../../utils/components/index";
+import { GoChevronRight } from "react-icons/go";
+import { FaHome } from "react-icons/fa";
 
 const OverTime = () => {
-  const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(5)
-  const [filter, setFilter] = useState("")
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [filter, setFilter] = useState("");
 
   const data = [
     {
@@ -39,7 +39,8 @@ const OverTime = () => {
       otHours: "4",
       description: "Lorem ipsum dollar",
     },
-  ]
+  ];
+
 
   const columns = [
     { id: "empid", label: "Emp ID" },
@@ -49,9 +50,16 @@ const OverTime = () => {
     { id: "description", label: "Description", isMobileDisable: true, isSortDisable: true },
     { id: "status", label: "Status", isMobileDisable: true, isSortDisable: true },
     { id: "action", label: "Action", isMobileDisable: true, isSortDisable: true },
-  ]
+  ];
 
-  const res_data = data.map(item => ({
+  const overtimeMatrix = [
+    { label: "Overtime Hours", value: 34, color: "blue" },
+    { label: "Approved Request", value: 3, color: "green" },
+    { label: "Pending Request", value: 4, color: "yellow" },
+    { label: "Reject Request", value: 5, color: "red" },
+  ];
+
+  const res_data = data.map((item) => ({
     ...item,
     name: (
       <Link className="underline text-blue-500" to={"/employeecard"} rel="noopener noreferrer">
@@ -85,21 +93,21 @@ const OverTime = () => {
         </Link>
       </div>
     ),
-  }))
+  }));
 
-  const handleChangePage = (event, newPage) => setPage(newPage)
+  const handleChangePage = (event, newPage) => setPage(newPage);
 
-  const handleChangeRowsPerPage = event => {
-    setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
-  const handleFilterChange = event => setFilter(event.target.value)
+  const handleFilterChange = (event) => setFilter(event.target.value);
 
   const filteredData = res_data.filter(
-    item =>
+    (item) =>
       item.empid.toLowerCase().includes(filter.toLowerCase())
-  )
+  );
 
   return (
     <div className="p-1 sm:p-5">
@@ -120,36 +128,20 @@ const OverTime = () => {
         <div className=" text-xs sm:text-base ">Overtime</div>
       </div>
 
-      {/* Leave matrix start*/}
+      {/* Overtime matrix start*/}
 
       <div className="flex flex-row gap-5 text-center">
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-blue-50 text-blue-500 border border-blue-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Overtime Hours</h6>
-            <h4 className="text-2xl font-bold">34</h4>
+        {overtimeMatrix.map((item, index) => (
+          <div key={index} className="w-full md:w-1/4 transform transition-transform hover:scale-105">
+            <div className={`stats-info bg-${item.color}-50 text-${item.color}-500 border border-${item.color}-500 p-4 rounded-md shadow-md`}>
+              <h6 className="font-semibold">{item.label}</h6>
+              <h4 className="text-2xl font-bold">{item.value}</h4>
+            </div>
           </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-green-50 text-green-500 border border-green-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Approved Request</h6>
-            <h4 className="text-2xl font-bold">3</h4>
-          </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-yellow-50 text-yellow-500 border border-yellow-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Pending Request</h6>
-            <h4 className="text-2xl font-bold">4</h4>
-          </div>
-        </div>
-        <div className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-          <div className="stats-info bg-red-50 text-red-500 border border-red-500 p-4 rounded-md shadow-md">
-            <h6 className="font-semibold">Reject Request</h6>
-            <h4 className="text-2xl font-bold text-center">5</h4>
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Leave matrix end*/}
+      {/* Overtime matrix end*/}
 
       <div className="flex items-center justify-between">
         <p className="text-xs sm:text-base font-semibold mt-2">Overtime</p>
@@ -176,7 +168,7 @@ const OverTime = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default OverTime;

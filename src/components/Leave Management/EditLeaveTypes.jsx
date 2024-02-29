@@ -61,7 +61,7 @@ const EditLeaveTypes = () => {
           <div>
             <TextField
               id="newLeaveType"
-              label="New Leave Type"
+              label="Leave Type"
               variant="standard"
               className="w-full"
               value={newLeaveType}
