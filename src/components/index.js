@@ -5,7 +5,8 @@ import WelcomeGreeting from "./Greeting/WelcomeGreeting"
 import ThanksGreeting from "./Greeting/ThanksGreeting"
 import UserProfileModal from "./UserProfileModal"
 import Dashboards from "./Dashboard/Dashboards"
-import FinancialReport from "./Finance/FinancialReport"
+import IncomeReport from "./Finance/IncomeReport"
+import ExpenseReport from "./Finance/ExpenseReport"
 import Memberships from "./Membership/Memberships"
 import AddEmployeeForm from "./ Employees/AddEmployeeForm"
 import EmployeeCard from "./ Employees/EmployeeCard"
@@ -42,7 +43,8 @@ export {
   ThanksGreeting,
   UserProfileModal,
   Dashboards,
-  FinancialReport,
+  IncomeReport,
+  ExpenseReport,
   Memberships,
   Employees,
   AddEmployeeForm,

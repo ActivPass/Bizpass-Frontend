@@ -2,7 +2,8 @@ import LoginPage from "./LoginPage"
 import Popup from "./Popup"
 import Dashboard from "./Dashboard"
 import Client from "./Client"
-import Finance from "./Finance"
+import Income from "./Income"
+import Expense from "./Expense"
 import Marketing from "./Marketing"
 import Membership from "./Membership"
 import LeaveManagement from "./LeaveManagement"
@@ -16,7 +17,8 @@ export {
   Popup,
   Dashboard,
   Client,
-  Finance,
+  Income,
+  Expense,
   Marketing,
   Membership,
   LeaveManagement,
