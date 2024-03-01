@@ -12,6 +12,7 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
+import Bookmark from "../../assets/images/bookmark.svg"
 const FinancialReport = () => {
   const error = false
   const isLoading = false
@@ -127,7 +128,7 @@ const FinancialReport = () => {
       name: "Total Revenue",
       sub: "Over All",
       price: "1114,745",
-      img: Money,
+      img: Bookmark,
       css: "bg-rose-50 text-rose-500",
     },
   ]
