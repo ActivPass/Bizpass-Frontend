@@ -21,6 +21,7 @@ import {
   AddSalaryForm,
   AddShiftForm,
   AttendanceInfo,
+  AttendanceLog,
   ClientCard,
   EditClientForm,
   EditEmployeeForm,
@@ -63,6 +64,7 @@ const route = createBrowserRouter(
         <Route path="/add-holiday" element={<AddHoliday />} />
         <Route path="/edit-holiday" element={<EditHoliday />} />
         <Route path="/attendance-info" element={<AttendanceInfo />} />
+        <Route path="/attendance-log" element={<AttendanceLog />} />
         <Route path="/leavemanagement" element={<LeaveManagement />} />
         <Route path="/add-leave" element={<NewLeaveRequest />} />
         <Route path="/edit-leave" element={<EditLeaveRequest />} />

@@ -105,7 +105,7 @@ const FinancialReport = () => {
 
   let Incomes = [
     {
-      name: "Total expense",
+      name: "Total Expense",
       sub: "This Month",
       price: "117,745",
       img: EmpImg,
@@ -119,7 +119,7 @@ const FinancialReport = () => {
       css: "bg-blue-50 text-blue-500",
     },
     {
-      name: "recurring Expenses",
+      name: "Recurring Expenses",
       sub: "This Month",
       price: "154,496",
       img: Absent,

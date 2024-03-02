@@ -37,7 +37,8 @@ import EditLeaveTypes from "./Leave Management/EditLeaveTypes"
 import Holidays from "./ Employees/Holidays/Holidays"
 import AddHoliday from "./ Employees/Holidays/AddHoliday"
 import EditHoliday from "./ Employees/Holidays/EditHoliday"
-import AttendanceInfo from "./ Employees/AttendanceInfo"
+import AttendanceInfo from "./ Employees/AttendanceInfo/AttendanceInfo"
+import AttendanceLog from "./ Employees/AttendanceInfo/AttendanceLog"
 
 export {
   NavBar,
@@ -80,4 +81,5 @@ export {
   AddHoliday,
   EditHoliday,
   AttendanceInfo,
+  AttendanceLog,
 }
