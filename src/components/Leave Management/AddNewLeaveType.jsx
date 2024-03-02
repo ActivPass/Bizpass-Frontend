@@ -1,27 +1,28 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
-import { GoChevronRight } from "react-icons/go";
-import { FaHome } from "react-icons/fa";
-import Select from "@mui/material/Select";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import React, { useState } from "react"
+import TextField from "@mui/material/TextField"
+import MenuItem from "@mui/material/MenuItem"
+import Button from "@mui/material/Button"
+import { Link } from "react-router-dom"
+import { GoChevronRight } from "react-icons/go"
+import { FaHome } from "react-icons/fa"
+import Select from "@mui/material/Select"
+import FormControl from "@mui/material/FormControl"
+import InputLabel from "@mui/material/InputLabel"
+import NavHeader from "../NavHeader"
 
 const AddNewLeaveType = () => {
-  const [newLeaveType, setNewLeaveType] = useState("");
-  const [numberOfDays, setNumberOfDays] = useState("");
-  const [status, setStatus] = useState("");
+  const [newLeaveType, setNewLeaveType] = useState("")
+  const [numberOfDays, setNumberOfDays] = useState("")
+  const [status, setStatus] = useState("")
 
   const handleAddLeaveType = () => {
-    console.log("New leave type:", newLeaveType);
-    console.log("Number of days:", numberOfDays);
-    console.log("Status:", status);
-    setNewLeaveType("");
-    setNumberOfDays("");
-    setStatus("");
-  };
+    console.log("New leave type:", newLeaveType)
+    console.log("Number of days:", numberOfDays)
+    console.log("Status:", status)
+    setNewLeaveType("")
+    setNumberOfDays("")
+    setStatus("")
+  }
 
   return (
     <div className="p-1 sm:p-5">
@@ -35,22 +36,25 @@ const AddNewLeaveType = () => {
         </Link>
         &nbsp;
         <GoChevronRight className="sm:text-xl opacity-40 " />
-        <Link
-          to={"/"}
-          className=" text-xs sm:text-base font-semibold opacity-40"
-        >
+        <Link to={"/"} className=" text-xs sm:text-base font-semibold opacity-40">
           Home
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
-        <Link
-          to={"/leave-types"}
-          className=" text-xs sm:text-base font-semibold opacity-40"
-        >
+        <Link to={"/leave-types"} className=" text-xs sm:text-base font-semibold opacity-40">
           All Leave Types
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base ">New Leave Type</div>
       </div>
+
+      <NavHeader
+        current={{ name: "New Leave Type app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Leave request", link: "/leavemanagement" },
+        ]}
+      />
+
       <div className=" p-6 bg-gray-100 rounded-lg shadow-lg mt-5">
         <div className="font-semibold mb-4">
           <h2>
@@ -65,7 +69,7 @@ const AddNewLeaveType = () => {
               variant="standard"
               className="w-full"
               value={newLeaveType}
-              onChange={(e) => setNewLeaveType(e.target.value)}
+              onChange={e => setNewLeaveType(e.target.value)}
               required
             />
           </div>
@@ -77,19 +81,14 @@ const AddNewLeaveType = () => {
               className="w-full"
               type="number"
               value={numberOfDays}
-              onChange={(e) => setNumberOfDays(e.target.value)}
+              onChange={e => setNumberOfDays(e.target.value)}
               required
             />
           </div>
           <div>
             <FormControl variant="standard" className="w-full">
               <InputLabel id="status-label">Status</InputLabel>
-              <Select
-                labelId="status-label"
-                id="status"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              >
+              <Select labelId="status-label" id="status" value={status} onChange={e => setStatus(e.target.value)}>
                 <MenuItem value={"Active"}>Active</MenuItem>
                 <MenuItem value={"Inactive"}>Inactive</MenuItem>
               </Select>
@@ -97,17 +96,13 @@ const AddNewLeaveType = () => {
           </div>
         </div>
         <div className="mt-6 text-center">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleAddLeaveType}
-          >
+          <Button variant="contained" color="primary" onClick={handleAddLeaveType}>
             Add Leave Type
           </Button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddNewLeaveType;
+export default AddNewLeaveType

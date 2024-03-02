@@ -1,12 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import { GoChevronRight } from "react-icons/go";
+import React from "react"
+import { Link } from "react-router-dom"
+import { FaHome } from "react-icons/fa"
+import { GoChevronRight } from "react-icons/go"
+import NavHeader from "../NavHeader"
 
 const Payslip = () => {
   return (
     <div className="p-1 sm:p-5">
-         <div className="flex items-center align-middle  mb-4">
+      {/* <div className="flex items-center align-middle  mb-4">
         <p className="text-2xl font-bold">
           Payslip <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -21,7 +22,14 @@ const Payslip = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base">Payslip</div>
-      </div>
+      </div> */}
+      <NavHeader
+        current={{ name: "Payslip app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "payslip", link: "/payslip" },
+        ]}
+      />
       <div className="bg-gray-50 border border-gray-300 p-8 rounded-lg shadow-lg">
         <h1 className="text-xl text-center mb-6 font-semibold underline">PAYSLIP FOR THE MONTH OF FEB 2024</h1>
 

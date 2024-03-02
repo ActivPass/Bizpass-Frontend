@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Tables } from "../../utils/components/index"
 import { Link } from "react-router-dom"
 import { HiMiniPlusSmall } from "react-icons/hi2"
+import NavHeader from "../NavHeader"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 
@@ -18,7 +19,7 @@ const Payrolls = () => {
       role: "Coach / Trainer",
       email: "perumal@gmail.com",
       joiningDate: "10-02-2024",
-      salary:"$18000",
+      salary: "$18000",
     },
     {
       id: 2,
@@ -27,7 +28,7 @@ const Payrolls = () => {
       role: "Coach / Trainer",
       email: "vel@gmail.com",
       joiningDate: "11-02-2024",
-      salary:"$18000",
+      salary: "$18000",
     },
   ]
 
@@ -63,12 +64,9 @@ const Payrolls = () => {
       item.empid.toLowerCase().includes(filter.toLowerCase()) || item.role.toLowerCase().includes(filter.toLowerCase())
   )
 
-
-
-  
   return (
     <div className="p-1 sm:p-5">
-      <div className="flex items-center align-middle  mb-4">
+      {/* <div className="flex items-center align-middle  mb-4">
           <p className="text-2xl font-bold">
           Employee Salary <span className="text-3xl opacity-40"> |</span>{" "}
           </p>
@@ -83,7 +81,14 @@ const Payrolls = () => {
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
           <div className=" text-xs sm:text-base">Employee Salary</div>
-        </div>
+        </div> */}
+      <NavHeader
+        current={{ name: "Payslip app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Payslip", link: "/Payslip" },
+        ]}
+      />
 
       <div className="flex items-center justify-between">
         <p className="text-xs sm:text-base font-semibold mt-2">List Of Employees</p>
@@ -113,4 +118,4 @@ const Payrolls = () => {
   )
 }
 
-export default Payrolls;
+export default Payrolls

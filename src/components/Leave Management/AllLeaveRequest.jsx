@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { HiMiniPlusSmall, HiPencil } from "react-icons/hi2"
 import { MdDeleteForever } from "react-icons/md"
 import { Tables } from "../../utils/components/index"
+import NavHeader from "../NavHeader"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 
@@ -59,13 +60,13 @@ const AllLeaveRequest = () => {
     { id: "action", label: "Action", isMobileDisable: true, isSortDisable: true },
   ]
 
- const LeaveMatrix = [
-  { label: "Overall Leave Request", value: 12, color: "gray" },
-  { label: "New Leave Request", value: 12, color: "blue" },
-  { label: "Approved Leave", value: 3, color: "green" },
-  { label: "Pending Leave", value: 4, color: "yellow" },
-  { label: "Rejected Leave", value: 5, color: "red" },
-]
+  const LeaveMatrix = [
+    { label: "Overall Leave Request", value: 12, color: "gray" },
+    { label: "New Leave Request", value: 12, color: "blue" },
+    { label: "Approved Leave", value: 3, color: "green" },
+    { label: "Pending Leave", value: 4, color: "yellow" },
+    { label: "Rejected Leave", value: 5, color: "red" },
+  ]
 
   const res_data = data.map(item => ({
     ...item,
@@ -119,7 +120,7 @@ const AllLeaveRequest = () => {
 
   return (
     <div className="p-1 sm:p-5">
-      <div className="flex items-center align-middle mb-5">
+      {/* <div className="flex items-center align-middle mb-5">
         <p className="text-2xl font-bold">
           All Leave Request <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -134,16 +135,21 @@ const AllLeaveRequest = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base ">All Leave Request</div>
-      </div>
+      </div> */}
+      <NavHeader
+        current={{ name: "Leave Request app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Leave request", link: "/leavemanagement" },
+        ]}
+      />
 
       {/* Leave matrix start*/}
 
       <div className="flex flex-row gap-5 text-center">
-      {LeaveMatrix.map((item, index) => (
+        {LeaveMatrix.map((item, index) => (
           <div key={index} className="w-full md:w-1/4">
-            <div
-              className={`stats-info bg-${item.color}-50 text-${item.color}-500  p-3 rounded-md`}
-            >
+            <div className={`stats-info bg-${item.color}-50 text-${item.color}-500  p-3 rounded-md`}>
               <h6 className="font-semibold">{item.label}</h6>
               <h4 className="text-2xl font-bold">{item.value}</h4>
             </div>

@@ -3,9 +3,9 @@ import { TextField, Button, FormControlLabel, Card, CardContent } from "@mui/mat
 import { styled } from "@mui/material/styles"
 import Switch, { switchClasses } from "@mui/material/Switch"
 import { GoChevronRight } from "react-icons/go"
+import NavHeader from "../NavHeader"
 import { FaHome } from "react-icons/fa"
 import { Link } from "react-router-dom"
-
 
 // Styled Switch component
 
@@ -92,9 +92,9 @@ const LeaveSettings = () => {
     setEditMode(null)
   }
 
-//   const cancelEdit = () => {
-//     setEditMode(null)
-//   }
+  //   const cancelEdit = () => {
+  //     setEditMode(null)
+  //   }
 
   const handleSwitchToggle = leaveType => {
     const newEditedLeaveTypes = { ...editedLeaveTypes }
@@ -107,7 +107,7 @@ const LeaveSettings = () => {
 
   return (
     <div className="p-1 md:p-5">
-        <div className="flex items-center align-middle mb-5">
+      {/* <div className="flex items-center align-middle mb-5">
         <p className="text-2xl font-bold">
           Leave Settings <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -122,72 +122,79 @@ const LeaveSettings = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <Link to={"/leavemanagement"} className=" text-xs sm:text-base font-semibold opacity-40">
-           Leave Management 
+          Leave Management
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base ">Leave Settings</div>
-      </div>
+      </div> */}
+      <NavHeader
+        current={{ name: "Leave Settings app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Leave settings", link: "/leave-setting" },
+        ]}
+      />
 
       <div className="bg-white p-4 w-3/4 mx-auto rounded shadow">
-          <h2 className="mb-4">Leave Settings</h2>
-          {Object.entries(leaveTypes).map(([leaveType, { days, show, logData }]) => (
-            <Card key={leaveType} className="mb-4">
-              <CardContent>
-                <div className="flex items-center">
-                  <div className="flex-grow">
-                    <TextField
-                      id={`leaveType_${leaveType}`}
-                      label={leaveType}
-                      variant="outlined"
-                      className="w-full"
-                      value={editMode === leaveType ? editedLeaveTypes[leaveType].days : days}
-                      disabled={editMode !== leaveType}
-                      onChange={e => {
-                        const newEditedLeaveTypes = { ...editedLeaveTypes }
-                        newEditedLeaveTypes[leaveType].days = e.target.value
-                        setEditedLeaveTypes(newEditedLeaveTypes)
-                      }}
-                    />
-                  </div>
-                  <div className="ml-2">
-                    {editMode !== leaveType && (
-                      <FormControlLabel
-                        control={
-                          <SwitchTextTrack
-                            checked={logData}
-                            onChange={() => handleSwitchToggle(leaveType)}
-                            color="primary"
-                          />
-                        }
-                        // label="Log Data"
-                      />
-                    )}
-                  </div>
-                  <div className="ml-2">
-                    <Button
-                      variant="contained"
-                      color={editMode === leaveType ? "secondary" : "primary"}
-                      onClick={() => {
-                        setEditMode(editMode === leaveType ? null : leaveType)
-                      }}
-                    >
-                      {editMode === leaveType ? "Cancel" : "Edit"}
-                    </Button>
-                  </div>
+        <h2 className="mb-4">Leave Settings</h2>
+        {Object.entries(leaveTypes).map(([leaveType, { days, show, logData }]) => (
+          <Card key={leaveType} className="mb-4">
+            <CardContent>
+              <div className="flex items-center">
+                <div className="flex-grow">
+                  <TextField
+                    id={`leaveType_${leaveType}`}
+                    label={leaveType}
+                    variant="outlined"
+                    className="w-full"
+                    value={editMode === leaveType ? editedLeaveTypes[leaveType].days : days}
+                    disabled={editMode !== leaveType}
+                    onChange={e => {
+                      const newEditedLeaveTypes = { ...editedLeaveTypes }
+                      newEditedLeaveTypes[leaveType].days = e.target.value
+                      setEditedLeaveTypes(newEditedLeaveTypes)
+                    }}
+                  />
                 </div>
-                {editMode === leaveType && (
-                  <div className="mt-2">
-                    <Button variant="contained" color="primary" onClick={() => saveLeaveSettings(leaveType)}>
-                      Save
-                    </Button>
-                    {/* <Button variant="contained" color="secondary" style={{ marginLeft: "8px" }} onClick={cancelEdit}>
+                <div className="ml-2">
+                  {editMode !== leaveType && (
+                    <FormControlLabel
+                      control={
+                        <SwitchTextTrack
+                          checked={logData}
+                          onChange={() => handleSwitchToggle(leaveType)}
+                          color="primary"
+                        />
+                      }
+                      // label="Log Data"
+                    />
+                  )}
+                </div>
+                <div className="ml-2">
+                  <Button
+                    variant="contained"
+                    color={editMode === leaveType ? "secondary" : "primary"}
+                    onClick={() => {
+                      setEditMode(editMode === leaveType ? null : leaveType)
+                    }}
+                  >
+                    {editMode === leaveType ? "Cancel" : "Edit"}
+                  </Button>
+                </div>
+              </div>
+              {editMode === leaveType && (
+                <div className="mt-2">
+                  <Button variant="contained" color="primary" onClick={() => saveLeaveSettings(leaveType)}>
+                    Save
+                  </Button>
+                  {/* <Button variant="contained" color="secondary" style={{ marginLeft: "8px" }} onClick={cancelEdit}>
                       Cancel
                     </Button> */}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   )

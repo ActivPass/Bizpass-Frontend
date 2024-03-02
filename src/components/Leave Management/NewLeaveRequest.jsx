@@ -2,6 +2,7 @@ import React from "react"
 import TextField from "@mui/material/TextField"
 import MenuItem from "@mui/material/MenuItem"
 import Button from "@mui/material/Button"
+import NavHeader from "../NavHeader"
 import { Link } from "react-router-dom"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
@@ -9,7 +10,7 @@ import { FaHome } from "react-icons/fa"
 const NewLeaveRequest = () => {
   return (
     <div className="p-1 md:p-5">
-      <div className="flex items-center align-middle">
+      {/* <div className="flex items-center align-middle">
         <p className="text-2xl font-bold">
           New Leave Request <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -28,7 +29,14 @@ const NewLeaveRequest = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base ">New Leave Request</div>
-      </div>
+      </div> */}
+      <NavHeader
+        current={{ name: "New Leave request app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Leave request", link: "/leavemanagement" },
+        ]}
+      />
       <div className=" p-6 bg-gray-100 rounded-lg shadow-lg mt-5">
         <h2 className="text-2xl font-semibold mb-4"> New Leave Request</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
