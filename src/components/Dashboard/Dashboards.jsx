@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import Card from "./Card"
 import WelcomeGreeting from "../Greeting/WelcomeGreeting"
 import MyChart from "./MyChart"
+import RadialChart from "./RadialChart"
 import { LineChart } from "./LineChart"
 import { Typography } from "@mui/material"
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6"
@@ -11,7 +12,6 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
-
 
 const Dashboard = () => {
   const [showWelcomePopup, setShowWelcomePopup] = useState(false)
@@ -87,7 +87,7 @@ const Dashboard = () => {
                 <MyChart />
               </section>
               <div className="w-[35%] flex flex-col gap-10 rounded-lg">
-                <div className="flex h-[50%] justify-around items-center bg-slate-100">
+                <div className="flex px-4 justify-around items-center bg-slate-100">
                   <div className="w-[50%]">
                     <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Yearly Breakup</Typography>
                     <Typography>$ 36,358</Typography>
@@ -96,11 +96,12 @@ const Dashboard = () => {
                       <Typography>+9% last year</Typography>
                     </div>
                   </div>
-                  <div className="w-[20%]">
-                    <CircularProgressbar value={75} text={`${75}%`} />
+                  <div className="w-[50%]">
+                    {/* <CircularProgressbar value={75} text={`${75}%`} /> */}
+                    <RadialChart value={75} />
                   </div>
                 </div>
-                <div className="flex h-[50%] justify-around items-center bg-slate-100">
+                <div className="flex px-4 justify-around items-center bg-slate-100">
                   <div className="w-[50%]">
                     <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Monthly Earnings</Typography>
                     <Typography>$ 6,820</Typography>
@@ -109,8 +110,8 @@ const Dashboard = () => {
                       <Typography>+9% last year</Typography>
                     </div>
                   </div>
-                  <div className="w-[20%]">
-                    <CircularProgressbar value={55} text={`${55}%`} />
+                  <div className="w-[50%]">
+                    <RadialChart value={35} />
                   </div>
                 </div>
               </div>
