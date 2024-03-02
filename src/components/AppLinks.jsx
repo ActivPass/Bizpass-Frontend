@@ -1,20 +1,38 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { Typography } from "@mui/material"
 import { MENUS } from "../utils/index"
 import { Link } from "react-router-dom"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
-function AppLinks() {
+function AppLinks({ closeMenu }) {
   const [active, setActive] = useState(null)
   const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null)
   const [activeSubMenu, setActiveSubMenu] = useState(null)
+  const menuRef = useRef()
 
   const toggleSubMenu = index => {
     setOpenSubMenuIndex(prevIndex => (prevIndex === index ? null : index))
   }
 
+  const handleClickOutside = event => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      closeMenu()
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [menuRef, handleClickOutside])
+
   return (
-    <div className="absolute left-[15%] top-10 z-50 grid grid-cols-2 gap-3 sm:grid-cols-12 w-5/6 lg:w-3/6 bg-white p-5 rounded-lg border border-gray-200">
+    <div
+      ref={menuRef}
+      className="absolute left-[15%] top-10 z-50 grid grid-cols-2 gap-3 sm:grid-cols-12 w-5/6 lg:w-3/6 bg-white p-5 rounded-lg border border-gray-200"
+    >
       {MENUS.map((menuItem, index) => (
         <div key={index} className="sm:col-span-6">
           <div onMouseEnter={() => toggleSubMenu(index)} onMouseLeave={() => toggleSubMenu(index)}>
@@ -29,7 +47,9 @@ function AppLinks() {
               }}
             >
               <div className="flex items-center">
-                {menuItem.icon && <menuItem.icon className="w-6 h-6 mr-2" />}
+                <div className="bg-[#e6f2ff] text-[#5D87FF] rounded-lg mr-3">
+                  {menuItem.icon && <menuItem.icon className="m-3 text-xl" />}
+                </div>
                 <Typography
                   variant="subtitle2"
                   className={`text-base font-medium hover:text-[#3b5bb1] ${

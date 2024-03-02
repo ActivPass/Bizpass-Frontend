@@ -50,13 +50,17 @@ const NavBar = ({ user, setOpen }) => {
     setShowModal(true)
   }
 
+  const handleToggleAppLinks = () => {
+    setShowAppLinks(prev => !prev)
+  }
+
   if (showGreeting) {
     return <ThanksGreeting />
   }
 
   const navList = (
     <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <li className="flex flex-row gap-1 items-center align-middle" onClick={() => setShowAppLinks(!showAppLinks)}>
+      <li className="flex flex-row gap-1 items-center align-middle" onClick={handleToggleAppLinks}>
         <a href="#" className="">
           Apps{" "}
         </a>
@@ -136,7 +140,7 @@ const NavBar = ({ user, setOpen }) => {
             <div className="hidden lg:block">{navList}</div>
           </div>
         </div>
-        {showAppLinks && <AppLinks />}
+        {showAppLinks && <AppLinks closeMenu={handleToggleAppLinks} />}
 
         <div className="flex gap-4 py-1">
           <div className="flex items-center">
