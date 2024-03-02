@@ -87,30 +87,30 @@ const Dashboard = () => {
                 <MyChart />
               </section>
               <div className="w-[35%] flex flex-col gap-10 rounded-lg">
-                <div className="flex h-[50%] w-full justify-around items-center bg-slate-100">
+                <div className="flex h-[50%] justify-around items-center bg-slate-100">
                   <div className="w-[50%]">
                     <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Yearly Breakup</Typography>
                     <Typography>$ 36,358</Typography>
                     <div className="flex gap-5 items-center py-2">
-                      <FaArrowTrendUp />
+                      <FaArrowTrendUp color="green" />
                       <Typography>+9% last year</Typography>
                     </div>
                   </div>
                   <div className="w-[20%]">
-                    <CircularProgressbar value={75} />
+                    <CircularProgressbar value={75} text={`${75}%`} />
                   </div>
                 </div>
-                <div className="flex h-[50%] justify-between items-center p-4 bg-slate-100">
+                <div className="flex h-[50%] justify-around items-center bg-slate-100">
                   <div className="w-[50%]">
                     <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Monthly Earnings</Typography>
                     <Typography>$ 6,820</Typography>
                     <div className="flex gap-5 items-center py-2">
-                      <FaArrowTrendDown />
+                      <FaArrowTrendDown color="red" />
                       <Typography>+9% last year</Typography>
                     </div>
                   </div>
                   <div className="w-[20%]">
-                    <CircularProgressbar value={55} />
+                    <CircularProgressbar value={55} text={`${55}%`} />
                   </div>
                 </div>
               </div>

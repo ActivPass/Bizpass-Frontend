@@ -6,7 +6,7 @@ import { MdCardMembership } from "react-icons/md"
 import { IoAnalyticsOutline } from "react-icons/io5"
 import { BsClipboard2 } from "react-icons/bs"
 import { FaRegMoneyBillAlt } from "react-icons/fa"
-import { IoMdFitness } from "react-icons/io";
+import { IoMdFitness } from "react-icons/io"
 import { createTheme } from "@mui/material"
 export const MENUS = [
   { name: "Dashboard", link: "/", icon: MdHomeFilled },
@@ -29,7 +29,7 @@ export const MENUS = [
     icon: FaRegMoneyBillAlt,
     submenu: [{ name: "Payslip", link: "/Payslip", icon: BsClipboard2 }],
   },
-  { name: "Finance", link: "/finance", icon: IoAnalyticsOutline },
+  { name: "Finance", link: "/income", icon: IoAnalyticsOutline },
   { name: "Workout Management", link: "/workout-management", icon: IoMdFitness },
   // { name: "Marketing Items", link: "/marketing", icon: HiSpeakerphone },
   { name: "Membership", link: "/membership", icon: MdCardMembership },
