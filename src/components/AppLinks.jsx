@@ -14,7 +14,7 @@ function AppLinks() {
   }
 
   return (
-    <div className="absolute left-[18%] top-10 z-50 grid grid-cols-2 gap-3 sm:grid-cols-12 w-5/6 lg:w-3/6 bg-white p-5 rounded-lg border border-gray-200">
+    <div className="absolute left-[15%] top-10 z-50 grid grid-cols-2 gap-3 sm:grid-cols-12 w-5/6 lg:w-3/6 bg-white p-5 rounded-lg border border-gray-200">
       {MENUS.map((menuItem, index) => (
         <div key={index} className="sm:col-span-6">
           <div onMouseEnter={() => toggleSubMenu(index)} onMouseLeave={() => toggleSubMenu(index)}>

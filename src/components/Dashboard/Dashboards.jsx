@@ -7,6 +7,11 @@ import { Typography } from "@mui/material"
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6"
 import { CircularProgressbar } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
+import EmpImg from "../../assets/images/employee.svg"
+import Present from "../../assets/images/present.svg"
+import Absent from "../../assets/images/absent.svg"
+import Money from "../../assets/images/money.svg"
+
 
 const Dashboard = () => {
   const [showWelcomePopup, setShowWelcomePopup] = useState(false)
@@ -17,6 +22,7 @@ const Dashboard = () => {
       name: "Total Clients",
       sub: "Over All",
       price: "1200",
+      img: EmpImg,
       css: "bg-orange-50 text-orange-400",
     },
     {
@@ -24,36 +30,25 @@ const Dashboard = () => {
       name: "Client Entries",
       sub: "Today Tap",
       price: "845",
+      img: Present,
       css: "bg-blue-50 text-blue-500",
     },
     {
       id: 3,
-      name: "New Clients  Entries",
+      name: "Total Earnings",
       sub: "This Month",
-      price: "400",
+      price: "400234",
+      img: Absent,
       css: "bg-emerald-50 text-emerald-500",
     },
 
     {
       id: 4,
-      name: "Monthly Revenue",
+      name: "Total Expenses",
       sub: "This Month",
       price: "224,74",
+      img: Money,
       css: "bg-rose-50 text-rose-500",
-    },
-    {
-      id: 5,
-      name: "Payroll",
-      sub: "This Month",
-      price: "474,45",
-      css: "bg-green-50 text-green-500",
-    },
-    {
-      id: 6,
-      name: "Reports",
-      sub: "This Month",
-      price: "845",
-      css: "bg-blue-50 text-blue-500",
     },
   ]
 
@@ -79,7 +74,7 @@ const Dashboard = () => {
         <div className="sm:grid sm:grid-cols-10 grid grid-flow-row gap-8">
           <div className="col-span-12">
             <section className="">
-              <div className="grid sm:grid-cols-6 grid-flow-row pb-6 gap-6">
+              <div className="grid sm:grid-cols-4 grid-flow-row pb-6 gap-6">
                 {Incomes.map(obj => {
                   return <Card data={obj} key={obj.id}></Card>
                 })}

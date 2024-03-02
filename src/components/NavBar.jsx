@@ -8,7 +8,7 @@ import { BiSolidContact } from "react-icons/bi"
 import { CiLogout } from "react-icons/ci"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import { theme } from "../utils/index"
-import ActivPassImage from "../assets/images/ActivPass.png"
+import BizzPassImage from "../assets/images/bizzpass.png"
 import UpgradeImage from "../assets/images/upgrade.png"
 import { MdQrCodeScanner } from "react-icons/md"
 import QRscanner from "../pages/QRscanner"
@@ -81,7 +81,7 @@ const NavBar = ({ user, setOpen }) => {
   )
 
   return (
-    <nav className="flex p-4 justify-between w-screen dark:bg-gray-800 dark:text-white bg-white shadow-md">
+    <nav className="flex p-4 px-[12%] justify-between w-screen dark:bg-gray-800 dark:text-white bg-white shadow-md">
       {isMobile ? (
         <div>
           <div>
@@ -123,7 +123,9 @@ const NavBar = ({ user, setOpen }) => {
       <div className="flex relative justify-between items-start w-full">
         <div className="flex justify-around w-[40%]">
           <div className="flex items-center">
-            <img src={ActivPassImage} className={"h-11"} alt="Logo" />
+            <Link to="/">
+              <img src={BizzPassImage} className={"h-12"} alt="Logo" />
+            </Link>
             <div>
               <a href="#">
                 <FaSearch />
