@@ -132,8 +132,8 @@ const OverTime = () => {
 
       <div className="flex flex-row gap-5 text-center">
         {overtimeMatrix.map((item, index) => (
-          <div key={index} className="w-full md:w-1/4 transform transition-transform hover:scale-105">
-            <div className={`stats-info bg-${item.color}-50 text-${item.color}-500 border border-${item.color}-500 p-4 rounded-md shadow-md`}>
+          <div key={index} className="w-full md:w-1/4">
+            <div className={`stats-info bg-${item.color}-50 text-${item.color}-500 p-4 rounded-md`}>
               <h6 className="font-semibold">{item.label}</h6>
               <h4 className="text-2xl font-bold">{item.value}</h4>
             </div>

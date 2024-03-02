@@ -223,10 +223,10 @@ const FinancialReport = () => {
         </div>
         {/* <p className="text-base font-semibold my-2">Finance</p> */}
         <div className="">
-          <section className="w-full">
-            <div className="flex justify-between gap-4">
+          <section className="">
+            <div className="grid sm:grid-cols-3 grid-flow-row pb-6 gap-6">
               {Incomes.map(obj => {
-                return <Card data={obj} key={obj.name} />
+                return <Card data={obj} key={obj.id}></Card>
               })}
             </div>
           </section>
