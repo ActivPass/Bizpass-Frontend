@@ -115,7 +115,7 @@ const LeaveTypes = () => {
       (item.status && item.status.toLowerCase().includes(filter.toLowerCase()))
   )
   return (
-    <div className="">
+    <div className="p-1 md:p-5">
        <div className="flex items-center align-middle my-5">
         <p className="text-2xl font-bold">
         All Leave Types <span className="text-3xl opacity-40"> |</span>{" "}

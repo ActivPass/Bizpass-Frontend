@@ -5,7 +5,7 @@ import { GoChevronRight } from "react-icons/go";
 
 const Payslip = () => {
   return (
-    <div className="m-5">
+    <div className="p-1 sm:p-5">
          <div className="flex items-center align-middle  mb-4">
         <p className="text-2xl font-bold">
           Payslip <span className="text-3xl opacity-40"> |</span>{" "}

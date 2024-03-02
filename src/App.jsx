@@ -16,16 +16,20 @@ import Layout from "./Layout"
 import {
   AddClientForm,
   AddEmployeeForm,
+  AddHoliday,
   AddNewLeaveType,
   AddSalaryForm,
   AddShiftForm,
+  AttendanceInfo,
   ClientCard,
   EditClientForm,
   EditEmployeeForm,
+  EditHoliday,
   EditLeaveRequest,
   EditLeaveTypes,
   EditShiftForm,
   EmployeeCard,
+  Holidays,
   LeaveSettings,
   LeaveTypes,
   NewLeaveRequest,
@@ -55,6 +59,10 @@ const route = createBrowserRouter(
         <Route path="/addemployee" element={<AddEmployeeForm />} />
         <Route path="/employeecard" element={<EmployeeCard />} />
         <Route path="/editemployee" element={<EditEmployeeForm />} />
+        <Route path="/holidays" element={<Holidays />} />
+        <Route path="/add-holiday" element={<AddHoliday />} />
+        <Route path="/edit-holiday" element={<EditHoliday />} />
+        <Route path="/attendance-info" element={<AttendanceInfo />} />
         <Route path="/leavemanagement" element={<LeaveManagement />} />
         <Route path="/add-leave" element={<NewLeaveRequest />} />
         <Route path="/edit-leave" element={<EditLeaveRequest />} />

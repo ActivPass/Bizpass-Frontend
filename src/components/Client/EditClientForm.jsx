@@ -21,7 +21,7 @@ const EditClientForm = () => {
   }
 
   return (
-    <div className="m-1 sm:m-5">
+    <div className="p-1 md:p-5">
       <div className="flex items-center align-middle  mb-4">
           <p className="text-2xl font-bold">
           Edit Clients <span className="text-3xl opacity-40"> |</span>{" "}

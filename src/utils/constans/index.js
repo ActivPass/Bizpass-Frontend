@@ -20,6 +20,8 @@ export const MENUS = [
       { name: "Leave Types", link: "/leave-types", icon: BsClipboard2 },
       { name: "Shift & Shedule", link: "/shift-schedule", icon: BsClipboard2 },
       { name: "Overtime", link: "/over-time", icon: BsClipboard2 },
+      { name: "Attendance Info", link: "/attendance-info", icon: BsClipboard2 },
+      { name: "Holidays", link: "/holidays", icon: BsClipboard2 },
     ],
   },
   { name: "Clients", link: "/clients", icon: LiaUsersSolid },

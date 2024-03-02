@@ -34,6 +34,10 @@ import UpgradePlan from "./Upgrade/UpgradePlan"
 import AddNewLeaveType from "./Leave Management/AddNewLeaveType"
 import LeaveTypes from "./Leave Management/LeaveTypes"
 import EditLeaveTypes from "./Leave Management/EditLeaveTypes"
+import Holidays from "./ Employees/Holidays/Holidays"
+import AddHoliday from "./ Employees/Holidays/AddHoliday"
+import EditHoliday from "./ Employees/Holidays/EditHoliday"
+import AttendanceInfo from "./ Employees/AttendanceInfo"
 
 export {
   NavBar,
@@ -72,4 +76,8 @@ export {
   AddNewLeaveType,
   LeaveTypes,
   EditLeaveTypes,
+  Holidays,
+  AddHoliday,
+  EditHoliday,
+  AttendanceInfo,
 }

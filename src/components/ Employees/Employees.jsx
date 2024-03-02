@@ -10,6 +10,7 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
+import AttendanceInfo from "./AttendanceInfo"
 
 const Employees = () => {
   const [page, setPage] = useState(0)
@@ -171,6 +172,7 @@ const Employees = () => {
           rowsPerPage={rowsPerPage}
         />
       </div>
+      <AttendanceInfo/>
     </div>
   )
 }
