@@ -6,6 +6,7 @@ import { Tables } from "../../utils/components/index"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 import Card from "./Card"
+import NavHeader from "../NavHeader"
 import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
@@ -122,7 +123,7 @@ const ClientTable = () => {
 
   return (
     <div className="p-1 sm:p-5">
-      <div className="flex items-center align-middle mb-5">
+      {/* <div className="flex items-center align-middle mb-5">
         <p className="text-2xl font-bold">
           All Clients <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -137,8 +138,14 @@ const ClientTable = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base ">All Clients</div>
-      </div>
-
+      </div> */}
+      <NavHeader
+        current={{ name: "Clients app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Clients", link: "/clients" },
+        ]}
+      />
       <section className="">
         <div className="grid sm:grid-cols-4 grid-flow-row pb-6 gap-6">
           {Incomes.map(obj => {

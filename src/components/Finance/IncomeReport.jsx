@@ -8,6 +8,7 @@ import { ImFilePdf } from "react-icons/im"
 import { IoAnalyticsOutline } from "react-icons/io5"
 import { FaRegMoneyBillAlt } from "react-icons/fa"
 import { FaHome } from "react-icons/fa"
+import NavHeader from "../NavHeader"
 import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
@@ -213,7 +214,7 @@ const FinancialReport = () => {
         </div> */}
 
         {/* New sub navigation*/}
-        <div className="flex items-center gap-10 mb-4">
+        {/* <div className="flex items-center gap-10 mb-4">
           <Link to={"/"} className="text-xl flex gap-2 items-center">
             <FaHome /> Dashboard
           </Link>
@@ -226,7 +227,17 @@ const FinancialReport = () => {
           <Link to={"/income"} className=" text-xl">
             Invoice
           </Link>
-        </div>
+        </div> */}
+
+        <NavHeader
+          current={{ name: "Income app" }}
+          previous={[
+            { name: "Home", link: "/" },
+            { name: "Income", link: "/Income" },
+            { name: "Expense", link: "/expense" },
+            { name: "Invoice", link: "/Income" },
+          ]}
+        />
 
         {/* <p className="text-base font-semibold my-2">Finance</p> */}
         <div className="">

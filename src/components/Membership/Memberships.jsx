@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import PieChart from "./PieChart"
 import { Button } from "@mui/material"
 import { FaHome } from "react-icons/fa"
+import NavHeader from "../NavHeader"
 import { GoChevronRight } from "react-icons/go"
 
 const Memberships = () => {
@@ -28,7 +29,7 @@ const Memberships = () => {
 
   return (
     <div className="p-1 sm:p-5">
-      <div className="flex items-center align-middle  mb-4">
+      {/* <div className="flex items-center align-middle  mb-4">
         <p className="text-2xl font-bold">
           Membership <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -43,7 +44,15 @@ const Memberships = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base">Membership</div>
-      </div>
+      </div> */}
+
+      <NavHeader
+        current={{ name: "Membership app" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Membership", link: "/membership" },
+        ]}
+      />
       <div className="text-base mb-2">Your Profile</div>
       <section className="grid grid-flow-rows gap-4 sm:grid-flow-col sm:grid-cols-2  sm:gap-4">
         <main className="bg-gray-200  rounded-md m-0 sm:mr-8">
