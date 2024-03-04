@@ -39,7 +39,7 @@ export const MENUS = [
 
 export const theme = createTheme({
   typography: {
-    fontFamily: "Kollektif, sans-serif",
+    fontFamily: "Plus Jakarta Sans, sans-serif",
   },
   components: {
     MuiAccordion: {

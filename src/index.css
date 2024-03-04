@@ -32,7 +32,13 @@
 }
 
 body {
-  font-family: "Kollektif", sans-serif;
+  font-family: 'Plus Jakarta Sans';
+  src: url('../public/fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
+  /* Include other font formats if available */
+  /* src: url('./fonts/PlusJakartaSans-Regular.woff2') format('woff2'),
+         url('./fonts/PlusJakartaSans-Regular.woff') format('woff'); */
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* search-box */
