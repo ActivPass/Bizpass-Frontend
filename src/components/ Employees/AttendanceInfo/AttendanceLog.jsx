@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { GoChevronRight } from "react-icons/go";
-import { FaHome } from "react-icons/fa";
-import { Tables } from "../../../utils/components/index";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import { GoChevronRight } from "react-icons/go"
+import { FaHome } from "react-icons/fa"
+import { Tables } from "../../../utils/components/index"
+import NavHeader from "../../NavHeader"
 
 const AttendanceLog = () => {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [filter, setFilter] = useState("");
+  const [page, setPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
+  const [filter, setFilter] = useState("")
 
   const attendanceData = [
     {
@@ -29,33 +30,33 @@ const AttendanceLog = () => {
       status: "Absent",
     },
     {
-        id: 3,
-        date: "2024-03-03",
-        checkIn: "09:30 AM",
-        checkOut: "05:30 PM",
-        workHours: "9",
-        shift: "Day Shift",
-        status: "Present",
-      },
-      {
-        id: 4,
-        date: "2024-03-04",
-        checkIn: "09:30 AM",
-        checkOut: "05:30 PM",
-        workHours: "8",
-        shift: "Day Shift",
-        status: "Absent",
-      },
-  ];
+      id: 3,
+      date: "2024-03-03",
+      checkIn: "09:30 AM",
+      checkOut: "05:30 PM",
+      workHours: "9",
+      shift: "Day Shift",
+      status: "Present",
+    },
+    {
+      id: 4,
+      date: "2024-03-04",
+      checkIn: "09:30 AM",
+      checkOut: "05:30 PM",
+      workHours: "8",
+      shift: "Day Shift",
+      status: "Absent",
+    },
+  ]
 
   const columns = [
     { id: "date", label: "Date" },
     { id: "checkIn", label: "Check-in" },
-    { id: "checkOut", label: "Check-out" ,isMobileDisable: true},
-    { id: "workHours", label: "Work Hours",isMobileDisable: true },
-    { id: "shift", label: "Shift" ,isMobileDisable: true},
-    { id: "status", label: "Status" ,isMobileDisable: true, isSortDisable: true},
-  ];
+    { id: "checkOut", label: "Check-out", isMobileDisable: true },
+    { id: "workHours", label: "Work Hours", isMobileDisable: true },
+    { id: "shift", label: "Shift", isMobileDisable: true },
+    { id: "status", label: "Status", isMobileDisable: true, isSortDisable: true },
+  ]
 
   const res_data = attendanceData.map(item => ({
     ...item,
@@ -71,24 +72,23 @@ const AttendanceLog = () => {
     ),
   }))
 
-  const handleChangePage = (event, newPage) => setPage(newPage);
+  const handleChangePage = (event, newPage) => setPage(newPage)
 
   const handleChangeRowsPerPage = event => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(0)
+  }
 
-  const handleFilterChange = event => setFilter(event.target.value);
+  const handleFilterChange = event => setFilter(event.target.value)
 
   const filteredData = res_data.filter(
     item =>
-      item.date.toLowerCase().includes(filter.toLowerCase()) ||
-      item.status.toLowerCase().includes(filter.toLowerCase())
-  );
+      item.date.toLowerCase().includes(filter.toLowerCase()) || item.status.toLowerCase().includes(filter.toLowerCase())
+  )
 
   return (
     <div className="p-1 sm:p-5">
-      <div className="flex items-center align-middle  mb-4">
+      {/* <div className="flex items-center align-middle  mb-4">
         <p className="text-2xl font-bold">
           Attendance Log <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -107,7 +107,16 @@ const AttendanceLog = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base">Attendance Log</div>
-      </div>
+      </div> */}
+
+      <NavHeader
+        current={{ name: "Attendance Log" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Employees", link: "/employees" },
+          { name: "Attendance Info", link: "/attendance-info" },
+        ]}
+      />
 
       <div className="">
         <Tables
@@ -123,7 +132,7 @@ const AttendanceLog = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AttendanceLog;
+export default AttendanceLog
