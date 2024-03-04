@@ -12,7 +12,7 @@ import AddEmployeeForm from "./ Employees/AddEmployeeForm"
 import EmployeeCard from "./ Employees/EmployeeCard"
 import AddClientForm from "./Client/AddClientForm"
 import ClientTable from "./Client/ClientTable"
-import ClientCard from "./Client/ClientCard"
+import ClientProfile from "./Client/ClientProfile"
 import NewLeaveRequest from "./Leave Management/NewLeaveRequest"
 import EditLeaveRequest from "./Leave Management/EditLeaveRequest"
 import AllLeaveRequest from "./Leave Management/AllLeaveRequest"
@@ -39,6 +39,7 @@ import AddHoliday from "./ Employees/Holidays/AddHoliday"
 import EditHoliday from "./ Employees/Holidays/EditHoliday"
 import AttendanceInfo from "./ Employees/AttendanceInfo/AttendanceInfo"
 import AttendanceLog from "./ Employees/AttendanceInfo/AttendanceLog"
+import EmployeeProfile from "./ Employees/EmployeeProfile"
 
 export {
   NavBar,
@@ -55,9 +56,10 @@ export {
   AddEmployeeForm,
   EditEmployeeForm,
   EmployeeCard,
+  EmployeeProfile,
   AddClientForm,
   ClientTable,
-  ClientCard,
+  ClientProfile,
   EditClientForm,
   NewLeaveRequest,
   EditLeaveRequest,

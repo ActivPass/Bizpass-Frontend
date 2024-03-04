@@ -22,14 +22,14 @@ import {
   AddShiftForm,
   AttendanceInfo,
   AttendanceLog,
-  ClientCard,
+  ClientProfile,
   EditClientForm,
   EditEmployeeForm,
   EditHoliday,
   EditLeaveRequest,
   EditLeaveTypes,
   EditShiftForm,
-  EmployeeCard,
+  EmployeeProfile,
   Holidays,
   LeaveSettings,
   LeaveTypes,
@@ -51,14 +51,14 @@ const route = createBrowserRouter(
         <Route path="/clients" element={<Client />} />
         <Route path="/addclient" element={<AddClientForm />} />
         <Route path="/editclient" element={<EditClientForm />} />
-        <Route path="/clientcard" element={<ClientCard />} />
+        <Route path="/client-profile" element={<ClientProfile />} />
         <Route path="/income" element={<Income />} />
         <Route path="/expense" element={<Expense />} />
         <Route path="/marketing" element={<Marketing />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/employees" element={<Employee />} />
         <Route path="/addemployee" element={<AddEmployeeForm />} />
-        <Route path="/employeecard" element={<EmployeeCard />} />
+        <Route path="/employee-profile" element={<EmployeeProfile />} />
         <Route path="/editemployee" element={<EditEmployeeForm />} />
         <Route path="/holidays" element={<Holidays />} />
         <Route path="/add-holiday" element={<AddHoliday />} />

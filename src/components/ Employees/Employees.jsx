@@ -51,7 +51,7 @@ const Employees = () => {
   const res_data = data.map(item => ({
     ...item,
     name: (
-      <Link className="underline text-blue-500" to={"/employeecard"} rel="noopener noreferrer">
+      <Link className="underline text-blue-500" to={"/employee-profile"} rel="noopener noreferrer">
         {item.name}
       </Link>
     ),
@@ -140,7 +140,7 @@ const Employees = () => {
         <div className=" text-xs sm:text-base">Employees</div>
       </div> */}
       <NavHeader
-        current={{ name: "Employees app" }}
+        current={{ name: "Employees Zone" }}
         previous={[
           { name: "Home", link: "/" },
           { name: "Employees", link: "/employees" },
@@ -159,7 +159,7 @@ const Employees = () => {
         <div className="flex space-x-4">
           <Link
             to="/addemployee"
-            className="text-black hover:bg-black hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle items-center rounded"
+            className="bg-[#5D87FF] text-white hover:bg-[#4777fa] hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle items-center rounded"
           >
             <HiMiniPlusSmall className="text-3xl" /> Add Employee
           </Link>

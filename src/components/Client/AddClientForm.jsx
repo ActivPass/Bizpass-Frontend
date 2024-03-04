@@ -6,6 +6,7 @@ import StatesAndDistricts from "../../utils/data/StatesAndDistricts"
 import { Link } from "react-router-dom"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
+import NavHeader from "../NavHeader"
 
 const AddClientForm = () => {
   const [selectedState, setSelectedState] = useState("")
@@ -22,7 +23,7 @@ const AddClientForm = () => {
 
   return (
     <div className="p-1 md:p-5">
-      <div className="flex items-center align-middle  mb-4">
+      {/* <div className="flex items-center align-middle  mb-4">
         <p className="text-2xl font-bold">
           Add Clients <span className="text-3xl opacity-40"> |</span>{" "}
         </p>
@@ -41,8 +42,17 @@ const AddClientForm = () => {
         </Link>
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base">Add Client</div>
-      </div>
-      <div className="bg-gray-100 p-5 rounded-lg">
+      </div> */}
+
+      <NavHeader
+        current={{ name: "Add Client" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Clients", link: "/clients" },
+        ]}
+      />
+
+      <div className="bg-[#ecf2ff] p-5 rounded-lg">
         <div className="font-semibold mb-4">
           <h2>
             <strong>Add</strong> Client

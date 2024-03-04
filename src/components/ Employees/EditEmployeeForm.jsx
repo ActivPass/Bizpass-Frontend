@@ -5,12 +5,13 @@ import Button from "@mui/material/Button"
 import { Link } from "react-router-dom"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
+import NavHeader from "../NavHeader"
 
 
 const EditEmployeeForm = () => {
   return (
     <div className="p-1 md:p-5">
-      <div className="flex items-center align-middle  mb-4">
+      {/* <div className="flex items-center align-middle  mb-4">
           <p className="text-2xl font-bold">
           Edit Employee <span className="text-3xl opacity-40"> |</span>{" "}
           </p>
@@ -29,8 +30,16 @@ const EditEmployeeForm = () => {
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
           <div className=" text-xs sm:text-base">Edit Employee</div>
-        </div>
-      <div className="p-6 bg-gray-100 rounded-lg shadow-lg">
+        </div> */}
+        <NavHeader
+        current={{ name: "Edit Employee" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Employees", link: "/employees" },
+        ]}
+      />
+
+      <div className="p-6 bg-[#ecf2ff] rounded-lg shadow-lg">
         <h2 className="font-semibold mb-4">
           {" "}
           <strong>Edit</strong> Employee

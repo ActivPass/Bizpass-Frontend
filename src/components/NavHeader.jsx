@@ -1,7 +1,7 @@
-import React from "react"
-import navheader from "../assets/images/navheader.png"
-import { Typography } from "@mui/material"
-import { BsDot } from "react-icons/bs" // Make sure to import the BsDot component
+import React from "react";
+import { Link } from "react-router-dom";
+import navheader from "../assets/images/navheader.png";
+import { BsDot } from "react-icons/bs";
 
 function NavHeader({ current, previous }) {
   return (
@@ -11,9 +11,9 @@ function NavHeader({ current, previous }) {
         <div className="flex items-center gap-2 pt-4">
           {previous.map((item, index) => (
             <React.Fragment key={index}>
-              <a href={item.link} className="text-sm">
+              <Link to={item.link} className="text-sm">
                 {item.name}
-              </a>
+              </Link>
               {index < previous.length - 1 && <BsDot />}
             </React.Fragment>
           ))}
@@ -30,7 +30,7 @@ function NavHeader({ current, previous }) {
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default NavHeader
+export default NavHeader;
