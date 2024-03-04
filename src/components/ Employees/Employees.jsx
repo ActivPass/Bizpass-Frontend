@@ -11,6 +11,7 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
+import RowNavigation from "./RowNavigation"
 
 const Employees = () => {
   const [page, setPage] = useState(0)
@@ -139,6 +140,7 @@ const Employees = () => {
         <GoChevronRight className="sm:text-xl opacity-40 " />
         <div className=" text-xs sm:text-base">Employees</div>
       </div> */}
+      <RowNavigation/>
       <NavHeader
         current={{ name: "Employees Zone" }}
         previous={[
