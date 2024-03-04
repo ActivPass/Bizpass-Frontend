@@ -6,7 +6,6 @@ const UpgradePlan = () => {
         {
           plan: "FREE",
           price: "$0/month",
-          color:"bg-[#B76FF0]",
           features: [
             {
               name: "Single User",
@@ -45,7 +44,6 @@ const UpgradePlan = () => {
         {
           plan: "PLUS",
           price: "$9/month",
-          color:"bg-[#F6CC5E]",
           features: [
             {
               name: "5 Users",
@@ -84,7 +82,6 @@ const UpgradePlan = () => {
         {
           plan: "PRO",
           price: "$49/month",
-          color:"bg-[#C4E454]",
           features: [
             {
               name: "Unlimited Users",

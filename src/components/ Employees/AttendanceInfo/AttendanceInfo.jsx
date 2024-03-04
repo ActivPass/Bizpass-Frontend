@@ -3,6 +3,7 @@ import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GoChevronRight } from "react-icons/go";
 import { FaHome } from "react-icons/fa";
+import NavHeader from "../../NavHeader";
 
 const AttendanceInfo = () => {
     const [attendanceData] = useState([
@@ -18,8 +19,8 @@ const AttendanceInfo = () => {
     };
   
     return (
-      <div className="p-1 md:p-5">
-        <div className="flex items-center align-middle mb-4">
+      <div className="p-1 md:p-5 w-[80%]">
+        {/* <div className="flex items-center align-middle mb-4">
           <p className="text-2xl font-bold">
             Attendance Info<span className="text-3xl opacity-40"> |</span>{" "}
           </p>
@@ -34,8 +35,15 @@ const AttendanceInfo = () => {
           </Link>
           <GoChevronRight className="sm:text-xl opacity-40 " />
           <div className=" text-xs sm:text-base">Attendance Info</div>
-        </div>
-        <div className="w-[80%] overflow-x-scroll">
+        </div> */}
+        <NavHeader
+        current={{ name: "Attendance Info" }}
+        previous={[
+          { name: "Home", link: "/" },
+          { name: "Employees", link: "/employees" },
+        ]}
+      />
+        <div className="overflow-x-scroll">
           <table className="">
             <thead>
               <tr>

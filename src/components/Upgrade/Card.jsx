@@ -3,7 +3,7 @@ import { Check, Clear } from '@mui/icons-material';
 
 function Card(props) {
     return (
-        <div className={`border border-gray-100 rounded-xl h-[100vh] w-full  ${props.data.color}`}>
+        <div className={`border border-gray-200 rounded-xl h-[100vh] w-full  ${props.data.color}`}>
             <div className="p-5">
                 <div className="">
                     <h5 className="opacity-50 text-uppercase text-center mb-3">{props.data.plan}</h5>
@@ -20,7 +20,7 @@ function Card(props) {
                         ))}
                     </ul>
                     <div className="flex justify-center mt-4">
-                        <button href="#" className="bg-blue-700 p-5 text-white rounded-3xl font-bold uppercase inline-flex ">Choose Plan</button>
+                        <button href="#" className="bg-blue-700 p-3 text-white rounded-3xl font-bold uppercase inline-flex ">Choose Plan</button>
                     </div>
                 </div>
             </div>

@@ -51,7 +51,7 @@ const ClientTable = () => {
   const res_data = data.map(item => ({
     ...item,
     name: (
-      <Link className="underline text-blue-500" to={"/clientcard"} rel="noopener noreferrer">
+      <Link className="underline text-blue-500" to={"/client-profile"} rel="noopener noreferrer">
         {item.name}
       </Link>
     ),
@@ -140,7 +140,7 @@ const ClientTable = () => {
         <div className=" text-xs sm:text-base ">All Clients</div>
       </div> */}
       <NavHeader
-        current={{ name: "Clients app" }}
+        current={{ name: "Clients Zone" }}
         previous={[
           { name: "Home", link: "/" },
           { name: "Clients", link: "/clients" },
@@ -159,7 +159,7 @@ const ClientTable = () => {
         <div className="flex space-x-4">
           <Link
             to="/addclient"
-            className="text-black hover:bg-black hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle items-center rounded"
+            className="bg-[#5D87FF] text-white hover:bg-[#4777fa] hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle items-center rounded"
           >
             <HiMiniPlusSmall className="text-3xl" /> Add Client
           </Link>
