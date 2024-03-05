@@ -12,6 +12,7 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
+import RowNavigation from "./RowNavigation"
 
 const Dashboard = () => {
   const [showWelcomePopup, setShowWelcomePopup] = useState(false)
@@ -68,6 +69,7 @@ const Dashboard = () => {
 
   return (
     <>
+      <RowNavigation />
       <section className="p-1 sm:p-5">
         {/* Welcome Popup */}
         <WelcomeGreeting showWelcomePopup={showWelcomePopup} closeWelcomePopup={closeWelcomePopup} />
@@ -91,7 +93,7 @@ const Dashboard = () => {
                   <div className="w-[50%]">
                     <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Yearly Breakup</Typography>
                     <Typography>$ 36,358</Typography>
-                    <div className="flex gap-5 items-center py-2">
+                    <div className="flex gap-3 items-center py-2">
                       <FaArrowTrendUp color="green" />
                       <Typography>+9% last year</Typography>
                     </div>
@@ -105,7 +107,7 @@ const Dashboard = () => {
                   <div className="w-[50%]">
                     <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Monthly Earnings</Typography>
                     <Typography>$ 6,820</Typography>
-                    <div className="flex gap-5 items-center py-2">
+                    <div className="flex gap-3 items-center py-2">
                       <FaArrowTrendDown color="red" />
                       <Typography>+9% last year</Typography>
                     </div>

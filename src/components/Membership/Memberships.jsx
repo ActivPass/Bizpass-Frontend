@@ -12,6 +12,7 @@ import InvoiceTemplates from "./InvoiceTemplates"
 import BankSettings from "./BankSettings"
 import TaxRates from "./TaxRates"
 import PaymentMethods from "./PaymentMethods"
+import RowNavigation from "./RowNavigation"
 
 const Memberships = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState("") // Default selected menu item
@@ -57,6 +58,7 @@ const Memberships = () => {
 
   return (
     <div className="p-1 sm:p-5 bg-[#F7F8F9] min-h-screen">
+      <RowNavigation />
       <NavHeader
         current={{ name: "Membership app" }}
         previous={[

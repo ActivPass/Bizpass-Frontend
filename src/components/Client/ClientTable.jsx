@@ -11,6 +11,7 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
+import RowNavigation from "./RowNavigation"
 
 const ClientTable = () => {
   const [page, setPage] = useState(0)
@@ -123,6 +124,7 @@ const ClientTable = () => {
 
   return (
     <div className="p-1 sm:p-5">
+      <RowNavigation />
       {/* <div className="flex items-center align-middle mb-5">
         <p className="text-2xl font-bold">
           All Clients <span className="text-3xl opacity-40"> |</span>{" "}

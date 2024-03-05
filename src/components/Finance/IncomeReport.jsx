@@ -14,6 +14,7 @@ import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
 import Bookmark from "../../assets/images/bookmark.svg"
+import RowNavigation from "./RowNavigation"
 const FinancialReport = () => {
   const error = false
   const isLoading = false
@@ -194,6 +195,7 @@ const FinancialReport = () => {
 
   return (
     <>
+      <RowNavigation />
       <div className="px-1 sm:p-5 overflow-x-hidden">
         {/* old sub navigation */}
         {/* <div className="flex items-center mb-4">

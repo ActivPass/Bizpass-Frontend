@@ -69,12 +69,14 @@ const Layout = () => {
   return (
     <div className="flex h-screen dark:bg-gray-600 dark:text-white  overflow-x-hidden ">
       {/* <div className="">{isMobile ? <MobileSideBar open={open} setOpen={setOpen} /> : <SideBar />}</div> */}
-      <div className="z-0 flex-grow ">
+      <div className="z-0 flex-grow">
         <nav className="fixed top-0 z-50">
           <NavBar user={data.partner} setOpen={setOpen} />
         </nav>
-        <div className="md:h-[90vh] h-[100%] mt-20 mx-0  xl:mx-[10%] scrollbar-hide">
-          {<Outlet />} {<MobileQRscanner />}
+        <div className="md:h-[90vh] h-[100%] flex flex-col items-center mt-20 mx-0  xl:mx-[10%] scrollbar-hide">
+          <div className="w-3/4">
+            {<Outlet />} {<MobileQRscanner />}
+          </div>
         </div>
       </div>
     </div>
