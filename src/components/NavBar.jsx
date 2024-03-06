@@ -85,7 +85,7 @@ const NavBar = ({ user, setOpen }) => {
   )
 
   return (
-    <nav className="flex p-4 px-[12%] justify-between w-screen dark:bg-gray-800 dark:text-white bg-white shadow-md">
+    <nav className="flex p-4 lg:px-[3%] xl:px-[12%] 2xl:px-[30%] justify-between w-screen dark:bg-gray-800 dark:text-white bg-white shadow-md">
       {isMobile ? (
         <div>
           <div>

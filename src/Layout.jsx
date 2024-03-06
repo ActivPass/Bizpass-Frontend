@@ -73,8 +73,8 @@ const Layout = () => {
         <nav className="fixed top-0 z-50">
           <NavBar user={data.partner} setOpen={setOpen} />
         </nav>
-        <div className="md:h-[90vh] h-[100%] flex flex-col items-center mt-20 mx-0  xl:mx-[10%] scrollbar-hide">
-          <div className="w-3/4">
+        <div className="md:h-[90vh] h-[100%] flex flex-col items-center mt-20 mx-0 scrollbar-hide">
+          <div className="w-[65rem]">
             {<Outlet />} {<MobileQRscanner />}
           </div>
         </div>
