@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 import NavHeader from "../NavHeader"
+import ClientForm from "./ClientForm"
 
 const AddClientForm = () => {
   const [selectedState, setSelectedState] = useState("")
@@ -52,7 +53,7 @@ const AddClientForm = () => {
         ]}
       />
 
-      <div className="bg-[#ecf2ff] p-5 rounded-lg">
+      {/* <div className="bg-[#ecf2ff] p-5 rounded-lg">
         <div className="font-semibold mb-4">
           <h2>
             <strong>Add</strong> Client
@@ -179,7 +180,8 @@ const AddClientForm = () => {
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <ClientForm/>
     </div>
   )
 }
