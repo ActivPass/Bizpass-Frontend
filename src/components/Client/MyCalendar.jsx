@@ -6,18 +6,18 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar"
 
 function MyCalendar() {
   const [selectedDate, setSelectedDate] = useState(dayjs())
-  const [employeeData, setEmployeeData] = useState({
+  const [clientData, setClientData] = useState({
     id: 1,
     name: "Sakthivel",
     leaveDates: [1, 2, 4, 3],
   })
 
-  const calculateDays = month => {
+  const calculateDays = (month, client) => {
     const totalDays = dayjs(month).daysInMonth()
     let presentDays = totalDays
     let leaveDays = 0
 
-    employeeData.leaveDates.forEach(date => {
+    client.leaveDates.forEach(date => {
       if (dayjs(month).date(date).isSame(month, "month")) {
         presentDays--
         leaveDays++
@@ -27,10 +27,9 @@ function MyCalendar() {
     return { presentDays, leaveDays }
   }
 
-  const getCellColor = day => {
-    const { leaveDates } = employeeData
+  const getCellColor = (day, client) => {
     const dayOfMonth = dayjs(day).date()
-    if (leaveDates.includes(dayOfMonth)) {
+    if (client.leaveDates.includes(dayOfMonth)) {
       return "red"
     } else {
       return "green"
@@ -50,8 +49,9 @@ function MyCalendar() {
                 }}
                 components={{
                   day: ({ day, ...dayComponentProps }) => {
+                    const color = getCellColor(day, clientData);
                     const style = {
-                      backgroundColor: getCellColor(day),
+                      backgroundColor: color,
                     }
                     return (
                       <div {...dayComponentProps} style={style}>
@@ -64,10 +64,10 @@ function MyCalendar() {
             </LocalizationProvider>
           </div>
           {/* <div className="text-center p-2">
-            <div className="bg-white p-2">
-                <p>Name: {employeeData.name}</p>
-                <p>Present Days: {calculateDays(selectedDate).presentDays}</p>
-                <p>Leave Days: {calculateDays(selectedDate).leaveDays}</p>
+            <div key={clientData.id} className="bg-white p-2">
+              <p>Name: {clientData.name}</p>
+              <p>Present Days: {calculateDays(selectedDate, clientData).presentDays}</p>
+              <p>Leave Days: {calculateDays(selectedDate, clientData).leaveDays}</p>
             </div>
           </div> */}
         </div>

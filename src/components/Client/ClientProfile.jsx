@@ -1,14 +1,23 @@
-import React, { useState } from "react"
-import { FiEdit } from "react-icons/fi"
-import { Link } from "react-router-dom"
-import NavHeader from "../NavHeader"
+import React, { useState } from "react";
+import { FiEdit } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import NavHeader from "../NavHeader";
+import MyCalendar from "../Client/MyCalendar";
 
 const ClientProfile = () => {
-  const [activeTab, setActiveTab] = useState("profile")
+  const [activeTab, setActiveTab] = useState("profile");
 
-  const handleTabChange = tab => {
-    setActiveTab(tab)
-  }
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const handleEmailClick = (email) => {
+    window.location.href = `mailto:${email}`;
+  };
+
+  const handleWhatsAppClick = (phoneNumber) => {
+    window.location.href = `https://wa.me/${phoneNumber}?text=Hello! Welcome to BizPass.`;
+  };
 
   return (
     <div className="container mx-auto pt-5 pb-5">
@@ -27,7 +36,7 @@ const ClientProfile = () => {
                 <img
                   alt=""
                   className="rounded-full"
-                  src="https://smarthr.dreamstechnologies.com/codeigniter/template/orange/public//assets/img/profiles/avatar-02.jpg"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsS1-3_Ivzo_62VnIjQPOr_50iztWmlxsZdg&usqp=CAU"
                 />
               </a>
             </div>
@@ -35,8 +44,10 @@ const ClientProfile = () => {
               <h3 className="">John Doe</h3>
               <h6 className="opacity-50">UI/UX Design Team</h6>
               <small className="opacity-50 block">Web Designer</small>
-              <div className="text-xs opacity-50">Employee ID : FT-0001</div>
-              <div className="text-xs opacity-50">Date of Join : 1st Jan 2013</div>
+              <div className="text-xs opacity-50">Client ID : FT-0001</div>
+              <div className="text-xs opacity-50">
+                Date of Join : 1st Jan 2024
+              </div>
             </div>
           </div>
           <Link to="/editclient">
@@ -46,24 +57,30 @@ const ClientProfile = () => {
           </Link>
           <div className="">
             <ul className="personal-info">
-              <li className="flex mb-2">
-                <div className="w-1/6">Phone:</div>
-                <div className="opacity-50">9876543210</div>
+              <li className="flex mb-2 cursor-pointer">
+                <div className="w-1/4">Phone:</div>
+                <div className=" text-blue-700" onClick={() => handleWhatsAppClick("919500319275")}>
+                9500319275
+                </div>
+              </li>
+              <li className="flex mb-2 cursor-pointer">
+                <div className="w-1/4">Email:</div>
+                <div className="text-blue-700" onClick={() => handleEmailClick("johndoe@example.com")}>
+                  johndoe@example.com
+                </div>
               </li>
               <li className="flex mb-2">
-                <div className="w-1/6">Email:</div>
-                <div className="opacity-50">johndoe@example.com</div>
-              </li>
-              <li className="flex mb-2">
-                <div className="w-1/6">Birthday:</div>
+                <div className="w-1/4">Birthday:</div>
                 <div className="opacity-50">24th July</div>
               </li>
               <li className="flex mb-2">
-                <div className="w-1/6">Address:</div>
-                <div className="opacity-50">1861 Bayonne Ave, Manchester Township, NJ, 08759</div>
+                <div className="w-1/4">Address:</div>
+                <div className="opacity-50">
+                  1861 Bayonne Ave, Manchester Township, NJ, 08759
+                </div>
               </li>
               <li className="flex mb-2">
-                <div className="w-1/6">Gender:</div>
+                <div className="w-1/4">Gender:</div>
                 <div className="opacity-50">Male</div>
               </li>
             </ul>
@@ -104,45 +121,71 @@ const ClientProfile = () => {
       </div>
       <div className="p-4 border rounded-md">
         {activeTab === "profile" && (
-          <div className="relative h-[60vh]">
-            <h2 className="text-xl font-bold">Personal Information</h2>
-            <div className="mt-2">
-              <ul className="personal-info">
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Email:</span>
-                  <span>johndoe@example.com</span>
-                </li>
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Joining Date:</span>
-                  <span>01/01/2023</span>
-                </li>
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Designation:</span>
-                  <span>Software Engineer</span>
-                </li>
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Gender:</span>
-                  <span>Male</span>
-                </li>
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Phone:</span>
-                  <span>+1234567890</span>
-                </li>
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Birth Date:</span>
-                  <span>01/01/1990</span>
-                </li>
-                <li className="flex mb-2">
-                  <span className="font-bold w-1/6">Address:</span>
-                  <span>123 Main St, City, Country</span>
-                </li>
-              </ul>
-            </div>
-            <Link to="/editclient">
-              <div className="absolute top-0 right-0">
-                <FiEdit className="text-lg cursor-pointer" />
+          <div className="relative grid grid-cols-2 gap-x-8 h-[60vh]">
+            <div className="border p-3 rounded-lg">
+              <h2 className="text-xl font-bold">Personal Information</h2>
+              <div className="mt-2">
+                <ul className="personal-info">
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Email:</span>
+                    <span>johndoe@example.com</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Joining Date:</span>
+                    <span>01/01/2023</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Designation:</span>
+                    <span>Software Engineer</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Gender:</span>
+                    <span>Male</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Phone:</span>
+                    <span>+1234567890</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Birth Date:</span>
+                    <span>01/01/1990</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Address:</span>
+                    <span>123 Main St, City, Country</span>
+                  </li>
+                </ul>
               </div>
-            </Link>
+            </div>
+            <div className="border p-3 rounded-lg">
+              <h2 className="text-xl font-bold">
+                Emergency Contact Information
+              </h2>
+              <div className="mt-2">
+                <ul className="emergency-contact-info">
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Name:</span>
+                    <span>Jane Doe</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Relationship:</span>
+                    <span>Spouse</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Phone:</span>
+                    <span>+1234567890</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Email:</span>
+                    <span>janedoe@example.com</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Address:</span>
+                    <span>123 Main St, Anytown, USA</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         )}
         {activeTab === "bank" && (
@@ -168,17 +211,19 @@ const ClientProfile = () => {
                 </li>
               </ul>
             </div>
-            {/* <Link to="/editemployee">
-            <div className="absolute top-0 right-0">
-              <FiEdit className="text-lg cursor-pointer" />
-            </div>
-          </Link> */}
           </div>
         )}
-        {activeTab === "attendance" && <div className="h-[60vh]">Entry List(Attendance)</div>}
+        {activeTab === "attendance" && (
+          <div className="h-[70vh]">
+            <p className="">Entry List(Attendance)</p>
+            <div className="">
+              <MyCalendar />
+            </div>
+          </div>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ClientProfile
+export default ClientProfile;
