@@ -15,6 +15,9 @@ import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
 import Bookmark from "../../assets/images/bookmark.svg"
 import RowNavigation from "./RowNavigation"
+import { Button } from "@mui/material"
+import { HiMiniPlusSmall } from "react-icons/hi2"
+
 const FinancialReport = () => {
   const error = false
   const isLoading = false
@@ -163,9 +166,40 @@ const FinancialReport = () => {
         </Link>
       ),
       action: (
-        <Link href="#" target="" className=" bg-blue-500   text-white px-2 py-1 rounded" rel="noopener noreferrer">
-          Pay Now
-        </Link>
+        <div>
+          {item.status === "Paid" && (
+            <Button
+              sx={{
+                backgroundColor: "#7539FF",
+                color: "white",
+                ":hover": { backgroundColor: "white", color: "#7539FF" },
+                border: "solid",
+                borderColor: "#7539FF",
+                textTransform: "none",
+                width: "80%",
+              }}
+              href={"/paymentDetail/" + item.status}
+            >
+              View
+            </Button>
+          )}
+          {(item.status === "Unpaid" || item.status === "Pending") && (
+            <Button
+              sx={{
+                backgroundColor: "#7539FF",
+                color: "white",
+                ":hover": { backgroundColor: "white", color: "#7539FF" },
+                border: "solid",
+                borderColor: "#7539FF",
+                textTransform: "none",
+                width: "80%",
+              }}
+              href={"/paymentDetail/" + item.status}
+            >
+              Pay Now
+            </Button>
+          )}
+        </div>
       ),
     }
   })

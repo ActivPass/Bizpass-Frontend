@@ -26,6 +26,7 @@ const FinancialReport = () => {
   const data = [
     {
       ExpenseId: "E0001",
+      expenseDate: "2021-10-10",
       Reference: "#25689830",
       ClientName: "Aakash",
       totalPayables: "12000",
@@ -36,24 +37,27 @@ const FinancialReport = () => {
     {
       ExpenseId: "E0002",
       Reference: "#25689830",
+      expenseDate: "2021-01-09",
       ClientName: "Krishna",
       totalPayables: "6000",
       status: "Pending",
-      paymentMode: "Cheque",
+      paymentMode: "Google Pay",
       notes: "Excepteur occaecat cupidatat non",
     },
     {
       ExpenseId: "E0003",
       Reference: "#25689830",
+      expenseDate: "2021-09-01",
       ClientName: "Devan",
       totalPayables: "9000",
       status: "Unpaid",
-      paymentMode: "Cheque",
+      paymentMode: "Card",
       notes: "Excepteur occaecat cupidatat non",
     },
     {
       ExpenseId: "E0004",
       Reference: "#25689830",
+      expenseDate: "2021-10-10",
       ClientName: "Stephen",
       totalPayables: "3000",
       status: "Paid",
@@ -172,14 +176,153 @@ const FinancialReport = () => {
         </Link>
       ),
       action: (
-        <Link
-          href="#"
-          target=""
-          className="flex gap-2 items-center bg-blue-500 text-white px-2 py-1 rounded"
-          rel="noopener noreferrer"
+        <Popup
+          trigger={
+            <Button
+              sx={{
+                backgroundColor: "#7539FF",
+                color: "white",
+                ":hover": { backgroundColor: "white", color: "#7539FF" },
+                border: "solid",
+                borderColor: "#7539FF",
+                textTransform: "none",
+              }}
+            >
+              <HiMiniPlusSmall className="text-2xl" /> Edit
+            </Button>
+          }
+          modal
+          nested
+          rounded
+          {...{ contentStyle: { borderRadius: "20px", padding: "20px" } }}
         >
-          <HiPencil /> Edit
-        </Link>
+          {close => (
+            <div>
+              <div className="">
+                <Typography variant="h5">Edit Expense</Typography>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                <div className="mb-4">
+                  <label htmlFor="expenseId" className="block text-sm font-medium text-gray-700">
+                    Expense ID
+                  </label>
+                  <input
+                    type="text"
+                    id="expenseId"
+                    name="expenseId"
+                    value={item.ExpenseId}
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Enter Expense ID"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="reference" className="block text-sm font-medium text-gray-700">
+                    Reference
+                  </label>
+                  <input
+                    type="text"
+                    id="reference"
+                    name="reference"
+                    value={item.Reference}
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Enter Reference"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="amount" className="block text-sm font-medium text-gray-700">
+                    Amount
+                  </label>
+                  <input
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    value={item.totalPayables}
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Enter Amount"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="paymentMode" className="block text-sm font-medium text-gray-700">
+                    Payment Mode
+                  </label>
+                  <input
+                    type="text"
+                    id="paymentMode"
+                    name="paymentMode"
+                    value={item.paymentMode}
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Enter Payment Mode"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="expenseDate" className="block text-sm font-medium text-gray-700">
+                    Expense Date
+                  </label>
+                  <input
+                    type="text"
+                    id="expenseDate"
+                    name="expenseDate"
+                    value={item.expenseDate}
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Enter Expense Date"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="paymentStatus" className="block text-sm font-medium text-gray-700">
+                    Payment Status
+                  </label>
+                  <input
+                    type="text"
+                    id="paymentStatus"
+                    name="paymentStatus"
+                    value={item.status}
+                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="Enter Payment Status"
+                  />
+                </div>
+              </div>
+              <div className="mb-4">
+                <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+                  Description
+                </label>
+                <TextareaAutosize
+                  minRows={5}
+                  id="description"
+                  value={item.notes}
+                  style={{
+                    width: "100%",
+                    border: "1px solid #cccccc",
+                    marginTop: "5px",
+                    paddingTop: "10px",
+                    paddingLeft: "10px",
+                  }}
+                  placeholder="Enter Description Here"
+                />
+              </div>
+              <div className="mb-4 col-span-2">
+                <ImageUpload name={"Attachment"} maxSize={50} />
+              </div>
+              <div className="flex justify-end gap-4">
+                <Button sx={{ backgroundColor: "#EADDFF", color: "black", textTransform: "none" }} onClick={close}>
+                  Cancel
+                </Button>
+                <Button
+                  sx={{
+                    backgroundColor: "#7539FF",
+                    color: "white",
+                    ":hover": { backgroundColor: "white", color: "#7539FF" },
+                    border: "solid",
+                    borderColor: "#7539FF",
+                    textTransform: "none",
+                  }}
+                  onClick={close}
+                >
+                  Save Changes
+                </Button>
+              </div>
+            </div>
+          )}
+        </Popup>
       ),
     }
   })

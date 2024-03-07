@@ -42,6 +42,7 @@ import {
   ShiftList,
   UpgradePlan,
 } from "./components"
+import PaymentDetail from "./components/Finance/PaymentDetail"
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -54,6 +55,7 @@ const route = createBrowserRouter(
         <Route path="/client-profile" element={<ClientProfile />} />
         <Route path="/income" element={<Income />} />
         <Route path="/expense" element={<Expense />} />
+        <Route path="/paymentDetail/:status" element={<PaymentDetail />} />
         <Route path="/marketing" element={<Marketing />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/employees" element={<Employee />} />
