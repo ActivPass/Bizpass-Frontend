@@ -8,6 +8,7 @@ const SideMenu = ({
   onPaymentMethodsClick,
   onBankSettingsClick,
   onTaxRatesClick,
+  onPlanAndBillingClick,
 }) => {
   return (
     <div className="bg-white rounded-lg h-auto w-1/4 p-8">
@@ -41,6 +42,11 @@ const SideMenu = ({
         <li className="mb-2">
           <p className="hover:underline" onClick={onTaxRatesClick}>
             Tax Rates
+          </p>
+        </li>
+        <li className="mb-2">
+          <p className="hover:underline" onClick={onPlanAndBillingClick}>
+            Plan and Billing
           </p>
         </li>
       </ul>
