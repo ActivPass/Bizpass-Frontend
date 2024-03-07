@@ -13,6 +13,7 @@ import BankSettings from "./BankSettings"
 import TaxRates from "./TaxRates"
 import PaymentMethods from "./PaymentMethods"
 import RowNavigation from "./RowNavigation"
+import PlanAndBilling from "./PlanAndBilling"
 
 const Memberships = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState("") // Default selected menu item
@@ -51,6 +52,8 @@ const Memberships = () => {
         return <BankSettings />
       case "taxRates":
         return <TaxRates />
+      case "planAndBilling":
+        return <PlanAndBilling />
       default:
         return <CompanySettings />
     }
@@ -80,6 +83,7 @@ const Memberships = () => {
           onTaxRatesClick={() => {
             setSelectedMenuItem("taxRates")
           }}
+          onPlanAndBillingClick={() => setSelectedMenuItem("planAndBilling")}
         />
         {renderSelectedComponent()}
       </div>
