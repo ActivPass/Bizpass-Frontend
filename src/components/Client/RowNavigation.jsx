@@ -4,7 +4,7 @@ import { FaHome, FaUser } from "react-icons/fa"
 
 const RowNavigation = () => {
   return (
-    <div className="flex justify-left gap-5 text-[14px] p-4 my-1">
+    <div className="flex justify-left gap-5 text-[14px] mb-5">
       <Link to="/" className="flex items-center p-2 rounded-md">
         <FaHome className="h-4 w-4 mr-2" />
         <span className="">Dashboard</span>

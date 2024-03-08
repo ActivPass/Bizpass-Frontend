@@ -48,6 +48,7 @@ const EditClientForm = () => {
         previous={[
           { name: "Home", link: "/" },
           { name: "Clients", link: "/clients" },
+          { name: "Client Profile", link: "/client-profile" },
         ]}
       />
       <div className="bg-[#ecf2ff] p-5 rounded-lg">

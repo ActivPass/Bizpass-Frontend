@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import { FiEdit } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import NavHeader from "../NavHeader";
-import MyCalendar from "../Client/MyCalendar";
+import React, { useState } from "react"
+import { FiEdit } from "react-icons/fi"
+import { Link } from "react-router-dom"
+import NavHeader from "../NavHeader"
+import MyCalendar from "../Client/MyCalendar"
+import { WhatsApp } from "@mui/icons-material"
 
 const ClientProfile = () => {
-  const [activeTab, setActiveTab] = useState("profile");
+  const [activeTab, setActiveTab] = useState("profile")
 
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
+  const handleTabChange = tab => {
+    setActiveTab(tab)
+  }
 
-  const handleEmailClick = (email) => {
-    window.location.href = `mailto:${email}`;
-  };
+  const handleEmailClick = email => {
+    window.location.href = `mailto:${email}`
+  }
 
-  const handleWhatsAppClick = (phoneNumber) => {
-    window.location.href = `https://wa.me/${phoneNumber}?text=Hello! Welcome to BizPass.`;
-  };
+  const handleWhatsAppClick = phoneNumber => {
+    window.location.href = `https://wa.me/${phoneNumber}?text=Hello! Welcome to BizPass.`
+  }
 
   return (
     <div className="container mx-auto pt-5 pb-5">
@@ -45,13 +46,11 @@ const ClientProfile = () => {
               <h6 className="opacity-50">UI/UX Design Team</h6>
               <small className="opacity-50 block">Web Designer</small>
               <div className="text-xs opacity-50">Client ID : FT-0001</div>
-              <div className="text-xs opacity-50">
-                Date of Join : 1st Jan 2024
-              </div>
+              <div className="text-xs opacity-50">Date of Join : 1st Jan 2024</div>
             </div>
           </div>
           <Link to="/editclient">
-            <div className="absolute top-[20%] right-[12%]">
+            <div className="relative top-[-6rem] right-[-32rem]">
               <FiEdit className="text-lg cursor-pointer" />
             </div>
           </Link>
@@ -60,7 +59,7 @@ const ClientProfile = () => {
               <li className="flex mb-2 cursor-pointer">
                 <div className="w-1/4">Phone:</div>
                 <div className=" text-blue-700" onClick={() => handleWhatsAppClick("919500319275")}>
-                9500319275
+                  9500319275
                 </div>
               </li>
               <li className="flex mb-2 cursor-pointer">
@@ -75,9 +74,7 @@ const ClientProfile = () => {
               </li>
               <li className="flex mb-2">
                 <div className="w-1/4">Address:</div>
-                <div className="opacity-50">
-                  1861 Bayonne Ave, Manchester Township, NJ, 08759
-                </div>
+                <div className="opacity-50">1861 Bayonne Ave, Manchester Township, NJ, 08759</div>
               </li>
               <li className="flex mb-2">
                 <div className="w-1/4">Gender:</div>
@@ -155,12 +152,23 @@ const ClientProfile = () => {
                     <span>123 Main St, City, Country</span>
                   </li>
                 </ul>
+                <div className="flex mb-2 cursor-pointer">
+                  <div
+                    className="flex items-center text-green-600 relative top-[0rem] right-[-27rem]"
+                    onClick={() => handleWhatsAppClick("919500319275")}
+                  >
+                    <WhatsApp />
+                  </div>
+                </div>
               </div>
+              <Link to="/editclient">
+                <div className="relative top-[-18rem] right-[-27rem]">
+                  <FiEdit className="text-lg cursor-pointer" />
+                </div>
+              </Link>
             </div>
             <div className="border p-3 rounded-lg">
-              <h2 className="text-xl font-bold">
-                Emergency Contact Information
-              </h2>
+              <h2 className="text-xl font-bold">Emergency Contact Information</h2>
               <div className="mt-2">
                 <ul className="emergency-contact-info">
                   <li className="flex mb-2">
@@ -185,6 +193,11 @@ const ClientProfile = () => {
                   </li>
                 </ul>
               </div>
+              <Link to="/editclient">
+                <div className="absolute top-5 right-5">
+                  <FiEdit className="text-lg cursor-pointer" />
+                </div>
+              </Link>
             </div>
           </div>
         )}
@@ -223,7 +236,7 @@ const ClientProfile = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ClientProfile;
+export default ClientProfile

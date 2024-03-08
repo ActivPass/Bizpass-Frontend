@@ -40,6 +40,8 @@ import EditHoliday from "./ Employees/Holidays/EditHoliday"
 import AttendanceInfo from "./ Employees/AttendanceInfo/AttendanceInfo"
 import AttendanceLog from "./ Employees/AttendanceInfo/AttendanceLog"
 import EmployeeProfile from "./ Employees/EmployeeProfile"
+import CheckInForm from "./Client/CheckInForm"
+
 
 export {
   NavBar,
@@ -84,4 +86,5 @@ export {
   EditHoliday,
   AttendanceInfo,
   AttendanceLog,
+  CheckInForm,
 }

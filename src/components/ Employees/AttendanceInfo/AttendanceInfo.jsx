@@ -19,7 +19,7 @@ const AttendanceInfo = () => {
     };
   
     return (
-      <div className="p-1 md:p-5 w-[80%]">
+      <div className="p-1 md:p-5">
         {/* <div className="flex items-center align-middle mb-4">
           <p className="text-2xl font-bold">
             Attendance Info<span className="text-3xl opacity-40"> |</span>{" "}
