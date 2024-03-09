@@ -40,7 +40,7 @@ const EmployeeProfile = () => {
             </div>
           </div>
           <Link to="/editemployee">
-            <div className="absolute top-[20%] right-[12%]">
+            <div className="relative top-[-5.5rem] right-[-40rem]">
               <FiEdit className="text-lg cursor-pointer" />
             </div>
           </Link>
@@ -72,31 +72,28 @@ const EmployeeProfile = () => {
       </div>
       <div className="flex justify-left mb-4">
         <div
-          className={`mr-6 cursor-pointer ${
-            activeTab === "profile"
-              ? "text-blue-500 border-b-2 border-blue-500"
-              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-          }`}
+          className={`mr-6 cursor-pointer ${activeTab === "profile"
+            ? "text-blue-500 border-b-2 border-blue-500"
+            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+            }`}
           onClick={() => handleTabChange("profile")}
         >
           Profile
         </div>
         <div
-          className={`mr-6 cursor-pointer ${
-            activeTab === "bank"
-              ? "text-blue-500 border-b-2 border-blue-500"
-              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-          }`}
+          className={`mr-6 cursor-pointer ${activeTab === "bank"
+            ? "text-blue-500 border-b-2 border-blue-500"
+            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+            }`}
           onClick={() => handleTabChange("bank")}
         >
           Bank Details
         </div>
         <div
-          className={`cursor-pointer ${
-            activeTab === "permission"
-              ? "text-blue-500 border-b-2 border-blue-500"
-              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-          }`}
+          className={`cursor-pointer ${activeTab === "permission"
+            ? "text-blue-500 border-b-2 border-blue-500"
+            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+            }`}
           onClick={() => handleTabChange("permission")}
         >
           Permission User

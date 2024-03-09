@@ -1,11 +1,10 @@
 import React from "react"
-import TextField from "@mui/material/TextField"
-import MenuItem from "@mui/material/MenuItem"
-import Button from "@mui/material/Button"
 import { Link } from "react-router-dom"
 import { GoChevronRight } from "react-icons/go"
 import { FaHome } from "react-icons/fa"
 import NavHeader from "../NavHeader"
+import { EmployeeForm } from "./EmployeeForm"
+
 
 const AddEmployeeForm = () => {
   return (
@@ -39,89 +38,12 @@ const AddEmployeeForm = () => {
         ]}
       />
 
-      <div className="p-6 bg-[#ecf2ff] rounded-lg shadow-lg">
-        <h2 className="font-semibold mb-4">
-          {" "}
-          <strong>Add</strong> Employee
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <TextField id="firstName" label="First Name" variant="standard" className="w-full" required />
-          </div>
-          <div>
-            <TextField id="lastName" label="Last Name" variant="standard" className="w-full" required />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <div>
-            <TextField id="email" label="Email" variant="standard" className="w-full" required />
-          </div>
-          <div>
-            <TextField id="joiningDate" label="Joining Date" variant="standard" className="w-full" required />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <div>
-            <TextField id="password" label="Password" type="password" variant="standard" className="w-full" required />
-          </div>
-          <div>
-            <TextField
-              id="confirmPassword"
-              label="Confirm Password"
-              type="password"
-              variant="standard"
-              className="w-full"
-              required
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <div>
-            <TextField id="designation" select label="Designation" variant="standard" className="w-full" required>
-              <MenuItem disabled value="">
-                Select designation
-              </MenuItem>
-              <MenuItem value="Coach">Coach</MenuItem>
-              <MenuItem value="Trainer">Trainer</MenuItem>
-              <MenuItem value="Supervisor">Supervisor</MenuItem>
-              <MenuItem value="Manager">Manager</MenuItem>
-              <MenuItem value="Accountant">Accountant</MenuItem>
-              <MenuItem value="Housekeeping">Housekeeping</MenuItem>
-            </TextField>
-          </div>
-          <div>
-            <TextField id="gender" select label="Gender" variant="standard" className="w-full" required>
-              <MenuItem disabled value="">
-                Select gender
-              </MenuItem>
-              <MenuItem value="Male">Male</MenuItem>
-              <MenuItem value="Female">Female</MenuItem>
-              <MenuItem value="Transgender">Transgender</MenuItem>
-            </TextField>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <div>
-            <TextField id="telephone" label="Phone" variant="standard" className="w-full" required />
-          </div>
-          <div>
-            <TextField id="birthDate" label="Birth Date" variant="standard" className="w-full" required />
-          </div>
-        </div>
-        <div className="mt-10">
-          <TextField id="address" label="Address" multiline rows={3} variant="standard" className="w-full" required />
-        </div>
-        <div className="mt-6 text-center">
-          <Button variant="contained" color="primary">
-            Submit
-          </Button>
-          <Button variant="contained" color="error" style={{ marginLeft: "8px" }}>
-            Cancel
-          </Button>
-        </div>
-      </div>
+      <EmployeeForm />
     </div>
   )
 }
+
+
+
 
 export default AddEmployeeForm
