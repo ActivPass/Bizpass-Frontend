@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { Stepper, Step, StepLabel, TextField, MenuItem, Button } from "@mui/material"
+import { WhatsappShareButton } from "react-share"
+import { WhatsApp } from "@mui/icons-material"
 
 function ClientForm() {
   const [activeStep, setActiveStep] = useState(0)
@@ -134,6 +136,11 @@ function ClientForm() {
     }
   }
 
+  const generateShareableLink = () => {
+    const url = window.location.href
+    return url
+  }
+
   return (
     <div className="w-full border rounded-md mx-auto mt-8 p-4">
       <Stepper activeStep={activeStep} className="my-5">
@@ -163,6 +170,11 @@ function ClientForm() {
             </Button>
           </div>
         </div>
+      </div>
+      <div className="relative right-[1rem] top-[-48rem] ml-2" title="Share form link via WhatsApp">
+        <WhatsappShareButton className=" rounded-full" url={`Check out this form: ${generateShareableLink()}`}>
+          <WhatsApp className="absolute right-[0] top-0 mt-2 text-green-500" />
+        </WhatsappShareButton>
       </div>
     </div>
   )

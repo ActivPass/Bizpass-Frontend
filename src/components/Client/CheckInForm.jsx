@@ -67,71 +67,71 @@ const CheckInForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto border p-5 m-5 rounded-md bg-gray-100">
-      <ul className="steps steps-vertical lg:steps-horizontal">
-        <li className={`step ${step >= 1 ? "step-primary" : ""}`}>Name</li>
-        <li className={`step ${step >= 2 ? "step-primary" : ""}`}>General Info</li>
-      </ul>
-      <form onSubmit={handleSubmit} className="mt-4 p-4 rounded-lg">
-        {step === 1 && (
-          <div className="mb-4">
-            <label className="block mb-2">First Name:</label>
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className={`input input-bordered w-full ${errors.firstName && "input-error"}`}
-            />
-            {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
-          </div>
-        )}
-
-        {step === 2 && (
-          <div>
+    <div className="flex justify-center items-center h-screen">
+      <div className="max-w-md  border p-5 m-5 rounded-md bg-gray-100">
+        <ul className="steps steps-vertical lg:steps-horizontal">
+          <li className={`step ${step >= 1 ? "step-primary" : ""}`}>Name</li>
+          <li className={`step ${step >= 2 ? "step-primary" : ""}`}>General Info</li>
+        </ul>
+        <form onSubmit={handleSubmit} className="mt-4 p-4 rounded-lg">
+          {step === 1 && (
             <div className="mb-4">
-              <label className="block mb-2">Date of Birth:</label>
+              <label className="block mb-2">First Name:</label>
               <input
                 type="text"
-                value={dob}
-                onChange={(e) => setDOB(e.target.value)}
-                className={`input input-bordered w-full ${errors.dob && "input-error"}`}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className={`input input-bordered w-full ${errors.firstName && "input-error"}`}
               />
-              {errors.dob && <p className="text-red-500 text-sm">{errors.dob}</p>}
+              {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
             </div>
-            <div className="mb-4">
-              <label className="block mb-2">Mobile Number:</label>
-              <input
-                type="text"
-                value={mobileNumber}
-                onChange={(e) => setMobileNumber(e.target.value)}
-                className={`input input-bordered w-full ${errors.mobileNumber && "input-error"}`}
-              />
-              {errors.mobileNumber && <p className="text-red-500 text-sm">{errors.mobileNumber}</p>}
-            </div>
-          </div>
-        )}
-
-        <div className="flex justify-between">
-          {step > 1 && (
-            <button type="button" onClick={handleBack} className="btn btn-secondary">
-              Back
-            </button>
-          )}
-          {step < 2 && (
-            <button type="button" onClick={handleNext} className="btn btn-primary">
-              Next
-            </button>
           )}
           {step === 2 && (
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
+            <div>
+              <div className="mb-4">
+                <label className="block mb-2">Date of Birth:</label>
+                <input
+                  type="text"
+                  value={dob}
+                  onChange={(e) => setDOB(e.target.value)}
+                  className={`input input-bordered w-full ${errors.dob && "input-error"}`}
+                />
+                {errors.dob && <p className="text-red-500 text-sm">{errors.dob}</p>}
+              </div>
+              <div className="mb-4">
+                <label className="block mb-2">Mobile Number:</label>
+                <input
+                  type="text"
+                  value={mobileNumber}
+                  onChange={(e) => setMobileNumber(e.target.value)}
+                  className={`input input-bordered w-full ${errors.mobileNumber && "input-error"}`}
+                />
+                {errors.mobileNumber && <p className="text-red-500 text-sm">{errors.mobileNumber}</p>}
+              </div>
+            </div>
           )}
-        </div>
-      </form>
-      {formSubmitted && (
-        <p className="m-1 text-green-600">Form submitted successfully!</p>
-      )}
+          <div className="flex justify-between">
+            {step > 1 && (
+              <button type="button" onClick={handleBack} className="btn btn-secondary">
+                Back
+              </button>
+            )}
+            {step < 2 && (
+              <button type="button" onClick={handleNext} className="btn btn-primary">
+                Next
+              </button>
+            )}
+            {step === 2 && (
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            )}
+          </div>
+        </form>
+        {formSubmitted && (
+          <p className="m-1 text-green-600">Form submitted successfully!</p>
+        )}
+      </div>
     </div>
   );
 };

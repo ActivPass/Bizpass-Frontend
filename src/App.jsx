@@ -87,8 +87,8 @@ const route = createBrowserRouter(
         <Route path="/edit-shift" element={<EditShiftForm />} />
         <Route path="/workout-management" element={<WorkOutManagement />} />
         <Route path="/upgrade" element={<UpgradePlan />} />
-        <Route path="/check-in" element={<CheckInForm/>} />
       </Route>
+      <Route path="/check-in" element={<CheckInForm />} />
     </Route>
   )
 )

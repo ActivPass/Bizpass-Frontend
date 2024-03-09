@@ -156,6 +156,7 @@ const ClientProfile = () => {
                   <div
                     className="flex items-center text-green-600 relative top-[0rem] right-[-27rem]"
                     onClick={() => handleWhatsAppClick("919500319275")}
+                    title="Chat via WhatsApp"
                   >
                     <WhatsApp />
                   </div>
