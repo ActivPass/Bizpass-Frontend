@@ -38,7 +38,7 @@ function AppLinks({ closeMenu }) {
           <div onMouseEnter={() => toggleSubMenu(index)} onMouseLeave={() => toggleSubMenu(index)}>
             <Link
               to={menuItem.link}
-              className={`block p-2  rounded-md  hover:bg-[#e6f2ff] hover:text-[#3b5bb1] ${
+              className={`block p-2  rounded-md   ${
                 active === index ? "bg-[#5D87FF] text-white" : "text-black"
               }`}
               onClick={() => {
@@ -58,9 +58,9 @@ function AppLinks({ closeMenu }) {
                 >
                   {menuItem.name}
                 </Typography>
-                {menuItem.submenu && (
+                {/* {menuItem.submenu && (
                   <span className="ml-2">{openSubMenuIndex === index ? <FiChevronUp /> : <FiChevronDown />}</span>
-                )}
+                )} */}
               </div>
             </Link>
             {menuItem.submenu && openSubMenuIndex === index && (

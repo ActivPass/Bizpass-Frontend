@@ -9,7 +9,7 @@ import { FaRegMoneyBillAlt } from "react-icons/fa"
 import { IoMdFitness } from "react-icons/io"
 import { createTheme } from "@mui/material"
 export const MENUS = [
-  { name: "Dashboard", link: "/", icon: MdHomeFilled },
+  // { name: "Dashboard", link: "/", icon: MdHomeFilled },
   {
     name: "Employee Zone",
     link: "/employees",
