@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { FiEdit } from "react-icons/fi"
 import { Link } from "react-router-dom"
 import NavHeader from "../NavHeader"
+import EmployeeAttendance from "./Attendance"
+import Tooltip from '@mui/material/Tooltip';
 
 const EmployeeProfile = () => {
   const [activeTab, setActiveTab] = useState("profile")
@@ -9,6 +11,15 @@ const EmployeeProfile = () => {
   const handleTabChange = tab => {
     setActiveTab(tab)
   }
+
+  const attendanceData = [
+    { date: '2024-03-01', status: 'present' },
+    { date: '2024-03-02', status: 'present' },
+    { date: '2024-03-03', status: 'absent', reason: "Going to Visa Processing" },
+    { date: '2024-03-04', status: 'present' },
+    { date: '2024-03-05', status: 'present' },
+    { date: '2024-03-06', status: 'present' }
+  ]
 
   return (
     <div className="container mx-auto pt-5 pb-5">
@@ -90,13 +101,22 @@ const EmployeeProfile = () => {
           Bank Details
         </div>
         <div
-          className={`cursor-pointer ${activeTab === "permission"
+          className={`mr-6  cursor-pointer ${activeTab === "permission"
             ? "text-blue-500 border-b-2 border-blue-500"
             : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
             }`}
           onClick={() => handleTabChange("permission")}
         >
           Permission User
+        </div>
+        <div
+          className={`cursor-pointer ${activeTab === "attendance"
+            ? "text-blue-500 border-b-2 border-blue-500"
+            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+            }`}
+          onClick={() => handleTabChange("attendance")}
+        >
+          Attendance
         </div>
       </div>
       <div className="p-4 border rounded-md">
@@ -173,6 +193,7 @@ const EmployeeProfile = () => {
           </div>
         )}
         {activeTab === "permission" && <div className="h-[60vh]">Permission User Content</div>}
+        {activeTab === 'attendance' && <EmployeeAttendance attendanceData={attendanceData} />}
       </div>
     </div>
   )
