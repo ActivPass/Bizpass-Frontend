@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { FiEdit } from "react-icons/fi"
 import { Link } from "react-router-dom"
 import NavHeader from "../NavHeader"
-import MyCalendar from "../Client/MyCalendar"
 import { WhatsApp } from "@mui/icons-material"
+import ClientAttendance from "./ClientAttendance"
 
 const ClientProfile = () => {
   const [activeTab, setActiveTab] = useState("profile")
@@ -118,8 +118,8 @@ const ClientProfile = () => {
       </div>
       <div className="p-4 border rounded-md">
         {activeTab === "profile" && (
-          <div className="relative grid grid-cols-2 gap-x-8 h-[60vh]">
-            <div className="border p-3 rounded-lg">
+          <div className="relative grid grid-cols-2 gap-x-8 h-auto">
+            <div className="border p-3 rounded-lg h-auto">
               <h2 className="text-xl font-bold">Personal Information</h2>
               <div className="mt-2">
                 <ul className="personal-info">
@@ -168,7 +168,7 @@ const ClientProfile = () => {
                 </div>
               </Link>
             </div>
-            <div className="border p-3 rounded-lg">
+            <div className="border p-3 rounded-lg h-auto">
               <h2 className="text-xl font-bold">Emergency Contact Information</h2>
               <div className="mt-2">
                 <ul className="emergency-contact-info">
@@ -228,10 +228,10 @@ const ClientProfile = () => {
           </div>
         )}
         {activeTab === "attendance" && (
-          <div className="h-[70vh]">
-            <p className="">Entry List(Attendance)</p>
+          <div className="h-auto">
+            <p className="mb-5">Entry List(Attendance)</p>
             <div className="">
-              <MyCalendar />
+              <ClientAttendance/>
             </div>
           </div>
         )}
