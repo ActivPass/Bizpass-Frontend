@@ -43,8 +43,7 @@ const ClientProfile = () => {
             </div>
             <div className="">
               <h3 className="">John Doe</h3>
-              <h6 className="opacity-50">UI/UX Design Team</h6>
-              <small className="opacity-50 block">Web Designer</small>
+              <h6 className="opacity-50">Web Designer</h6>
               <div className="text-xs opacity-50">Client ID : FT-0001</div>
               <div className="text-xs opacity-50">Date of Join : 1st Jan 2024</div>
             </div>
@@ -118,7 +117,7 @@ const ClientProfile = () => {
       </div>
       <div className="p-4 border rounded-md">
         {activeTab === "profile" && (
-          <div className="relative grid grid-cols-2 gap-x-8 h-auto">
+          <div className="relative grid grid-cols-2 gap-5 h-auto">
             <div className="border p-3 rounded-lg h-auto">
               <h2 className="text-xl font-bold">Personal Information</h2>
               <div className="mt-2">
@@ -196,6 +195,42 @@ const ClientProfile = () => {
               </div>
               <Link to="/editclient">
                 <div className="absolute top-5 right-5">
+                  <FiEdit className="text-lg cursor-pointer" />
+                </div>
+              </Link>
+            </div>
+            <div className="border p-3 rounded-lg h-auto">
+              <h2 className="text-xl font-bold">Health and Fitness Information</h2>
+              <div className="mt-2">
+                <ul className="emergency-contact-info">
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Height:</span>
+                    <span>7.2</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Weight:</span>
+                    <span>70 kg</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Medical Conditions:</span>
+                    <span>Normal</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Allergies:</span>
+                    <span>No</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Injuries:</span>
+                    <span>No</span>
+                  </li>
+                  <li className="flex mb-2">
+                    <span className="font-bold w-1/4">Fitness Level:</span>
+                    <span>Biginner</span>
+                  </li>
+                </ul>
+              </div>
+              <Link to="/editclient">
+                <div className="relative top-[-15rem] right-[-27rem]">
                   <FiEdit className="text-lg cursor-pointer" />
                 </div>
               </Link>
