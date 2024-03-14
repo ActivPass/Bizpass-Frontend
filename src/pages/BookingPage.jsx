@@ -3,7 +3,7 @@ import { BookingTracking } from "../components"
 
 function BookingPage() {
   return (
-    <div className="py-4">
+    <div>
       <BookingTracking />
     </div>
   )
