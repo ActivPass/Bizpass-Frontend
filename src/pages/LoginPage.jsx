@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import ActivPassImage from "../assets/images/ActivPass.png"
 import LoginImage from "../assets/images/loginpage.jpg"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-// import { useLoginComLpany } from "../utils/hooks"
-import { useNavigate } from "react-router-dom"
-import { TextField, Link, Hidden } from "@mui/material"
+import { TextField, Link } from "@mui/material"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import InputAdornment from "@mui/material/InputAdornment"
 import IconButton from "@mui/material/IconButton"
 import Checkbox from "@mui/material/Checkbox"
 import FormControlLabel from "@mui/material/FormControlLabel"
+import { useLoginMutation } from "../api/hook/useLogin"
+import { useNavigate } from "react-router-dom"
 
 const userSchema = z.object({
   email: z.string().min(3, { message: "Please enter a valid activpass username " }),
@@ -30,8 +30,8 @@ const LoginPage = () => {
   })
 
   const navigate = useNavigate()
-  // const loginMutation = useLoginCompany(reset, navigate)
-  // const postFormData = data => loginMutation.mutate(data)
+  const loginMutation = useLoginMutation(navigate, reset)
+  const postFormData = data => loginMutation.mutate(data)
 
   const [showPassword, setShowPassword] = useState(false)
   const [rememberPreference, setRememberPreference] = useState(false)
