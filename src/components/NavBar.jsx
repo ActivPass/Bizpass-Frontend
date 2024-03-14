@@ -81,6 +81,11 @@ const NavBar = ({ user, setOpen }) => {
           Email
         </a>
       </li>
+      <li>
+        <a href="/bookingtracking" className="">
+          Booking
+        </a>
+      </li>
     </ul>
   )
 

@@ -11,6 +11,7 @@ import {
   Employee,
   Payroll,
   WorkOutManagement,
+  BookingPage,
 } from "./pages"
 import Layout from "./Layout"
 import {
@@ -87,6 +88,7 @@ const route = createBrowserRouter(
         <Route path="/edit-shift" element={<EditShiftForm />} />
         <Route path="/workout-management" element={<WorkOutManagement />} />
         <Route path="/upgrade" element={<UpgradePlan />} />
+        <Route path="/bookingtracking" element={<BookingPage />} />
       </Route>
       <Route path="/check-in" element={<CheckInForm />} />
     </Route>
