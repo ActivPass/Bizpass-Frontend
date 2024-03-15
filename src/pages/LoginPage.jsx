@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import ActivPassImage from "../assets/images/ActivPass.png"
-import LoginImage from "../assets/images/loginpage.jpg"
+// import LoginImage from "../assets/images/loginpage.jpg"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -12,6 +12,7 @@ import Checkbox from "@mui/material/Checkbox"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import { useLoginMutation } from "../api/hook/useLogin"
 import { useNavigate } from "react-router-dom"
+import BusinessManIMG from "../assets/images/businessman.png"
 
 const userSchema = z.object({
   email: z.string().min(3, { message: "Please enter a valid activpass username " }),
@@ -68,19 +69,22 @@ const LoginPage = () => {
   }
 
   return (
-    <section className="bg-[#D9ECFA] px-4 sm:h-screen">
-      <div className="flex h-screen items-center justify-center">
+    <section className="sm:h-screen flex flex-row">
+      <img className=" absolute bottom-0 md:left-[15%] 3xl:left-[18%]" src={BusinessManIMG} alt="Business Man" />
+      <div className="bg-[#3C6EFD] h-[100vh] w-[25vw]"></div>
+      <div className="flex items-center justify-center w-[75vw]">
         <div className="flex flex-row w-full justify-center">
           <div className="bg-white">
             <div className="m-6 space-y-4 md:space-y-6">
               <div className="w-full flex justify-center items-center">
-                <img className="mb-6 mr-2 w-[50%]" src={ActivPassImage} alt="logo" />
+                {/* <img className="mb-6 mr-2 w-[50%]" src={ActivPassImage} alt="logo" /> */}
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-center text-gray-900 md:text-2xl">Company Login</h1>
-                <div className="flex justify-center pt-1">
+              <div className="space-y-2 pb-5">
+                <h1 className="text-xl font-bold  text-gray-900 md:text-2xl">Welcome to BizPass</h1>
+                <p className="text-xs opacity-60">Login to dashboard</p>
+                {/* <div className="flex justify-center pt-1">
                   <p className="border-[#418BE6] w-[30%] border-b-2"></p>
-                </div>
+                </div> */}
               </div>
               <form
                 className="space-y-4 md:space-y-6"
@@ -119,7 +123,7 @@ const LoginPage = () => {
                 </div>
                 {errors?.password && <span className="text-red-400">{errors?.password.message}</span>}
 
-                <div className="flex justify-between">
+                <div className="flex items-center justify-between">
                   <div>
                     <FormControlLabel
                       control={
@@ -139,7 +143,7 @@ const LoginPage = () => {
                   disabled={loginMutation?.isLoading}
                   className={` ${
                     loginMutation?.isLoading && "btn-disabled"
-                  } text-white bg-blue-500 p-2 rounded-md w-full`}
+                  } text-white bg-blue-500 hover:bg-blue-600 p-2 rounded-md w-full`}
                 >
                   {loginMutation?.isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Login"}
                 </button>
@@ -151,7 +155,6 @@ const LoginPage = () => {
               </form>
             </div>
           </div>
-          <img className="hidden sm:block  sm:w-[30%]" src={LoginImage} alt="loginImage" />
         </div>
       </div>
     </section>
