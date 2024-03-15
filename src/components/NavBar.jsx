@@ -62,24 +62,9 @@ const NavBar = ({ user, setOpen }) => {
     <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <li className="flex flex-row gap-1 items-center align-middle" onClick={handleToggleAppLinks}>
         <a href="#" className="">
-          Apps{" "}
+          Zones{" "}
         </a>
         <HiChevronDown />
-      </li>
-      <li>
-        <a href="#" className="">
-          Chat
-        </a>
-      </li>
-      <li>
-        <a href="#" className="">
-          Calendar
-        </a>
-      </li>
-      <li>
-        <a href="#" className="">
-          Email
-        </a>
       </li>
       <li>
         <a href="/bookingtracking" className="">
@@ -130,12 +115,12 @@ const NavBar = ({ user, setOpen }) => {
         </div>
       ) : null}
       <div className="flex relative justify-between items-start w-full">
-        <div className="flex justify-around w-[40%]">
-          <div className="flex items-center">
+        <div className="flex justify-around">
+          <div className="flex items-center gap-3">
             <Link to="/">
               <img src={BizzPassImage} className={"h-12"} alt="Logo" />
             </Link>
-            <div>
+            <div className="mr-7">
               <a href="#">
                 <FaSearch />
               </a>
@@ -220,7 +205,7 @@ const NavBar = ({ user, setOpen }) => {
                     My Profile
                   </Link>
                   <Link
-                    to="/settings/accountsettings"
+                    to="/account-setting"
                     className="hover:text-[#5D87FF]"
                     onClick={() => setShowDropDown(false)}
                   >

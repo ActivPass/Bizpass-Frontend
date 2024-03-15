@@ -22,10 +22,10 @@ const Layout = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   // const isVerified = useSelector(state => state.twoFactorAuth.value.isVerified)
   // console.log(isVerified)
-  const token = localStorage.getItem("token")
-  if (!token) {
-    return <Navigate to="/login" />
-  }
+  // const token = localStorage.getItem("token")
+  // if (!token) {
+  //   return <Navigate to="/login" />
+  // }
   //if (!token) return <Navigate to="/login" />
   // if (isVerified === "false") {
   //   // console.log("Is verified ", isVerified)
@@ -48,25 +48,25 @@ const Layout = () => {
     },
   }
 
-  if (isLoading)
-    return (
-      <div className="h-screen w-screen grid place-items-center">
-        <Loading />
-      </div>
-    )
-  if (error) {
-    setTimeout(() => navigate("/login"), 5000)
-    const redirectInterval = setInterval(() => setErrorPageRedirectingCount(errorPageRedirectingCount - 1), 1000)
-    setTimeout(() => {
-      clearInterval(redirectInterval)
-      localStorage.clear()
-    }, 5000)
-    return (
-      <div className="h-screen w-screen grid place-items-center">
-        <Error error={error} redirect={true} seconds={errorPageRedirectingCount} />
-      </div>
-    )
-  }
+  // if (isLoading)
+  //   return (
+  //     <div className="h-screen w-screen grid place-items-center">
+  //       <Loading />
+  //     </div>
+  //   )
+  // if (error) {
+  //   setTimeout(() => navigate("/login"), 5000)
+  //   const redirectInterval = setInterval(() => setErrorPageRedirectingCount(errorPageRedirectingCount - 1), 1000)
+  //   setTimeout(() => {
+  //     clearInterval(redirectInterval)
+  //     localStorage.clear()
+  //   }, 5000)
+  //   return (
+  //     <div className="h-screen w-screen grid place-items-center">
+  //       <Error error={error} redirect={true} seconds={errorPageRedirectingCount} />
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="flex h-screen dark:bg-gray-600 dark:text-white  overflow-x-hidden ">

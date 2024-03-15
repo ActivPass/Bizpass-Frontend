@@ -40,6 +40,7 @@ import {
   OverTimeEditForm,
   OverTimeForm,
   Payslip,
+  Settings,
   ShiftAndSchedule,
   ShiftList,
   UpgradePlan,
@@ -91,6 +92,7 @@ const route = createBrowserRouter(
         <Route path="/upgrade" element={<UpgradePlan />} />
         <Route path="/bookingtracking" element={<BookingPage />} />
         <Route path="/bookingsetting" element={<BookingSetting />} />
+        <Route path="/account-setting" element={<Settings />} />
       </Route>
       <Route path="/check-in" element={<CheckInForm />} />
     </Route>

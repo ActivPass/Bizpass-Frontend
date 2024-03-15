@@ -42,6 +42,7 @@ import AttendanceLog from "./ Employees/AttendanceInfo/AttendanceLog"
 import EmployeeProfile from "./ Employees/EmployeeProfile"
 import CheckInForm from "./Client/CheckInForm"
 import BookingTracking from "./Booking/BookingTracking"
+import Settings from "./Setting/Settings"
 
 export {
   NavBar,
@@ -88,4 +89,5 @@ export {
   AttendanceLog,
   CheckInForm,
   BookingTracking,
+  Settings,
 }
