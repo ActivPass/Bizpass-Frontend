@@ -11,6 +11,7 @@ import {
   Employee,
   Payroll,
   WorkOutManagement,
+  BookingPage,
 } from "./pages"
 import Layout from "./Layout"
 import {
@@ -44,6 +45,7 @@ import {
   UpgradePlan,
 } from "./components"
 import PaymentDetail from "./components/Finance/PaymentDetail"
+import BookingSetting from "./components/Booking/BookingSetting"
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -87,6 +89,8 @@ const route = createBrowserRouter(
         <Route path="/edit-shift" element={<EditShiftForm />} />
         <Route path="/workout-management" element={<WorkOutManagement />} />
         <Route path="/upgrade" element={<UpgradePlan />} />
+        <Route path="/bookingtracking" element={<BookingPage />} />
+        <Route path="/bookingsetting" element={<BookingSetting />} />
       </Route>
       <Route path="/check-in" element={<CheckInForm />} />
     </Route>
