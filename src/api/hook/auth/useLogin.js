@@ -17,7 +17,7 @@ export const useLoginMutation = (navigateFn, resetFormFn) => {
     onSuccess: ({ data }) => {
       localStorage.setItem("token", data.token)
       resetFormFn()
-      navigateFn("/")
+      navigateFn("/", { replace: true })
     },
   })
 }
