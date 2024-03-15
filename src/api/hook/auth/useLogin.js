@@ -1,6 +1,6 @@
-import customAxios from "../customAxios"
+import customAxios from "../../customAxios"
 import { useMutation } from "@tanstack/react-query"
-import { auth } from "../util/url"
+import { auth } from "../../util/url"
 
 export const useLoginMutation = (navigateFn, resetFormFn) => {
   const loginUser = async loginDataObject => {
