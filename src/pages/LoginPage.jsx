@@ -10,10 +10,10 @@ import InputAdornment from "@mui/material/InputAdornment"
 import IconButton from "@mui/material/IconButton"
 import Checkbox from "@mui/material/Checkbox"
 import FormControlLabel from "@mui/material/FormControlLabel"
-import { useLoginMutation } from "../api/hook/useLogin"
 import { useNavigate } from "react-router-dom"
 import BusinessManIMG from "../assets/images/businessman.png"
 import { AuthLayout } from "../components"
+import { useLoginMutation } from "../api/hook"
 
 const userSchema = z.object({
   email: z.string().min(3, { message: "Please enter a valid activpass username " }),
