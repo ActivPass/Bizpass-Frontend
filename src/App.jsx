@@ -12,6 +12,9 @@ import {
   Payroll,
   WorkOutManagement,
   BookingPage,
+  ForgotPassword,
+  OTPVerify,
+  ChangePassword,
 } from "./pages"
 import Layout from "./Layout"
 import {
@@ -51,6 +54,11 @@ const route = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="login" element={<LoginPage />} />
+      <Route path="forgotpassword">
+        <Route path="" element={<ForgotPassword />} />
+        <Route path="verify" element={<OTPVerify />} />
+        <Route path="changepassword" element={<ChangePassword />} />
+      </Route>
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
         <Route path="/clients" element={<Client />} />
