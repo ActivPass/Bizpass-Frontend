@@ -43,6 +43,7 @@ import EmployeeProfile from "./ Employees/EmployeeProfile"
 import CheckInForm from "./Client/CheckInForm"
 import BookingTracking from "./Booking/BookingTracking"
 import Settings from "./Setting/Settings"
+import AuthLayout from "./Layout/AuthLayout"
 
 export {
   NavBar,
@@ -90,4 +91,5 @@ export {
   CheckInForm,
   BookingTracking,
   Settings,
+  AuthLayout
 }

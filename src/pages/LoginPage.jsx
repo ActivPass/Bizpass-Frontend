@@ -13,6 +13,7 @@ import FormControlLabel from "@mui/material/FormControlLabel"
 import { useLoginMutation } from "../api/hook/useLogin"
 import { useNavigate } from "react-router-dom"
 import BusinessManIMG from "../assets/images/businessman.png"
+import { AuthLayout } from "../components"
 
 const userSchema = z.object({
   email: z.string().min(3, { message: "Please enter a valid activpass username " }),
@@ -69,95 +70,74 @@ const LoginPage = () => {
   }
 
   return (
-    <section className="sm:h-screen flex flex-row">
-      <img className=" absolute bottom-0 md:left-[15%] 3xl:left-[18%]" src={BusinessManIMG} alt="Business Man" />
-      <div className="bg-[#3C6EFD] h-[100vh] w-[25vw]"></div>
-      <div className="flex items-center justify-center w-[75vw]">
-        <div className="flex flex-row w-full justify-center">
-          <div className="bg-white">
-            <div className="m-6 space-y-4 md:space-y-6">
-              <div className="w-full flex justify-center items-center">
-                {/* <img className="mb-6 mr-2 w-[50%]" src={ActivPassImage} alt="logo" /> */}
-              </div>
-              <div className="space-y-2 pb-5">
-                <h1 className="text-xl font-bold  text-gray-900 md:text-2xl">Welcome to BizPass</h1>
-                <p className="text-xs opacity-60">Login to dashboard</p>
-                {/* <div className="flex justify-center pt-1">
-                  <p className="border-[#418BE6] w-[30%] border-b-2"></p>
-                </div> */}
-              </div>
-              <form
-                className="space-y-4 md:space-y-6"
-                onSubmit={handleSubmit(data => handleRememberMe(data))}
-                autoComplete="off"
-                aria-autocomplete="list"
-              >
-                <div>
-                  <TextField
-                    id="email"
-                    label={rememberPreference ? "" : "Email"}
-                    variant="outlined"
-                    sx={{ width: "100%", backgroundColor: "#E9E9E9" }}
-                    {...register("email")}
-                  />
-                </div>
-                {errors?.email && <span className="text-red-400">{errors?.email.message}</span>}
-                <div>
-                  <TextField
-                    id="password"
-                    label={rememberPreference ? "" : "Password"}
-                    type={showPassword ? "text" : "password"}
-                    variant="outlined"
-                    sx={{ width: "100%", backgroundColor: "#E9E9E9" }}
-                    {...register("password")}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                            {showPassword ? <Visibility /> : <VisibilityOff />}
-                          </IconButton>
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                </div>
-                {errors?.password && <span className="text-red-400">{errors?.password.message}</span>}
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={rememberPreference}
-                          onChange={() => setRememberPreference(!rememberPreference)}
-                          color="primary"
-                        />
-                      }
-                      label="Remember my preference"
-                    />
-                  </div>
-                  <Link href="/forgotpassword">Forgot password?</Link>
-                </div>
-                <button
-                  type="submit"
-                  disabled={loginMutation?.isLoading}
-                  className={` ${
-                    loginMutation?.isLoading && "btn-disabled"
-                  } text-white bg-blue-500 hover:bg-blue-600 p-2 rounded-md w-full`}
-                >
-                  {loginMutation?.isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Login"}
-                </button>
-                {loginMutation?.error && (
-                  <div className="pt-4 flex justify-center font-semibold text-lg text-red-500">
-                    {loginMutation.error.response?.data?.message || "Email or password is invalid!"}
-                  </div>
-                )}
-              </form>
-            </div>
-          </div>
+    <AuthLayout titleTag={"Login to dashboard"}>
+      <form
+        className="space-y-4 md:space-y-6"
+        onSubmit={handleSubmit(data => handleRememberMe(data))}
+        autoComplete="off"
+        aria-autocomplete="list"
+      >
+        <div className="space-y-2">
+          <label className="font-semibold" htmlFor="email">
+            Email
+          </label>
+          <TextField id="email" hiddenLabel variant="outlined" sx={{ width: "100%" }} {...register("email")} />
         </div>
-      </div>
-    </section>
+        {errors?.email && <span className="text-red-400">{errors?.email.message}</span>}
+        <div className="space-y-2">
+          <label className="font-semibold" htmlFor="email">
+            Password
+          </label>
+          <TextField
+            id="password"
+            type={showPassword ? "text" : "password"}
+            variant="outlined"
+            sx={{ width: "100%" }}
+            {...register("password")}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </div>
+        {errors?.password && <span className="text-red-400">{errors?.password.message}</span>}
+
+        <div className="flex items-center justify-between">
+          <div>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={rememberPreference}
+                  onChange={() => setRememberPreference(!rememberPreference)}
+                  color="primary"
+                />
+              }
+              label="Remember my preference"
+            />
+          </div>
+          <Link href="/forgotpassword">Forgot password?</Link>
+        </div>
+        <button
+          type="submit"
+          disabled={loginMutation?.isLoading}
+          className={` ${
+            loginMutation?.isLoading && "btn-disabled"
+          } text-white min-h-[56px] bg-blue-500 hover:bg-blue-600 p-2 rounded-md w-full`}
+        >
+          {loginMutation?.isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Login"}
+        </button>
+        {loginMutation?.error && (
+          <div className="pt-4 flex justify-center font-semibold text-lg text-red-500">
+            {loginMutation.error.response?.data?.message || "Email or password is invalid!"}
+          </div>
+        )}
+      </form>
+    </AuthLayout>
   )
 }
 
