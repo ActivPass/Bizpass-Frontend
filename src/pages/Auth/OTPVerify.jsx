@@ -1,31 +1,45 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useRef } from "react"
 import { TextField } from "@mui/material"
 import { AuthLayout } from "../../components"
+import { useVerifyOtpMutation } from "../../api/hook"
+import { useNavigate, useLocation } from "react-router-dom"
+import { toast } from "react-toastify"
 
 const OTPVerify = () => {
   const [otp, setOTP] = useState(["", "", "", ""])
+  const navigate = useNavigate()
+  const location = useLocation()
+  const verifyOtpMutation = useVerifyOtpMutation(navigate)
   const inputRefs = useRef([])
   const handleChange = (index, event) => {
     const updatedOTP = [...otp]
     updatedOTP[index] = event.target.value.slice(-1)
     setOTP(updatedOTP)
-
     if (event.target.value !== "" && index < otp.length - 1) {
       inputRefs.current[index + 1].focus()
     }
   }
-
   const handleKeyDown = (index, event) => {
     if (event.key === "Backspace" && index > 0 && otp[index] === "") {
       inputRefs.current[index - 1].focus()
     }
   }
+  const convertArrayOfStringToInt = arrOfStr => parseInt(arrOfStr.join(""))
+  const onSubmit = () => verifyOtpMutation.mutate({ email: location.state.email, otp: convertArrayOfStringToInt(otp) })
+  useEffect(() => {
+    if (verifyOtpMutation.data !== undefined && verifyOtpMutation.data.status !== 200) {
+      toast.error(verifyOtpMutation?.data?.data?.message)
+    }
+  }, [verifyOtpMutation.data])
   return (
     <AuthLayout titleTag={"Verify OTP"}>
       <form
         className="space-y-4 md:space-y-6 w-[380px]"
-        // onSubmit={handleSubmit(data => handleFormSubmit(data))}
+        onSubmit={e => {
+          e.preventDefault()
+          onSubmit()
+        }}
         autoComplete="off"
         aria-autocomplete="lit"
       >

@@ -2,16 +2,16 @@ import customAxios from "../../../customAxios"
 import { useMutation } from "@tanstack/react-query"
 import { auth } from "../../../util/url"
 
-export const useVerifyOtpMutation = () => {
-  const verifyOtp = async (email, otp) => {
+export const useVerifyOtpMutation = navigateFn => {
+  const verifyOtp = async requestBody => {
     try {
       const response = await customAxios.post(`${auth}/verifyOtp`, {
-        email,
-        otp,
+        email: requestBody.email,
+        otp: requestBody.otp,
       })
-      return response.data
+      return response
     } catch (err) {
-      console.error(err)
+      return err.response
     }
   }
   return useMutation({
@@ -19,6 +19,9 @@ export const useVerifyOtpMutation = () => {
     mutationKey: "Verify Otp",
     onSuccess: data => {
       console.log(data)
+      if (data?.status === 200) {
+        navigateFn("/forgotpassword/changepassword", { state: { email: data.data.data.email } })
+      }
     },
   })
 }
