@@ -2,22 +2,24 @@ import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { TextField, Link } from "@mui/material"
-import { useNavigate } from "react-router-dom"
+import { TextField } from "@mui/material"
+import { useNavigate, Link } from "react-router-dom"
 import { useForgotPasswordMutation } from "../../api/hook"
 import { AuthLayout } from "../../components"
 import { data } from "autoprefixer"
 import { toast } from "react-toastify"
 
 const emailSchema = z.object({
-  email: z.string().min(3, { message: "Please enter a valid Bizpass Email" }).email({ message: "Still Invalid Email" }),
+  email: z
+    .string()
+    .min(1, { message: "This field is required ❗❗" })
+    .email({ message: "Please enter valid Bizpass Email 💌" }),
 })
 
 const ForgotPassword = () => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
   } = useForm({ resolver: zodResolver(emailSchema) })
@@ -39,13 +41,13 @@ const ForgotPassword = () => {
         autoComplete="off"
         aria-autocomplete="lit"
       >
-        <div className="space-y-2">
+        <div className="space-y-2 w-full">
           <label className="font-semibold" htmlFor="email">
             Email address
           </label>
           <TextField id="email" hiddenLabel sx={{ width: "100%" }} {...register("email")} />
         </div>
-        {errors?.email && <span className="text-red-400">{errors?.email.message}</span>}
+        <span className="text-red-400">{errors?.email && errors?.email.message}</span>
         <button
           type="submit"
           disabled={forgotPasswordMutation?.isPending}
@@ -64,7 +66,7 @@ const ForgotPassword = () => {
           disabled={forgotPasswordMutation?.isPending}
           className={` hover:text-white text-blue-500 border border-blue-500 min-h-[56px] font-bold hover:bg-blue-600 p-2 rounded-md w-full`}
         >
-          Back to Login
+          <Link to="/login">Back to Login</Link>
         </button>
       </form>
     </AuthLayout>

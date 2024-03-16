@@ -13,7 +13,7 @@ const AuthLayout = ({ titleTag, children }) => {
               <div className="w-full flex justify-center items-center"></div>
               <div className="space-y-2 pb-5">
                 <h1 className="text-xl font-bold  text-gray-900 md:text-2xl">Welcome to BizPass</h1>
-                <p className="text-xs opacity-60">{titleTag}</p>
+                <p className="text-xs opacity-60 font-semibold">{titleTag}</p>
               </div>
               {children}
             </div>
