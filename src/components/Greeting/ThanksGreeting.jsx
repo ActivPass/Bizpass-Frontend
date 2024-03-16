@@ -1,6 +1,11 @@
 import ActivPassImage from "../../assets/images/ActivPass.png"
+import { useNavigate } from "react-router-dom"
 
 const ThanksGreeting = () => {
+  const navigate = useNavigate()
+  setTimeout(() => {
+    navigate("/login")
+  }, 1500)
   return (
     <div>
       <div className="fixed inset-0 bg-blue-200 z-50 flex items-center justify-center">

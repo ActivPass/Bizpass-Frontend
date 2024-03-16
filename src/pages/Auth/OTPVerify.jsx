@@ -3,7 +3,7 @@ import { useRef } from "react"
 import { TextField } from "@mui/material"
 import { AuthLayout } from "../../components"
 import { useVerifyOtpMutation } from "../../api/hook"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation, Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
 const OTPVerify = () => {
@@ -75,7 +75,9 @@ const OTPVerify = () => {
           type="submit"
           className={` hover:text-white text-blue-500 border border-blue-500 min-h-[56px] font-bold hover:bg-blue-600 p-2 rounded-md w-full`}
         >
-          {false ? <span className="loading loading-spinner loading-xs"></span> : "Back to Login"}
+          <Link to="/login">
+            {false ? <span className="loading loading-spinner loading-xs"></span> : "Back to Login"}
+          </Link>
         </button>
       </form>
     </AuthLayout>

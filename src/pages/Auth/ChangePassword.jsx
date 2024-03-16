@@ -13,16 +13,19 @@ const changePasswordSchema = z
   .object({
     password: z
       .string()
-      .min(8, { message: "Password must be at least 8 characters long" })
+      .min(1, { message: "This field is required ❗❗" })
+      .min(8, { message: "Password too Short 🤭" })
       .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/, {
-        message:
-          "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character",
+        message: "Provide Strong Password like you 😉",
       }),
-    confirm_password: z.string().min(8, { message: "Password must be at least 8 characters long" }),
+    confirm_password: z
+      .string()
+      .min(1, { message: "This field is required ❗❗" })
+      .min(8, { message: "Password too Short 🤭" }),
   })
   .refine(data => data.password === data.confirm_password, {
     path: ["confirm_password"],
-    message: "Passwords do not match",
+    message: "Passwords do not match 😞",
   })
 
 const ChangePassword = () => {
@@ -59,7 +62,6 @@ const ChangePassword = () => {
             variant="outlined"
             sx={{ width: "100%" }}
             {...register("password")}
-            helperText={"Password must contains atleast 1 Uppercase, 1 Lowercase, 1 Symbol and 1 Digit"}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -70,6 +72,7 @@ const ChangePassword = () => {
               ),
             }}
           />
+          {errors?.password && <span className="text-red-400">{errors?.password.message}</span>}
         </div>
         <div className="space-y-2">
           <label className="font-semibold" htmlFor="email">

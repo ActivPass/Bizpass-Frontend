@@ -18,6 +18,7 @@ import { FaSearch } from "react-icons/fa"
 import { HiChevronDown } from "react-icons/hi"
 import AppLinks from "./AppLinks"
 import { MobileNav, IconButton } from "@material-tailwind/react"
+import { useLogoutMutation } from "../api/hook"
 
 const NavBar = ({ user, setOpen }) => {
   const [showDropDown, setShowDropDown] = useState(false)
@@ -26,36 +27,21 @@ const NavBar = ({ user, setOpen }) => {
   const [openNav, setOpenNav] = React.useState(false)
   const userProfileModalRef = useRef(null)
   const [showAppLinks, setShowAppLinks] = useState(false)
-
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
-  const navigate = useNavigate()
 
+  const logoutMutation = useLogoutMutation()
   const handleLogout = () => {
+    logoutMutation.mutate()
     setShowGreeting(true)
   }
-
-  if (showGreeting) {
-    setTimeout(() => {
-      navigate("/login")
-      localStorage.removeItem("token")
-    }, 1500)
-    return <ThanksGreeting />
-  }
-
+  if (showGreeting) return <ThanksGreeting />
   // const [isPopupVisible, setPopupVisible] = useState(false)
-
   const handleIconClick = () => {
     setShowModal(true)
   }
-
   const handleToggleAppLinks = () => {
     setShowAppLinks(prev => !prev)
   }
-
-  if (showGreeting) {
-    return <ThanksGreeting />
-  }
-
   const navList = (
     <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <li className="flex flex-row gap-1 items-center align-middle" onClick={handleToggleAppLinks}>
@@ -175,15 +161,15 @@ const NavBar = ({ user, setOpen }) => {
                       <p className="text-xs opacity-50">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="icon icon-tabler icon-tabler-mail"
+                          className="icon icon-tabler icon-tabler-mail"
                           width="15"
                           height="15"
                           viewBox="0 0 24 24"
-                          stroke-width="2"
+                          strokeWidth="2"
                           stroke="currentColor"
                           fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                           <rect x="3" y="5" width="18" height="14" rx="2"></rect>
