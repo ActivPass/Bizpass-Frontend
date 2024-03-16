@@ -35,6 +35,7 @@ import {
   EditLeaveTypes,
   EditShiftForm,
   EmployeeProfile,
+  FAQ,
   Holidays,
   LeaveSettings,
   LeaveTypes,
@@ -101,6 +102,7 @@ const route = createBrowserRouter(
         <Route path="/bookingtracking" element={<BookingPage />} />
         <Route path="/bookingsetting" element={<BookingSetting />} />
         <Route path="/account-setting" element={<Settings />} />
+        <Route path="/faq" element={<FAQ />} />
       </Route>
       <Route path="/check-in" element={<CheckInForm />} />
     </Route>
