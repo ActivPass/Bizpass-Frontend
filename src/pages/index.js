@@ -13,6 +13,9 @@ import Employee from "./Employee"
 import Payroll from "./Payroll"
 import WorkOutManagement from "./WorkOutManagement"
 import BookingPage from "./BookingPage"
+import ForgotPassword from "./Auth/ForgotPassword"
+import OTPVerify from "./Auth/OTPVerify"
+import ChangePassword from "./Auth/ChangePassword"
 
 export {
   LoginPage,
@@ -30,4 +33,7 @@ export {
   Payroll,
   WorkOutManagement,
   BookingPage,
+  ForgotPassword,
+  OTPVerify,
+  ChangePassword
 }
