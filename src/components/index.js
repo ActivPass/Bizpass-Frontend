@@ -44,6 +44,7 @@ import CheckInForm from "./Client/CheckInForm"
 import BookingTracking from "./Booking/BookingTracking"
 import Settings from "./Setting/Settings"
 import AuthLayout from "./Layout/AuthLayout"
+import FAQ from "./FAQ/FAQ"
 
 export {
   NavBar,
@@ -91,5 +92,6 @@ export {
   CheckInForm,
   BookingTracking,
   Settings,
-  AuthLayout
+  AuthLayout,
+  FAQ,
 }
