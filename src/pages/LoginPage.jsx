@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react"
-import ActivPassImage from "../assets/images/ActivPass.png"
-// import LoginImage from "../assets/images/loginpage.jpg"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { TextField, Link } from "@mui/material"
+import { TextField } from "@mui/material"
+import { Link } from "react-router-dom"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import InputAdornment from "@mui/material/InputAdornment"
 import IconButton from "@mui/material/IconButton"
 import Checkbox from "@mui/material/Checkbox"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import { useNavigate } from "react-router-dom"
-import BusinessManIMG from "../assets/images/businessman.png"
 import { AuthLayout } from "../components"
 import { useLoginMutation } from "../api/hook"
 
@@ -21,10 +19,12 @@ const userSchema = z.object({
 })
 
 const LoginPage = () => {
+  const savedUser = localStorage.getItem("savedUser")
+  const [showPassword, setShowPassword] = useState(false)
+  const [rememberPreference, setRememberPreference] = useState(savedUser?.length > 0 ? true : false)
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
   } = useForm({
@@ -34,41 +34,12 @@ const LoginPage = () => {
   const navigate = useNavigate()
   const loginMutation = useLoginMutation(navigate, reset)
   const postFormData = data => loginMutation.mutate(data)
-
-  const [showPassword, setShowPassword] = useState(false)
-  const [rememberPreference, setRememberPreference] = useState(false)
-
-  useEffect(() => {
-    // Load saved credentials if "Remember Me" is checked
-    const savedCredentials = localStorage.getItem("savedCredentials")
-    if (savedCredentials && rememberPreference) {
-      const { email, password } = JSON.parse(savedCredentials)
-      setValue("email", email)
-      setValue("password", password)
-    } else {
-      // Clear the password field when "Remember Me" is unchecked
-      setValue("email", "")
-      setValue("password", "")
-    }
-  }, [rememberPreference, setValue])
-
   const handleRememberMe = data => {
-    // Save credentials if "Remember Me" is checked
-    const credentialsToSave = {
-      email: data.email,
-      password: data.password,
-      remember: rememberPreference,
-    }
-
     if (rememberPreference) {
-      localStorage.setItem("savedCredentials", JSON.stringify(credentialsToSave))
-    } else {
-      localStorage.removeItem("savedCredentials")
+      localStorage.setItem("savedUser", JSON.stringify(data))
     }
-
     postFormData(data)
   }
-
   return (
     <AuthLayout titleTag={"Login to dashboard"}>
       <form
@@ -81,7 +52,14 @@ const LoginPage = () => {
           <label className="font-semibold" htmlFor="email">
             Email
           </label>
-          <TextField id="email" hiddenLabel variant="outlined" sx={{ width: "100%" }} {...register("email")} />
+          <TextField
+            defaultValue={savedUser && JSON.parse(localStorage.getItem("savedUser")).email}
+            id="email"
+            hiddenLabel
+            variant="outlined"
+            sx={{ width: "100%" }}
+            {...register("email")}
+          />
         </div>
         {errors?.email && <span className="text-red-400">{errors?.email.message}</span>}
         <div className="space-y-2">
@@ -90,6 +68,7 @@ const LoginPage = () => {
           </label>
           <TextField
             id="password"
+            defaultValue={savedUser && JSON.parse(localStorage.getItem("savedUser")).password}
             type={showPassword ? "text" : "password"}
             variant="outlined"
             sx={{ width: "100%" }}
@@ -120,7 +99,9 @@ const LoginPage = () => {
               label="Remember my preference"
             />
           </div>
-          <Link href="/forgotpassword">Forgot password?</Link>
+          <Link className="text-blue-500" to="/forgotpassword">
+            Forgot password?
+          </Link>
         </div>
         <button
           type="submit"

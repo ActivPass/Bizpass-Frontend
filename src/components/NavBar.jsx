@@ -37,9 +37,7 @@ const NavBar = ({ user, setOpen }) => {
   if (showGreeting) {
     setTimeout(() => {
       navigate("/login")
-      localStorage.clear()
-      // localStorage.removeItem("userId")
-      // localStorage.removeItem("token")
+      localStorage.removeItem("token")
     }, 1500)
     return <ThanksGreeting />
   }
@@ -204,11 +202,7 @@ const NavBar = ({ user, setOpen }) => {
                     </div>{" "}
                     My Profile
                   </Link>
-                  <Link
-                    to="/account-setting"
-                    className="hover:text-[#5D87FF]"
-                    onClick={() => setShowDropDown(false)}
-                  >
+                  <Link to="/account-setting" className="hover:text-[#5D87FF]" onClick={() => setShowDropDown(false)}>
                     <div className="bg-[#e6f2ff] text-[#5D87FF] rounded-lg">
                       <IoSettings className="m-3 text-xl" />
                     </div>
