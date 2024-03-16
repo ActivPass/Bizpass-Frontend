@@ -25,9 +25,9 @@ customAxios.interceptors.response.use(
     if (status === 401) {
       localStorage.removeItem("token")
     } else if (status === 404) {
-      console.error("Not Found")
+      console.log("Not Found")
     } else {
-      console.error("Unexpected Error Occured")
+      console.log("Unexpected Error Occured")
     }
     return Promise.reject(error)
   }

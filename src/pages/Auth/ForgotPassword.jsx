@@ -4,11 +4,13 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { TextField, Link } from "@mui/material"
 import { useNavigate } from "react-router-dom"
-import { useLoginMutation } from "../../api/hook/useLogin"
+import { useForgotPasswordMutation } from "../../api/hook"
 import { AuthLayout } from "../../components"
+import { data } from "autoprefixer"
+import { toast } from "react-toastify"
 
 const emailSchema = z.object({
-  email: z.string().min(3, { message: "Please enter a valid bizpass username" }),
+  email: z.string().min(3, { message: "Please enter a valid Bizpass Email" }).email({ message: "Still Invalid Email" }),
 })
 
 const ForgotPassword = () => {
@@ -19,16 +21,15 @@ const ForgotPassword = () => {
     formState: { errors },
     reset,
   } = useForm({ resolver: zodResolver(emailSchema) })
-
   const navigate = useNavigate()
-  const loginMutation = useLoginMutation(navigate, reset)
-  const postFormData = data => loginMutation.mutate(data)
 
-  const handleFormSubmit = data => {
-    const credentialsToSave = {
-      email: data.email,
+  const forgotPasswordMutation = useForgotPasswordMutation(navigate, reset)
+  const handleFormSubmit = data => forgotPasswordMutation.mutate(data.email)
+  useEffect(() => {
+    if (forgotPasswordMutation.data !== undefined && data.status !== 200) {
+      toast.error(forgotPasswordMutation?.data?.data?.message || "UnAuthorized")
     }
-  }
+  }, [forgotPasswordMutation.data])
 
   return (
     <AuthLayout titleTag={"Enter your email address"}>
@@ -47,25 +48,24 @@ const ForgotPassword = () => {
         {errors?.email && <span className="text-red-400">{errors?.email.message}</span>}
         <button
           type="submit"
-          disabled={loginMutation?.isLoading}
+          disabled={forgotPasswordMutation?.isPending}
           className={` ${
-            loginMutation?.isLoading && "btn-disabled"
+            forgotPasswordMutation?.isPending && "btn-disabled"
           } text-white bg-blue-500 min-h-[56px] font-bold hover:bg-blue-600 p-2 rounded-md w-full`}
         >
-          {loginMutation?.isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Send OTP"}
+          {forgotPasswordMutation?.isPending ? (
+            <span className="loading loading-spinner loading-xs"></span>
+          ) : (
+            "Send OTP"
+          )}
         </button>
         <button
           type="submit"
-          disabled={loginMutation?.isLoading}
+          disabled={forgotPasswordMutation?.isPending}
           className={` hover:text-white text-blue-500 border border-blue-500 min-h-[56px] font-bold hover:bg-blue-600 p-2 rounded-md w-full`}
         >
-          {loginMutation?.isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Back to Login"}
+          Back to Login
         </button>
-        {loginMutation?.error && (
-          <div className="pt-4 flex justify-center font-semibold text-lg text-red-500">
-            {loginMutation.error.response?.data?.message || "Email or password is invalid!"}
-          </div>
-        )}
       </form>
     </AuthLayout>
   )

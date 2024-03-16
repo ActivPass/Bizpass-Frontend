@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -6,34 +6,46 @@ import { Visibility, VisibilityOff } from "@mui/icons-material"
 import InputAdornment from "@mui/material/InputAdornment"
 import { IconButton, TextField } from "@mui/material"
 import { AuthLayout } from "../../components"
+import { useLocation, useNavigate } from "react-router-dom"
+import { useResetPasswordMutation } from "../../api/hook"
 
-const changepasswordSchema = z.object({
-  password: z.string().min(8, { message: "Password must be at least 8 characters long" }),
-  confirm_password: z.string().min(8, { message: "Password must be at least 8 characters long" }),
-})
+const changePasswordSchema = z
+  .object({
+    password: z
+      .string()
+      .min(8, { message: "Password must be at least 8 characters long" })
+      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/, {
+        message:
+          "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character",
+      }),
+    confirm_password: z.string().min(8, { message: "Password must be at least 8 characters long" }),
+  })
+  .refine(data => data.password === data.confirm_password, {
+    path: ["confirm_password"],
+    message: "Passwords do not match",
+  })
 
 const ChangePassword = () => {
   const [showPassword, setShowPassword] = useState(false)
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
-    reset,
   } = useForm({
-    resolver: zodResolver(changepasswordSchema),
+    resolver: zodResolver(changePasswordSchema),
   })
+  const navigate = useNavigate()
+  const location = useLocation()
+  const resetPasswordMutation = useResetPasswordMutation(navigate)
   const handleFormSubmit = data => {
-    const CredentialsToSave = {
-      password: data.password,
-      confirm_password: data.confirm_password,
-    }
+    resetPasswordMutation.mutate({ email: location.state.email, password: data.password })
   }
+
   return (
     <AuthLayout titleTag={"Reset Password"}>
       <form
         className="space-y-4 md:space-y-6 w-[380px]"
-        onSubmit={handleSubmit(data => handleFormSubmit(data))}
+        onSubmit={handleSubmit(handleFormSubmit)}
         autoComplete="off"
         aria-autocomplete="list"
       >
@@ -79,6 +91,7 @@ const ChangePassword = () => {
               ),
             }}
           />
+          {errors?.confirm_password && <span className="text-red-400">{errors?.confirm_password.message}</span>}
         </div>
         <button
           type="submit"
