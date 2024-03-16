@@ -80,6 +80,14 @@ const ChangePassword = () => {
             }}
           />
         </div>
+        <button
+          type="submit"
+          className={` ${
+            false && "btn-disabled"
+          } text-white bg-blue-500 min-h-[56px] font-bold hover:bg-blue-600 p-2 rounded-md w-full`}
+        >
+          {false ? <span className="loading loading-spinner loading-xs"></span> : "Save Password"}
+        </button>
       </form>
     </AuthLayout>
   )
