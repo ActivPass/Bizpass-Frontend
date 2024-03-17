@@ -41,35 +41,35 @@ export const theme = createTheme({
   typography: {
     fontFamily: "Plus Jakarta Sans, sans-serif",
   },
-  components: {
-    MuiAccordion: {
-      styleOverrides: {
-        root: {
-          "&.Mui-expanded": {
-            margin: 0,
-            ":before": {
-              opacity: 1,
-            },
-          },
-          ":before": {
-            backgroundColor: "gray",
-          },
-        },
-      },
-    },
-    MuiAccordionSummary: {
-      styleOverrides: {
-        content: {
-          "&.Mui-expanded": {
-            margin: "12px 0",
-          },
-        },
-        root: {
-          "&.Mui-expanded": {
-            minHeight: "48px",
-          },
-        },
-      },
-    },
-  },
+  // components: {
+  //   MuiAccordion: {
+  //     styleOverrides: {
+  //       root: {
+  //         "&.Mui-expanded": {
+  //           margin: 0,
+  //           ":before": {
+  //             opacity: 1,
+  //           },
+  //         },
+  //         ":before": {
+  //           backgroundColor: "gray",
+  //         },
+  //       },
+  //     },
+  //   },
+  //   MuiAccordionSummary: {
+  //     styleOverrides: {
+  //       content: {
+  //         "&.Mui-expanded": {
+  //           margin: "12px 0",
+  //         },
+  //       },
+  //       root: {
+  //         "&.Mui-expanded": {
+  //           minHeight: "48px",
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
 })

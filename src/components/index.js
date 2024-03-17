@@ -41,7 +41,10 @@ import AttendanceInfo from "./ Employees/AttendanceInfo/AttendanceInfo"
 import AttendanceLog from "./ Employees/AttendanceInfo/AttendanceLog"
 import EmployeeProfile from "./ Employees/EmployeeProfile"
 import CheckInForm from "./Client/CheckInForm"
-
+import BookingTracking from "./Booking/BookingTracking"
+import Settings from "./Setting/Settings"
+import AuthLayout from "./Layout/AuthLayout"
+import FAQ from "./FAQ/FAQ"
 
 export {
   NavBar,
@@ -87,4 +90,8 @@ export {
   AttendanceInfo,
   AttendanceLog,
   CheckInForm,
+  BookingTracking,
+  Settings,
+  AuthLayout,
+  FAQ,
 }

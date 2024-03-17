@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@devexpress/dx-react-scheduler": "^4.0.8",
+    "@devexpress/dx-react-scheduler-material-ui": "^4.0.8",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fullcalendar/daygrid": "^6.1.11",
@@ -19,10 +21,11 @@
     "@hookform/resolvers": "^3.3.4",
     "@material-tailwind/react": "^2.1.9",
     "@mui/icons-material": "^5.15.9",
-    "@mui/material": "^5.15.9",
+    "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^6.19.4",
     "@tanstack/react-query": "^5.18.1",
     "@tanstack/react-query-devtools": "^5.18.1",
+    "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "react": "^18.2.0",

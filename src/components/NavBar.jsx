@@ -18,6 +18,7 @@ import { FaSearch } from "react-icons/fa"
 import { HiChevronDown } from "react-icons/hi"
 import AppLinks from "./AppLinks"
 import { MobileNav, IconButton } from "@material-tailwind/react"
+import { useLogoutMutation } from "../api/hook"
 
 const NavBar = ({ user, setOpen }) => {
   const [showDropDown, setShowDropDown] = useState(false)
@@ -26,59 +27,32 @@ const NavBar = ({ user, setOpen }) => {
   const [openNav, setOpenNav] = React.useState(false)
   const userProfileModalRef = useRef(null)
   const [showAppLinks, setShowAppLinks] = useState(false)
-
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
-  const navigate = useNavigate()
 
+  const logoutMutation = useLogoutMutation()
   const handleLogout = () => {
+    logoutMutation.mutate()
     setShowGreeting(true)
   }
-
-  if (showGreeting) {
-    setTimeout(() => {
-      navigate("/login")
-      localStorage.clear()
-      // localStorage.removeItem("userId")
-      // localStorage.removeItem("token")
-    }, 1500)
-    return <ThanksGreeting />
-  }
-
+  if (showGreeting) return <ThanksGreeting />
   // const [isPopupVisible, setPopupVisible] = useState(false)
-
   const handleIconClick = () => {
     setShowModal(true)
   }
-
   const handleToggleAppLinks = () => {
     setShowAppLinks(prev => !prev)
   }
-
-  if (showGreeting) {
-    return <ThanksGreeting />
-  }
-
   const navList = (
     <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <li className="flex flex-row gap-1 items-center align-middle" onClick={handleToggleAppLinks}>
         <a href="#" className="">
-          Apps{" "}
+          Zones{" "}
         </a>
         <HiChevronDown />
       </li>
       <li>
-        <a href="#" className="">
-          Chat
-        </a>
-      </li>
-      <li>
-        <a href="#" className="">
-          Calendar
-        </a>
-      </li>
-      <li>
-        <a href="#" className="">
-          Email
+        <a href="/bookingtracking" className="">
+          Booking
         </a>
       </li>
     </ul>
@@ -125,12 +99,12 @@ const NavBar = ({ user, setOpen }) => {
         </div>
       ) : null}
       <div className="flex relative justify-between items-start w-full">
-        <div className="flex justify-around w-[40%]">
-          <div className="flex items-center">
+        <div className="flex justify-around">
+          <div className="flex items-center gap-3">
             <Link to="/">
               <img src={BizzPassImage} className={"h-12"} alt="Logo" />
             </Link>
-            <div>
+            <div className="mr-7">
               <a href="#">
                 <FaSearch />
               </a>
@@ -187,15 +161,15 @@ const NavBar = ({ user, setOpen }) => {
                       <p className="text-xs opacity-50">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="icon icon-tabler icon-tabler-mail"
+                          className="icon icon-tabler icon-tabler-mail"
                           width="15"
                           height="15"
                           viewBox="0 0 24 24"
-                          stroke-width="2"
+                          strokeWidth="2"
                           stroke="currentColor"
                           fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                           <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -214,11 +188,7 @@ const NavBar = ({ user, setOpen }) => {
                     </div>{" "}
                     My Profile
                   </Link>
-                  <Link
-                    to="/settings/accountsettings"
-                    className="hover:text-[#5D87FF]"
-                    onClick={() => setShowDropDown(false)}
-                  >
+                  <Link to="/account-setting" className="hover:text-[#5D87FF]" onClick={() => setShowDropDown(false)}>
                     <div className="bg-[#e6f2ff] text-[#5D87FF] rounded-lg">
                       <IoSettings className="m-3 text-xl" />
                     </div>

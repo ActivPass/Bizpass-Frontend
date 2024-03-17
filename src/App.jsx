@@ -11,6 +11,10 @@ import {
   Employee,
   Payroll,
   WorkOutManagement,
+  BookingPage,
+  ForgotPassword,
+  OTPVerify,
+  ChangePassword,
 } from "./pages"
 import Layout from "./Layout"
 import {
@@ -31,6 +35,7 @@ import {
   EditLeaveTypes,
   EditShiftForm,
   EmployeeProfile,
+  FAQ,
   Holidays,
   LeaveSettings,
   LeaveTypes,
@@ -39,15 +44,22 @@ import {
   OverTimeEditForm,
   OverTimeForm,
   Payslip,
+  Settings,
   ShiftAndSchedule,
   ShiftList,
   UpgradePlan,
 } from "./components"
 import PaymentDetail from "./components/Finance/PaymentDetail"
+import BookingSetting from "./components/Booking/BookingSetting"
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="login" element={<LoginPage />} />
+      <Route path="forgotpassword">
+        <Route path="" element={<ForgotPassword />} />
+        <Route path="verify" element={<OTPVerify />} />
+        <Route path="changepassword" element={<ChangePassword />} />
+      </Route>
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
         <Route path="/clients" element={<Client />} />
@@ -87,6 +99,10 @@ const route = createBrowserRouter(
         <Route path="/edit-shift" element={<EditShiftForm />} />
         <Route path="/workout-management" element={<WorkOutManagement />} />
         <Route path="/upgrade" element={<UpgradePlan />} />
+        <Route path="/bookingtracking" element={<BookingPage />} />
+        <Route path="/bookingsetting" element={<BookingSetting />} />
+        <Route path="/account-setting" element={<Settings />} />
+        <Route path="/faq" element={<FAQ />} />
       </Route>
       <Route path="/check-in" element={<CheckInForm />} />
     </Route>
