@@ -22,10 +22,10 @@ const Layout = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
   // const isVerified = useSelector(state => state.twoFactorAuth.value.isVerified)
   // console.log(isVerified)
-  const token = localStorage.getItem("token")
-  if (!token) {
-    return <Navigate to="/login" />
-  }
+  // const token = localStorage.getItem("token")
+  // if (!token) {
+  //   return <Navigate to="/login" />
+  // }
   //if (!token) return <Navigate to="/login" />
   // if (isVerified === "false") {
   //   // console.log("Is verified ", isVerified)
