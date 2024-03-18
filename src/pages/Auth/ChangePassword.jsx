@@ -29,7 +29,7 @@ const changePasswordSchema = z
   })
 
 const ChangePassword = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState({ showNewPwd: false, showConfirmPwd: false })
   const {
     register,
     handleSubmit,
@@ -58,14 +58,17 @@ const ChangePassword = () => {
           </label>
           <TextField
             id="password"
-            type={showPassword ? "text" : "password"}
+            type={showPassword?.showNewPwd ? "text" : "password"}
             variant="outlined"
             sx={{ width: "100%" }}
             {...register("password")}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                  <IconButton
+                    onClick={() => setShowPassword(previous => ({ ...previous, showNewPwd: !previous.showNewPwd }))}
+                    edge="end"
+                  >
                     {showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
@@ -80,14 +83,19 @@ const ChangePassword = () => {
           </label>
           <TextField
             id="confirm_password"
-            type={showPassword ? "text" : "password"}
+            type={showPassword?.showConfirmPwd ? "text" : "password"}
             variant="outlined"
             sx={{ width: "100%" }}
             {...register("confirm_password")}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                  <IconButton
+                    onClick={() =>
+                      setShowPassword(previous => ({ ...previous, showConfirmPwd: !previous.showConfirmPwd }))
+                    }
+                    edge="end"
+                  >
                     {showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
