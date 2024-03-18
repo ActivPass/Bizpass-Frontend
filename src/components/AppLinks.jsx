@@ -105,8 +105,10 @@ function AppLinks({ closeMenu }) {
         ))}
       </div>
       <div className="p-3 mt-5 flex items-center gap-3 cursor-pointer">
+        <Link to={"/faq"} className="flex items-center gap-3">
         <p className="hover:text-[#3b5bb1] font-medium text-base">Frequently Asked Questions</p>
         <FaArrowTrendUp className="text-[#3b5bb1]" />
+        </Link>
       </div>
     </div>
   )
