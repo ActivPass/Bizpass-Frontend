@@ -5,7 +5,7 @@ import Switch from "@mui/material/Switch"
 
 const Notification = () => {
   return (
-    <div className="h-auto w-[45vw] p-5 rounded-lg">
+    <div className="h-auto w-[40rem] p-5 rounded-lg">
       <header className="">
         <h2 className="text-xl font-bold">Notification Preferences</h2>
         <p className="text-[14px] opacity-60">Choose your notification preference</p>
