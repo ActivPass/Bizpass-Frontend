@@ -16,10 +16,15 @@ import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
+import { useAllBookings } from "../../api/hook"
 
 function BookingTracking() {
   const currentDate = new Date().toISOString().split("T")[0]
-  const [bookings, setBookings] = useState([
+  const [bookings, setBookings] = useState(data)
+  const { data: bookingsData } = useAllBookings()
+  console.log(bookingsData)
+
+  const data = [
     {
       id: 1,
       startDate: currentDate + "T10:00",
@@ -41,7 +46,7 @@ function BookingTracking() {
       title: "Booked by aakash",
       courtId: 3,
     },
-  ])
+  ]
 
   const [showAppointmentTooltip, setShowAppointmentTooltip] = useState(false)
 
