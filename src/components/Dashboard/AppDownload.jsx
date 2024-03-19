@@ -17,7 +17,7 @@ function AppDownload() {
         <Typography>Total Downloads</Typography>
         <Typography sx={{ fontSize: "16px", fontWeight: "light", paddingBottom: "10px" }}>568</Typography>
         <LinearProgress variant="determinate" value={60} sx={{ marignBottom: "10px" }} />
-        <Button variant="contained" sx={{ marginTop: "10px" }}>
+        <Button variant="contained" sx={{ marginTop: "10px", width: "100%", backgroundColor: "#3B82F6" }}>
           Download The App Now
         </Button>
       </div>

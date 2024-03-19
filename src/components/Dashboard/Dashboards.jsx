@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react"
 import Card from "./Card"
 import WelcomeGreeting from "../Greeting/WelcomeGreeting"
 import MyChart from "./MyChart"
-import RadialChart from "./RadialChart"
-import { LineChart } from "./LineChart"
 import { Typography, Select, MenuItem } from "@mui/material"
-import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6"
-import { CircularProgressbar } from "react-circular-progressbar"
-import "react-circular-progressbar/dist/styles.css"
 import EmpImg from "../../assets/images/employee.svg"
 import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
@@ -18,6 +13,7 @@ import { nanoid } from "nanoid"
 import EmployeeChart from "./EmployeeChart"
 import NewClientsChart from "./NewClientsChart"
 import AppDownload from "./AppDownload"
+import IncomeExpenseChart from "./IncomeExpenseChart"
 
 const Dashboard = () => {
   const [showWelcomePopup, setShowWelcomePopup] = useState(false)
@@ -169,6 +165,23 @@ const Dashboard = () => {
               </section>
             </div>
 
+            {/* today */}
+            <div className="h-auto rounded-md border">
+              <div className="px-2 py-4 flex justify-between">
+                <div>
+                  <p className="font-bold">Revenue Updates</p>
+                  <p>Overview of Profits</p>
+                </div>
+                <Select value={year} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangeYear}>
+                  <MenuItem value={2023}>March 2023</MenuItem>
+                  <MenuItem value={2022}>Feb 2023</MenuItem>
+                  <MenuItem value={2021}>Jan 2023</MenuItem>
+                  <MenuItem value={2020}>Dec 2022</MenuItem>
+                  <MenuItem value={2019}>Nov 2022</MenuItem>
+                </Select>
+              </div>
+              <IncomeExpenseChart />
+            </div>
             {/* latest */}
             <div className="flex justify-between mt-4 gap-3">
               <div className="h-auto w-[35%] rounded-md border">
