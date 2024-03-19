@@ -1,41 +1,32 @@
 import React, { useEffect, useRef, useState } from "react"
 import ApexCharts from "apexcharts"
 
-const MyChart = () => {
+const NewClientsChart = () => {
   const chartRef = useRef(null)
 
   const [state, setState] = useState({
     series: [
       {
-        name: "hours",
-        data: [14000, 13000, 7200, 27803, 11890, 13400, 11200, 13000, 7200, 27803],
+        name: "New Clients",
+        data: [41, 40, 42],
       },
     ],
     options: {
       chart: {
-        type: "bar",
-        height: 300,
-      },
-      xaxis: {
-        categories: ["12 am", "3 am", "6 am", "9 am", "12 pm", "1 pm", "3 pm", "6 pm", "9 pm", "11 am"],
-        labels: {
-          style: {
-            fontSize: "10px",
-            fontWeight: 700,
-          },
-        },
-      },
-      yaxis: {
-        show: false,
-      },
-      plotOptions: {
-        bar: {
-          columnWidth: "30%",
-          borderRadius: "10",
-        },
+        height: 350,
+        type: "area",
       },
       dataLabels: {
         enabled: false,
+      },
+      stroke: {
+        curve: "smooth",
+      },
+      xaxis: {
+        categories: ["March", "April", "May"],
+      },
+      yaxis: {
+        show: false,
       },
     },
   })
@@ -58,4 +49,4 @@ const MyChart = () => {
   return <div ref={chartRef} />
 }
 
-export default MyChart
+export default NewClientsChart

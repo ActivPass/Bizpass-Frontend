@@ -1,34 +1,78 @@
-import React from "react"
+import React, { useState } from "react"
 import NavHeader from "../NavHeader"
-import { Typography, Button } from "@mui/material"
+import { Typography, Button, Switch } from "@mui/material"
 import { Unstable_NumberInput as BaseNumberInput, numberInputClasses } from "@mui/base/Unstable_NumberInput"
 import { styled } from "@mui/system"
-
-const CustomNumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
-  return (
-    <BaseNumberInput
-      slots={{
-        root: StyledInputRoot,
-        input: StyledInputElement,
-        incrementButton: StyledButton,
-        decrementButton: StyledButton,
-      }}
-      slotProps={{
-        incrementButton: {
-          children: "▴",
-        },
-        decrementButton: {
-          children: "▾",
-        },
-      }}
-      {...props}
-      ref={ref}
-    />
-  )
-})
-
+import TimeZone from "./TimeZone"
+import dayjs from "dayjs"
 function BookingSetting() {
   const [value, setValue] = React.useState(0)
+
+  const [timingsState, settimingsState] = useState({
+    monday: { isOpen: true, open: "09:00", close: "17:00" },
+    tuesday: { isOpen: true, open: "09:00", close: "17:00" },
+    wednesday: { isOpen: true, open: "09:00", close: "17:00" },
+    thursday: { isOpen: true, open: "09:00", close: "17:00" },
+    friday: { isOpen: true, open: "09:00", close: "17:00" },
+    saturday: { isOpen: false, open: "", close: "" }, // Closed on Saturday
+    sunday: { isOpen: false, open: "", close: "" }, // Closed on Sunday
+  })
+  const isEditing = true
+
+  const dayOfWeek = dayjs().format("dddd")
+  const currentTime = dayjs().format("HH:mm")
+  let currentStatus = false
+
+  if (timingsState[dayOfWeek.toLocaleLowerCase()].isOpen) {
+    const openingTime = timingsState[dayOfWeek.toLowerCase()]["open"]
+    const closingTime = timingsState[dayOfWeek.toLowerCase()]["close"]
+    const openTimeObject = dayjs(openingTime, "HH:mm")
+    let closeTimeObject = dayjs(closingTime, "HH:mm")
+    const currentTimeObject = dayjs(currentTime, "HH:mm")
+    let isBetween
+    if (closeTimeObject.isBefore(openTimeObject)) {
+      const newCloseTimeObject = closeTimeObject.add(1, "day")
+      isBetween = currentTimeObject.isAfter(openTimeObject) && currentTimeObject.isBefore(newCloseTimeObject)
+    } else isBetween = currentTimeObject.isAfter(openTimeObject) && currentTimeObject.isBefore(closeTimeObject)
+    currentStatus = isBetween ? true : false
+  } else {
+    currentStatus = false
+  }
+
+  const handleTimeChange = (day, newTimes) => {
+    settimingsState(prevTimingsState => ({
+      ...prevTimingsState,
+      [day.toLowerCase()]: {
+        ...prevTimingsState[day.toLowerCase()],
+        open: newTimes.opening,
+        close: newTimes.closing,
+      },
+    }))
+  }
+
+  const CustomNumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
+    return (
+      <BaseNumberInput
+        slots={{
+          root: StyledInputRoot,
+          input: StyledInputElement,
+          incrementButton: StyledButton,
+          decrementButton: StyledButton,
+        }}
+        slotProps={{
+          incrementButton: {
+            children: "▴",
+          },
+          decrementButton: {
+            children: "▾",
+          },
+        }}
+        {...props}
+        ref={ref}
+      />
+    )
+  })
+
   return (
     <div className="p-1 sm:p-5 bg-[#F7F8F9] min-h-screen">
       <NavHeader
@@ -67,30 +111,46 @@ function BookingSetting() {
               <CustomNumberInput placeholder="No of Court" />
             </div>
 
-            <div className="mb-4">
-              <label htmlFor="startTime" className="block text-sm font-medium text-gray-700">
-                Start Time
-              </label>
-              <input
-                type="time"
-                id="startTime"
-                name="startTime"
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Enter Start Time"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="endTime" className="block text-sm font-medium text-gray-700">
-                End Time
-              </label>
-              <input
-                type="time"
-                id="endTime"
-                name="endTime"
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Enter End Time"
-              />
+            {/* Start and end time fields for each day */}
+            <div className="col-span-2 w-full">
+              <p className="text-lg font-semibold">Working Hours</p>
+              {Object.keys(timingsState).map(day => {
+                day = day.charAt(0).toUpperCase() + day.slice(1)
+                return (
+                  <div key={day} className="flex items-center gap-[13px] pb-4 sm:gap-7 mb-2">
+                    <span className="sm:hidden w-3">{day.slice(0, 3)}</span>
+                    <span className="sm:mr-2 hidden  sm:text-base sm:w-12">{day}</span>
+                    <span className="hidden sm:inline sm:text-base sm:w-12 sm:mr-2">{day}</span>
+                    <Switch
+                      disabled={!isEditing}
+                      className="transform sm:scale-100 scale-75 mx-2"
+                      checked={timingsState[day.toLocaleLowerCase()].isOpen}
+                      onChange={() =>
+                        settimingsState({
+                          ...timingsState,
+                          [day.toLocaleLowerCase()]: { isOpen: !timingsState[day.toLocaleLowerCase()].isOpen },
+                        })
+                      }
+                      size="small"
+                    />
+                    <div
+                      className={` ${
+                        !timingsState[day.toLocaleLowerCase()].isOpen && "opacity-50"
+                      } w-[1.7rem] ml-[-1rem] text-xs sm:text-base sm:w-[3.5rem]`}
+                    >
+                      {timingsState[day.toLocaleLowerCase()].isOpen ? "Open" : "Closed"}
+                    </div>
+                    {timingsState[day.toLocaleLowerCase()].isOpen && (
+                      <TimeZone
+                        openingTime={timingsState[day.toLocaleLowerCase()].open}
+                        closingTime={timingsState[day.toLocaleLowerCase()].close}
+                        editable={isEditing}
+                        onTimeChange={newTimes => handleTimeChange(day, newTimes)}
+                      />
+                    )}
+                  </div>
+                )
+              })}
             </div>
 
             <div className="mb-4">
@@ -126,6 +186,10 @@ function BookingSetting() {
     </div>
   )
 }
+
+// Styled components...
+
+export default BookingSetting
 
 const blue = {
   100: "#DAECFF",
@@ -271,5 +335,3 @@ const StyledButton = styled("button")(
     }
   `
 )
-
-export default BookingSetting

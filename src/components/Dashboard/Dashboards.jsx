@@ -4,7 +4,7 @@ import WelcomeGreeting from "../Greeting/WelcomeGreeting"
 import MyChart from "./MyChart"
 import RadialChart from "./RadialChart"
 import { LineChart } from "./LineChart"
-import { Typography } from "@mui/material"
+import { Typography, Select, MenuItem } from "@mui/material"
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6"
 import { CircularProgressbar } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
@@ -13,9 +13,30 @@ import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
 import RowNavigation from "./RowNavigation"
+import RecentInfoDetails from "./recetlyInfoDetails"
+import { nanoid } from "nanoid"
+import EmployeeChart from "./EmployeeChart"
+import NewClientsChart from "./NewClientsChart"
+import AppDownload from "./AppDownload"
 
 const Dashboard = () => {
   const [showWelcomePopup, setShowWelcomePopup] = useState(false)
+  const [expanded, setExpanded] = useState(null)
+  const [period, setPeriod] = React.useState(1)
+  const [day, setDay] = React.useState(1)
+  const [year, setYear] = React.useState(2023)
+
+  const handleChange = event => {
+    setPeriod(event.target.value)
+  }
+
+  const handleChangeDay = event => {
+    setDay(event.target.value)
+  }
+
+  const handleChangeYear = event => {
+    setYear(event.target.value)
+  }
 
   let Incomes = [
     {
@@ -67,6 +88,26 @@ const Dashboard = () => {
     return () => clearTimeout(timeoutId)
   }, [])
 
+  const recentLogsInfoData = [
+    {
+      user: {
+        userName: "John Doe",
+      },
+      createdAt: "2024-03-17T08:30:00Z",
+      status: "approved",
+      message: "",
+    },
+    {
+      user: {
+        userName: "Jane Smith",
+      },
+      createdAt: "2024-03-16T14:45:00Z",
+      status: "rejected",
+      message: "Invalid entry",
+    },
+    // Add more dummy data as needed
+  ]
+
   return (
     <>
       <RowNavigation />
@@ -82,45 +123,88 @@ const Dashboard = () => {
                 })}
               </div>
             </section>
-            <div className="flex justify-between gap-7">
-              <section className="h-auto w-[65%] rounded-md border border-gray-100 bg-gray-100">
-                <p className="py-7 px-2 font-bold">Weekly Income</p>
-                <div className="mt-[-3rem]"></div>
+            <div className="flex justify-between gap-3">
+              <div className="h-auto w-[30%] border-slate-200 border-solid border-2 rounded-sm p-2 overflow-auto scrollbar-hide">
+                <div className="flex justify-between items-center py-2">
+                  <p className="m-0 p-1 text-center font-bold">Recent Entries</p>
+                  <Select value={period} label="Today" sx={{ width: "40%", height: "40px" }} onChange={handleChange}>
+                    <MenuItem value={1}>Today</MenuItem>
+                    <MenuItem value={7}>This Week</MenuItem>
+                    <MenuItem value={30}>This Month</MenuItem>
+                  </Select>
+                </div>
+                <hr className="py-2" />
+                {recentLogsInfoData.map((log, index) => {
+                  const keyIdentifier = nanoid()
+                  return (
+                    <RecentInfoDetails
+                      log={log}
+                      expanded={expanded}
+                      getIdToExpand={data => {
+                        expanded === data ? setExpanded(null) : setExpanded(data)
+                      }}
+                      keyIdentifier={index}
+                      key={keyIdentifier}
+                    />
+                  )
+                })}
+              </div>
+              <section className="h-auto w-[70%] rounded-md border">
+                <div className="px-2 py-4 flex justify-between">
+                  <div>
+                    <p className="font-bold">Most Visited Hours</p>
+                    <p>based on visits to this place</p>
+                  </div>
+                  <Select value={day} label="Monday" sx={{ width: "20%", height: "40px" }} onChange={handleChangeDay}>
+                    <MenuItem value={1}>Monday</MenuItem>
+                    <MenuItem value={2}>Tuesday</MenuItem>
+                    <MenuItem value={3}>wednesday</MenuItem>
+                    <MenuItem value={4}>Thursday</MenuItem>
+                    <MenuItem value={5}>Friday</MenuItem>
+                    <MenuItem value={6}>Saturday</MenuItem>
+                    <MenuItem value={7}>Sunday</MenuItem>
+                  </Select>
+                </div>
                 <MyChart />
               </section>
-              <div className="w-[35%] flex flex-col gap-10 rounded-lg">
-                <div className="flex px-4 justify-around items-center bg-slate-100">
-                  <div className="w-[50%]">
-                    <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Yearly Breakup</Typography>
-                    <Typography>$ 36,358</Typography>
-                    <div className="flex gap-3 items-center py-2">
-                      <FaArrowTrendUp color="green" />
-                      <Typography>+9% last year</Typography>
-                    </div>
+            </div>
+
+            {/* latest */}
+            <div className="flex justify-between mt-4 gap-3">
+              <div className="h-auto w-[35%] rounded-md border">
+                <div className="px-2 py-4 flex justify-between">
+                  <div>
+                    <p className="font-bold">Employee Salary</p>
+                    <p>Every Month</p>
                   </div>
-                  <div className="w-[50%]">
-                    {/* <CircularProgressbar value={75} text={`${75}%`} /> */}
-                    <RadialChart value={75} />
+                  <Select value={year} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangeYear}>
+                    <MenuItem value={2023}>2023</MenuItem>
+                    <MenuItem value={2022}>2022</MenuItem>
+                    <MenuItem value={2021}>2021</MenuItem>
+                    <MenuItem value={2020}>2020</MenuItem>
+                    <MenuItem value={2019}>2019</MenuItem>
+                  </Select>
+                </div>
+                <EmployeeChart />
+              </div>
+
+              <div className="h-auto w-[35%] px-2 rounded-md border">
+                <div className="px-2 py-4 flex justify-between">
+                  <div>
+                    <p className="font-bold">New Clients</p>
+                    <p>Last 3 Months</p>
                   </div>
                 </div>
-                <div className="flex px-4 justify-around items-center bg-slate-100">
-                  <div className="w-[50%]">
-                    <Typography style={{ fontSize: "20px", paddingBottom: "18px" }}>Monthly Earnings</Typography>
-                    <Typography>$ 6,820</Typography>
-                    <div className="flex gap-3 items-center py-2">
-                      <FaArrowTrendDown color="red" />
-                      <Typography>+9% last year</Typography>
-                    </div>
-                  </div>
-                  <div className="w-[50%]">
-                    <RadialChart value={35} />
-                  </div>
-                </div>
+                <NewClientsChart />
+              </div>
+
+              <div className="h-auto w-[35%] px-2 rounded-md border bg-blue-500 text-white">
+                <AppDownload />
               </div>
             </div>
           </div>
         </div>
-        <LineChart />
+        {/* <LineChart /> */}
       </section>
     </>
   )
