@@ -29,13 +29,11 @@ const ProfileCard = () => {
       <div className="flex justify-between items-center mb-4 h-[10rem]">
         <div className="flex items-center">
           <div className="mr-4">
-            <a href="#">
               <img
-                alt=""
-                className="rounded-full"
                 src={GymProfile}
+                className="rounded-full"
+                alt=""
               />
-            </a>
           </div>
           <div className=" space-y-1">
             <h3 className="">{profileData.gymName}</h3>
