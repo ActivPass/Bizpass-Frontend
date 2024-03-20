@@ -17,6 +17,7 @@ import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
 import { useAllBookings } from "../../api/hook"
+import CircularProgress from "@mui/material/CircularProgress"
 
 function BookingTracking() {
   const currentDate = new Date().toISOString().split("T")[0]
@@ -24,29 +25,42 @@ function BookingTracking() {
   const { data: bookingsData } = useAllBookings()
   console.log(bookingsData)
 
-  const data = [
-    {
-      id: 1,
-      startDate: currentDate + "T10:00",
-      endDate: currentDate + "T11:00",
-      title: "Booked by Devan",
-      courtId: 1,
-    },
-    {
-      id: 2,
-      startDate: currentDate + "T13:00",
-      endDate: currentDate + "T14:30",
-      title: "Booked by aakash",
-      courtId: 2,
-    },
-    {
-      id: 3,
-      startDate: currentDate + "T12:00",
-      endDate: currentDate + "T13:30",
-      title: "Booked by aakash",
-      courtId: 3,
-    },
-  ]
+  const { data: bookingsData, isLoading } = useAllBookings()
+  const bookingData = bookingsData.data.data.map((data, index) => {
+    return {
+      ...data,
+      id: index + 1,
+      courtId: index + 1,
+      startDate: data.startTime,
+      endDate: data.endTime,
+      title: `Booked by ${data.name}`,
+    }
+  })
+  // TODO: Fix this issue of booking data not showing on ui
+
+  // const data = [
+  //   {
+  //     id: 1,
+  //     startDate: currentDate + "T10:00",
+  //     endDate: currentDate + "T11:00",
+  //     title: "Booked by Devan",
+  //     courtId: 1,
+  //   },
+  //   {
+  //     id: 2,
+  //     startDate: currentDate + "T13:00",
+  //     endDate: currentDate + "T14:30",
+  //     title: "Booked by aakash",
+  //     courtId: 2,
+  //   },
+  //   {
+  //     id: 3,
+  //     startDate: currentDate + "T12:00",
+  //     endDate: currentDate + "T13:30",
+  //     title: "Booked by aakash",
+  //     courtId: 3,
+  //   },
+  // ]
 
   const [showAppointmentTooltip, setShowAppointmentTooltip] = useState(false)
 
@@ -116,6 +130,14 @@ function BookingTracking() {
     setBookings(updatedBookings)
     setShowAppointmentTooltip(false)
   }
+  
+  if (isLoading) {  
+    return (
+      <div className="w-full h-[90vh] flex items-center justify-center">
+        <CircularProgress />
+      </div>
+    )
+  }
 
   return (
     <div className="p-1 sm:p-5 bg-[#F7F8F9] min-h-screen">
@@ -137,7 +159,7 @@ function BookingTracking() {
 
       <div className="p-1 sm:p-5">
         <Paper className="m-4">
-          <Scheduler data={bookings}>
+          <Scheduler data={bookingData}>
             <ViewState defaultCurrentDate={currentDate} />
             <GroupingState grouping={grouping} />
             <DayView startDayHour={9} endDayHour={15} intervalCount={1} />

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 export const useAllBookings = () => {
   const getAllBookings = async () => {
     try {
-      const response = await customAxios.post("/slots/booking")
+      const response = await customAxios.get("/slots/booking")
       return response
     } catch (err) {
       return err.response
