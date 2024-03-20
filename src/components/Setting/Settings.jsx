@@ -8,6 +8,8 @@ import ProfileCard from "./ProfileCard"
 import ProfileInfo from "./ProfileInfo"
 import Notification from "./Notification"
 import Security from "./Security"
+import { RiLockPasswordFill } from "react-icons/ri"
+import ChangePassword from "./ChangePassword"
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("profile")
@@ -88,7 +90,7 @@ const Settings = () => {
           Notification
         </div>
         <div
-          className={`cursor-pointer flex items-center gap-1 ${
+          className={`mr-6 cursor-pointer flex items-center gap-1 ${
             activeTab === "Security"
               ? "text-blue-500 border-b-2 border-blue-500"
               : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
@@ -97,6 +99,17 @@ const Settings = () => {
         >
           <MdLockOutline />
           Security
+        </div>
+        <div
+          className={`cursor-pointer flex items-center gap-1 ${
+            activeTab === "changePassword"
+              ? "text-blue-500 border-b-2 border-blue-500"
+              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+          }`}
+          onClick={() => handleTabChange("changePassword")}
+        >
+          <RiLockPasswordFill />
+          Change Password
         </div>
       </div>
       <div className="p-4 border rounded-md">
@@ -109,7 +122,8 @@ const Settings = () => {
           />
         )}
         {activeTab === "Notification" && <Notification />}
-        {activeTab === "Security" && <Security/>}
+        {activeTab === "Security" && <Security />}
+        {activeTab === "changePassword" && <ChangePassword />}
       </div>
     </div>
   )

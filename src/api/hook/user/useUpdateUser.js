@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query"
 export const useUpdateUserMutation = () => {
   const patchUpdateUser = async updateRequestObj => {
     try {
-      const response = await customAxios.patch(`/user`, updateRequestObj)
+      const response = await customAxios.patch(`/users`, updateRequestObj)
       return response
     } catch (err) {
       return err.response

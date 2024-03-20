@@ -114,7 +114,6 @@ const Security = () => {
           <h2 className="text-xl font-bold">Change Your Password</h2>
           <p className="text-[14px] opacity-60">Change your password</p>
         </header>
-        <ChangePassword />
       </div>
     </div>
   )
