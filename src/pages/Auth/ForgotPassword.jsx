@@ -36,7 +36,7 @@ const ForgotPassword = () => {
   return (
     <AuthLayout titleTag={"Enter your email address"}>
       <form
-        className="space-y-4 md:space-y-6 min-w-[380px]"
+        className="space-y-4 md:space-y-6 w-[380px]"
         onSubmit={handleSubmit(data => handleFormSubmit(data))}
         autoComplete="off"
         aria-autocomplete="lit"
@@ -45,7 +45,7 @@ const ForgotPassword = () => {
           <label className="font-semibold" htmlFor="email">
             Email address
           </label>
-          <TextField id="email" hiddenLabel sx={{ width: "100%" }} {...register("email")} />
+          <TextField id="email" hiddenLabel sx={{ width: "100%" }} {...register("email")} error={!!errors.email} />
         </div>
         <span className="text-red-400">{errors?.email && errors?.email.message}</span>
         <button
