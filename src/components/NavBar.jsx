@@ -45,15 +45,15 @@ const NavBar = ({ user, setOpen }) => {
   const navList = (
     <ul className="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <li className="flex flex-row gap-1 items-center align-middle" onClick={handleToggleAppLinks}>
-        <a href="#" className="">
+        <Link to="#" className="">
           Zones{" "}
-        </a>
+        </Link>
         <HiChevronDown />
       </li>
       <li>
-        <a href="/bookingtracking" className="">
+        <Link to="/bookingtracking" className="">
           Booking
-        </a>
+        </Link>
       </li>
     </ul>
   )
@@ -105,9 +105,9 @@ const NavBar = ({ user, setOpen }) => {
               <img src={BizzPassImage} className={"h-12"} alt="Logo" />
             </Link>
             <div className="mr-7">
-              <a href="#">
+              <Link to="#">
                 <FaSearch />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex items-center">

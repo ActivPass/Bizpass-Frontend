@@ -3,7 +3,7 @@ import { FiEdit } from "react-icons/fi"
 import { Link } from "react-router-dom"
 import NavHeader from "../NavHeader"
 import EmployeeAttendance from "./Attendance"
-import Tooltip from '@mui/material/Tooltip';
+import Tooltip from "@mui/material/Tooltip"
 
 const EmployeeProfile = () => {
   const [activeTab, setActiveTab] = useState("profile")
@@ -13,12 +13,12 @@ const EmployeeProfile = () => {
   }
 
   const attendanceData = [
-    { date: '2024-03-01', status: 'present' },
-    { date: '2024-03-02', status: 'present' },
-    { date: '2024-03-03', status: 'absent', reason: "Going to Visa Processing" },
-    { date: '2024-03-04', status: 'present' },
-    { date: '2024-03-05', status: 'present' },
-    { date: '2024-03-06', status: 'present' }
+    { date: "2024-03-01", status: "present" },
+    { date: "2024-03-02", status: "present" },
+    { date: "2024-03-03", status: "absent", reason: "Going to Visa Processing" },
+    { date: "2024-03-04", status: "present" },
+    { date: "2024-03-05", status: "present" },
+    { date: "2024-03-06", status: "present" },
   ]
 
   return (
@@ -34,13 +34,13 @@ const EmployeeProfile = () => {
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center">
             <div className="mr-4">
-              <a href="#">
+              <Link to="#">
                 <img
                   alt=""
                   className="rounded-full"
                   src="https://smarthr.dreamstechnologies.com/codeigniter/template/orange/public//assets/img/profiles/avatar-02.jpg"
                 />
-              </a>
+              </Link>
             </div>
             <div className="">
               <h3 className="">John Doe</h3>
@@ -83,37 +83,41 @@ const EmployeeProfile = () => {
       </div>
       <div className="flex justify-left mb-4">
         <div
-          className={`mr-6 cursor-pointer ${activeTab === "profile"
-            ? "text-blue-500 border-b-2 border-blue-500"
-            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-            }`}
+          className={`mr-6 cursor-pointer ${
+            activeTab === "profile"
+              ? "text-blue-500 border-b-2 border-blue-500"
+              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+          }`}
           onClick={() => handleTabChange("profile")}
         >
           Profile
         </div>
         <div
-          className={`mr-6 cursor-pointer ${activeTab === "bank"
-            ? "text-blue-500 border-b-2 border-blue-500"
-            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-            }`}
+          className={`mr-6 cursor-pointer ${
+            activeTab === "bank"
+              ? "text-blue-500 border-b-2 border-blue-500"
+              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+          }`}
           onClick={() => handleTabChange("bank")}
         >
           Bank Details
         </div>
         <div
-          className={`mr-6  cursor-pointer ${activeTab === "permission"
-            ? "text-blue-500 border-b-2 border-blue-500"
-            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-            }`}
+          className={`mr-6  cursor-pointer ${
+            activeTab === "permission"
+              ? "text-blue-500 border-b-2 border-blue-500"
+              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+          }`}
           onClick={() => handleTabChange("permission")}
         >
           Permission User
         </div>
         <div
-          className={`cursor-pointer ${activeTab === "attendance"
-            ? "text-blue-500 border-b-2 border-blue-500"
-            : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
-            }`}
+          className={`cursor-pointer ${
+            activeTab === "attendance"
+              ? "text-blue-500 border-b-2 border-blue-500"
+              : "text-gray-500 hover:text-blue-500 hover:border-b-2 hover:border-blue-500"
+          }`}
           onClick={() => handleTabChange("attendance")}
         >
           Attendance
@@ -193,7 +197,7 @@ const EmployeeProfile = () => {
           </div>
         )}
         {activeTab === "permission" && <div className="h-[60vh]">Permission User Content</div>}
-        {activeTab === 'attendance' && <EmployeeAttendance attendanceData={attendanceData} />}
+        {activeTab === "attendance" && <EmployeeAttendance attendanceData={attendanceData} />}
       </div>
     </div>
   )

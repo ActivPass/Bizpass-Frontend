@@ -161,7 +161,7 @@ const FinancialReport = () => {
         </div>
       ),
       invoice: (
-        <Link href="#" target="" className="text-blue-500 underline" rel="noopener noreferrer">
+        <Link to="#" target="" className="text-blue-500 underline" rel="noopener noreferrer">
           <ImFilePdf className="text-2xl" />
         </Link>
       ),
@@ -178,7 +178,7 @@ const FinancialReport = () => {
                 textTransform: "none",
                 width: "80%",
               }}
-              href={"/paymentDetail/" + item.status}
+              to={"/paymentDetail/" + item.status}
             >
               View
             </Button>
@@ -194,7 +194,7 @@ const FinancialReport = () => {
                 textTransform: "none",
                 width: "80%",
               }}
-              href={"/paymentDetail/" + item.status}
+              to={"/paymentDetail/" + item.status}
             >
               Pay Now
             </Button>
