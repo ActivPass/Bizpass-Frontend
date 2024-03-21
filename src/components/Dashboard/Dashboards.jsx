@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [expanded, setExpanded] = useState(null)
   const [period, setPeriod] = React.useState(1)
   const [day, setDay] = React.useState(1)
+  const [year, setYear] = React.useState(2023)
   const [month, setMonth] = React.useState("March")
 
   const handleChange = event => {
@@ -32,6 +33,10 @@ const Dashboard = () => {
 
   const handleChangemonth = event => {
     setMonth(event.target.value)
+  }
+
+  const handleChangeyear = event => {
+    setYear(event.target.value)
   }
 
   let Incomes = [
@@ -116,13 +121,14 @@ const Dashboard = () => {
     { value: 6, label: "Saturday" },
     { value: 7, label: "Sunday" },
   ]
-  const monthsAndMonths = [
+  const yearsAndMonths = [
     { year: 2023, month: "March" },
     { year: 2023, month: "Feb" },
     { year: 2023, month: "Jan" },
     { year: 2022, month: "Dec" },
     { year: 2022, month: "Nov" },
   ]
+  const years = [2023, 2022, 2021]
 
   return (
     <>
@@ -193,7 +199,7 @@ const Dashboard = () => {
                   <p>Overview of Profits</p>
                 </div>
                 <Select value={month} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangemonth}>
-                  {monthsAndMonths.map(({ year, month }) => (
+                  {yearsAndMonths.map(({ year, month }) => (
                     <MenuItem key={month} value={month}>
                       {`${month} ${year}`}
                     </MenuItem>
@@ -210,8 +216,8 @@ const Dashboard = () => {
                     <p className="font-bold">Employee Salary</p>
                     <p>Every Month</p>
                   </div>
-                  <Select value={month} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangemonth}>
-                    {[2023, 2022, 2021, 2020, 2019].map(value => (
+                  <Select value={year} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangeyear}>
+                    {years.map(value => (
                       <MenuItem value={value} key={value}>
                         {value}
                       </MenuItem>
