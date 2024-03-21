@@ -171,7 +171,7 @@ const FinancialReport = () => {
         </div>
       ),
       attachment: (
-        <Link href="#" target="" className="text-blue-500 underline" rel="noopener noreferrer">
+        <Link to="#" target="" className="text-blue-500 underline" rel="noopener noreferrer">
           <ImFilePdf className="text-2xl" />
         </Link>
       ),

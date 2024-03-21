@@ -33,13 +33,13 @@ const ClientProfile = () => {
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center">
             <div className="mr-4">
-              <a href="#">
+              <Link to="#">
                 <img
                   alt=""
                   className="rounded-full"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsS1-3_Ivzo_62VnIjQPOr_50iztWmlxsZdg&usqp=CAU"
                 />
-              </a>
+              </Link>
             </div>
             <div className="">
               <h3 className="">John Doe</h3>
@@ -266,7 +266,7 @@ const ClientProfile = () => {
           <div className="h-auto">
             <p className="mb-5">Entry List(Attendance)</p>
             <div className="">
-              <ClientAttendance/>
+              <ClientAttendance />
             </div>
           </div>
         )}
