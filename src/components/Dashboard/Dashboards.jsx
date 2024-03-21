@@ -20,7 +20,7 @@ const Dashboard = () => {
   const [expanded, setExpanded] = useState(null)
   const [period, setPeriod] = React.useState(1)
   const [day, setDay] = React.useState(1)
-  const [year, setYear] = React.useState(2023)
+  const [month, setMonth] = React.useState("March")
 
   const handleChange = event => {
     setPeriod(event.target.value)
@@ -30,8 +30,8 @@ const Dashboard = () => {
     setDay(event.target.value)
   }
 
-  const handleChangeYear = event => {
-    setYear(event.target.value)
+  const handleChangemonth = event => {
+    setMonth(event.target.value)
   }
 
   let Incomes = [
@@ -101,7 +101,27 @@ const Dashboard = () => {
       status: "rejected",
       message: "Invalid entry",
     },
-    // Add more dummy data as needed
+  ]
+  const periods = [
+    { value: 1, label: "Today" },
+    { value: 7, label: "This Week" },
+    { value: 30, label: "This Month" },
+  ]
+  const daysOfWeek = [
+    { value: 1, label: "Monday" },
+    { value: 2, label: "Tuesday" },
+    { value: 3, label: "Wednesday" },
+    { value: 4, label: "Thursday" },
+    { value: 5, label: "Friday" },
+    { value: 6, label: "Saturday" },
+    { value: 7, label: "Sunday" },
+  ]
+  const monthsAndMonths = [
+    { year: 2023, month: "March" },
+    { year: 2023, month: "Feb" },
+    { year: 2023, month: "Jan" },
+    { year: 2022, month: "Dec" },
+    { year: 2022, month: "Nov" },
   ]
 
   return (
@@ -124,9 +144,11 @@ const Dashboard = () => {
                 <div className="flex justify-between items-center py-2">
                   <p className="m-0 p-1 text-center font-bold">Recent Entries</p>
                   <Select value={period} label="Today" sx={{ width: "40%", height: "40px" }} onChange={handleChange}>
-                    <MenuItem value={1}>Today</MenuItem>
-                    <MenuItem value={7}>This Week</MenuItem>
-                    <MenuItem value={30}>This Month</MenuItem>
+                    {periods.map(({ value, label }) => (
+                      <MenuItem key={value} value={value}>
+                        {label}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </div>
                 <hr className="py-2" />
@@ -152,13 +174,11 @@ const Dashboard = () => {
                     <p>based on visits to this place</p>
                   </div>
                   <Select value={day} label="Monday" sx={{ width: "20%", height: "40px" }} onChange={handleChangeDay}>
-                    <MenuItem value={1}>Monday</MenuItem>
-                    <MenuItem value={2}>Tuesday</MenuItem>
-                    <MenuItem value={3}>wednesday</MenuItem>
-                    <MenuItem value={4}>Thursday</MenuItem>
-                    <MenuItem value={5}>Friday</MenuItem>
-                    <MenuItem value={6}>Saturday</MenuItem>
-                    <MenuItem value={7}>Sunday</MenuItem>
+                    {daysOfWeek.map(({ value, label }) => (
+                      <MenuItem key={value} value={value}>
+                        {label}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </div>
                 <MyChart />
@@ -172,12 +192,12 @@ const Dashboard = () => {
                   <p className="font-bold">Revenue Updates</p>
                   <p>Overview of Profits</p>
                 </div>
-                <Select value={year} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangeYear}>
-                  <MenuItem value={2023}>March 2023</MenuItem>
-                  <MenuItem value={2022}>Feb 2023</MenuItem>
-                  <MenuItem value={2021}>Jan 2023</MenuItem>
-                  <MenuItem value={2020}>Dec 2022</MenuItem>
-                  <MenuItem value={2019}>Nov 2022</MenuItem>
+                <Select value={month} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangemonth}>
+                  {monthsAndMonths.map(({ year, month }) => (
+                    <MenuItem key={month} value={month}>
+                      {`${month} ${year}`}
+                    </MenuItem>
+                  ))}
                 </Select>
               </div>
               <IncomeExpenseChart />
@@ -190,12 +210,12 @@ const Dashboard = () => {
                     <p className="font-bold">Employee Salary</p>
                     <p>Every Month</p>
                   </div>
-                  <Select value={year} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangeYear}>
-                    <MenuItem value={2023}>2023</MenuItem>
-                    <MenuItem value={2022}>2022</MenuItem>
-                    <MenuItem value={2021}>2021</MenuItem>
-                    <MenuItem value={2020}>2020</MenuItem>
-                    <MenuItem value={2019}>2019</MenuItem>
+                  <Select value={month} label="2023" sx={{ width: "40%", height: "40px" }} onChange={handleChangemonth}>
+                    {[2023, 2022, 2021, 2020, 2019].map(value => (
+                      <MenuItem value={value} key={value}>
+                        {value}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </div>
                 <EmployeeChart />
@@ -217,7 +237,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        {/* <LineChart /> */}
       </section>
     </>
   )
