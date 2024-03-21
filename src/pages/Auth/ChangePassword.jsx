@@ -13,9 +13,15 @@ const changePasswordSchema = z
   .object({
     password: z
       .string()
-      .min(8, "Password too Short 🤭")
-      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/, "Provide Strong Password like you 😉"),
-    confirm_password: z.string().min(8, "Password too Short 🤭"),
+      .min(1, { message: "This field is required ❗❗" })
+      .min(8, { message: "Password too Short 🤭" })
+      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/, {
+        message: "Provide Strong Password like you 😉",
+      }),
+    confirm_password: z
+      .string()
+      .min(1, { message: "This field is required ❗❗" })
+      .min(8, { message: "Password too Short 🤭" }),
   })
   .refine(data => data.password === data.confirm_password, {
     path: ["confirm_password"],
@@ -70,7 +76,7 @@ const ChangePassword = () => {
               ),
             }}
           />
-          {errors.password && <span className="text-red-400">{errors.password.message}</span>}
+          {errors?.password && <span className="text-red-400">{errors?.password.message}</span>}
         </div>
         <div className="space-y-2">
           <label className="font-semibold" htmlFor="confirm_password">
@@ -98,9 +104,7 @@ const ChangePassword = () => {
               ),
             }}
           />
-          {errors.confirm_password && (
-            <span className="text-red-400">{errors.confirm_password.message}</span>
-          )}
+          {errors?.confirm_password && <span className="text-red-400">{errors?.confirm_password.message}</span>}
         </div>
         <button
           type="submit"
