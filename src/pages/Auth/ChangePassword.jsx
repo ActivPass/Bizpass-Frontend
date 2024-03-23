@@ -53,7 +53,7 @@ const ChangePassword = () => {
         aria-autocomplete="list"
       >
         <div className="space-y-2">
-          <label className="font-semibold" htmlFor="email">
+          <label className="font-semibold" htmlFor="password">
             Enter New Password
           </label>
           <TextField
@@ -61,6 +61,7 @@ const ChangePassword = () => {
             type={showPassword?.showNewPwd ? "text" : "password"}
             variant="outlined"
             sx={{ width: "100%" }}
+            error={!!errors.password}
             {...register("password")}
             InputProps={{
               endAdornment: (
@@ -78,7 +79,7 @@ const ChangePassword = () => {
           {errors?.password && <span className="text-red-400">{errors?.password.message}</span>}
         </div>
         <div className="space-y-2">
-          <label className="font-semibold" htmlFor="email">
+          <label className="font-semibold" htmlFor="confirm_password">
             Confirm Password
           </label>
           <TextField
@@ -86,6 +87,7 @@ const ChangePassword = () => {
             type={showPassword?.showConfirmPwd ? "text" : "password"}
             variant="outlined"
             sx={{ width: "100%" }}
+            error={!!errors.confirm_password}
             {...register("confirm_password")}
             InputProps={{
               endAdornment: (
