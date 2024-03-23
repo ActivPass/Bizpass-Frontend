@@ -21,8 +21,6 @@ import CircularProgress from "@mui/material/CircularProgress"
 
 function BookingTracking() {
   const currentDate = new Date().toISOString().split("T")[0]
-  // const [bookings, setBookings] = useState(data)
-
   const { data: bookingsData, isLoading } = useAllBookings()
   const bookingData = bookingsData?.data?.data?.map((data, index) => {
     return {
@@ -34,34 +32,7 @@ function BookingTracking() {
     }
   })
   console.log(bookingData)
-  // TODO: Fix this issue of booking data not showing on ui
-
-  // const data = [
-  //   {
-  //     id: 1,
-  //     startDate: currentDate + "T10:00",
-  //     endDate: currentDate + "T11:00",
-  //     title: "Booked by Devan",
-  //     courtId: 1,
-  //   },
-  //   {
-  //     id: 2,
-  //     startDate: currentDate + "T13:00",
-  //     endDate: currentDate + "T14:30",
-  //     title: "Booked by aakash",
-  //     courtId: 2,
-  //   },
-  //   {
-  //     id: 3,
-  //     startDate: currentDate + "T12:00",
-  //     endDate: currentDate + "T13:30",
-  //     title: "Booked by aakash",
-  //     courtId: 3,
-  //   },
-  // ]
-
   const [showAppointmentTooltip, setShowAppointmentTooltip] = useState(false)
-
   const resources = [
     {
       fieldName: "courtId",
