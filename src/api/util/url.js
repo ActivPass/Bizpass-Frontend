@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:5000/api/v1"
+const baseUrl = "https://bizpass-server-dev.onrender.com/api/v1"
 const auth = "/auth"
 
 export { auth }
