@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { socket } from "./socket"
+// import { useEffect, useState } from "react"
+// import { socket } from "./socket"
 import {
   LoginPage,
   Dashboard,
@@ -112,9 +112,9 @@ const route = createBrowserRouter(
 )
 
 const App = () => {
-  useEffect(() => {
-    socket.connect()
-  }, [])
+  // useEffect(() => {
+  // socket.connect()
+  // }, [])
   return <RouterProvider router={route} />
 }
 
