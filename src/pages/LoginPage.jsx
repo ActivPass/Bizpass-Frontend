@@ -104,14 +104,14 @@ const LoginPage = () => {
         </div>
         <button
           type="submit"
-          disabled={loginMutation?.isLoading || Object.keys(errors).length > 0}
+          disabled={loginMutation?.isPending || Object.keys(errors).length > 0}
           className={` ${
-            loginMutation?.isLoading && "btn-disabled cursor-not-allowed"
+            loginMutation?.isPending && "btn-disabled cursor-not-allowed"
           } transition-all ease-out text-white min-h-[56px] bg-blue-500 hover:bg-blue-600 p-2 rounded-md w-full ${
             Object.keys(errors).length > 0 && "cursor-not-allowed"
           }`}
         >
-          {loginMutation?.isLoading ? <span className="loading loading-spinner loading-xs"></span> : "Login"}
+          {loginMutation.isPending ? <span className="loading loading-spinner loading-xs"></span> : "Login"}
         </button>
         {loginMutation?.error && (
           <span className="flex justify-center font-medium text-sm text-red-500">
