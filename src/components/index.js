@@ -45,6 +45,8 @@ import BookingTracking from "./Booking/BookingTracking"
 import Settings from "./Setting/Settings"
 import AuthLayout from "./Layout/AuthLayout"
 import FAQ from "./FAQ/FAQ"
+import InvoiceTemplate from "./Client/InvoiceTemplate"
+import AddPayment from "./Client/AddPayment"
 
 export {
   NavBar,
@@ -94,4 +96,6 @@ export {
   Settings,
   AuthLayout,
   FAQ,
+  InvoiceTemplate,
+  AddPayment,
 }

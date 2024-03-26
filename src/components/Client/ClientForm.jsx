@@ -1,12 +1,17 @@
 import React, { useState } from "react"
-import { Stepper, Step, StepLabel, TextField, MenuItem, Button } from "@mui/material"
+import { Stepper, Step, StepLabel, TextField, MenuItem, Button, Snackbar} from "@mui/material"
 import { WhatsappShareButton } from "react-share"
 import { WhatsApp } from "@mui/icons-material"
+import FormGroup from "@mui/material/FormGroup"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import Checkbox from "@mui/material/Checkbox"
+import MuiAlert from "@mui/material/Alert"
 
 function ClientForm() {
   const [activeStep, setActiveStep] = useState(0)
+   const [isSuccessOpen, setSuccessOpen] = useState(false)
 
-  const steps = ["Client Information", "Health and Fitness", "Goals and Preferences", "Membership Details"]
+  const steps = ["Client Information", "Health and Fitness", "Goals and Preferences", "Membership Details", ""]
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1)
@@ -17,7 +22,17 @@ function ClientForm() {
   }
 
   const handleSubmit = () => {
-    // Submit form data
+    setSuccessOpen(true)
+    alert("Form submited :)")
+  }
+  
+   function handleSuccessClose() {
+    setSuccessOpen(false)
+  }
+
+  const generateShareableLink = () => {
+    const url = window.location.href
+    return url
   }
 
   const renderStepContent = step => {
@@ -49,6 +64,20 @@ function ClientForm() {
                 <TextField label="Email Address" type="email" fullWidth />
               </div>
               <TextField label="Residential Address" multiline rows={3} fullWidth />
+            </div>
+            <div className="relative right-[0rem] top-[-44rem] ml-2" title="Share form link via WhatsApp">
+              <WhatsappShareButton className=" rounded-full" url={`Check out this form: ${generateShareableLink()}`}>
+                <div className="absolute right-[0] top-0">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+                  >
+                    Share Link
+                    <WhatsApp className="ml-2 text-white" />
+                  </Button>
+                </div>
+              </WhatsappShareButton>
             </div>
           </div>
         )
@@ -131,14 +160,33 @@ function ClientForm() {
             </div>
           </div>
         )
+      case 4:
+        return (
+          <div className="space-y-4">
+            <h2 className="font-bold">Consent and Agreements :</h2>
+            <div className="">
+              <FormGroup>
+                <FormControlLabel control={<Checkbox />} label="Agreement to Terms and Conditions" />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Consent to Collect and Use Data for Health and Fitness Purposes"
+                />
+                <FormControlLabel control={<Checkbox />} label="Consent to contact via WhatsApp for communication." />
+                <FormControlLabel control={<Checkbox />} label="Consent to Receive Promotional Communication" />
+              </FormGroup>
+
+              <div className="flex flex-col space-y-1 mt-12 mb-5">
+                <label>Signature</label>
+                <TextField size="small" className="w-1/2" placeholder="Type your name here" variant="outlined" />
+              </div>
+
+              <FormControlLabel control={<Checkbox />} label="I Consent & Agreement" />
+            </div>
+          </div>
+        )
       default:
         return null
     }
-  }
-
-  const generateShareableLink = () => {
-    const url = window.location.href
-    return url
   }
 
   return (
@@ -155,7 +203,7 @@ function ClientForm() {
           {renderStepContent(activeStep)}
           <div className="mt-4 flex justify-center">
             {activeStep !== 0 && (
-              <Button variant="contained" onClick={handleBack}>
+              <Button variant="outlined" onClick={handleBack}>
                 Back
               </Button>
             )}
@@ -163,7 +211,6 @@ function ClientForm() {
               variant="contained"
               color="primary"
               onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
-              className="ml-2"
               style={{ marginLeft: "8px" }}
             >
               {activeStep === steps.length - 1 ? "Submit" : "Next"}
@@ -171,11 +218,16 @@ function ClientForm() {
           </div>
         </div>
       </div>
-      <div className="relative right-[1rem] top-[-48rem] ml-2" title="Share form link via WhatsApp">
-        <WhatsappShareButton className=" rounded-full" url={`Check out this form: ${generateShareableLink()}`}>
-          <WhatsApp className="absolute right-[0] top-0 mt-2 text-green-500" />
-        </WhatsappShareButton>
-      </div>
+      <Snackbar
+        open={isSuccessOpen}
+        autoHideDuration={3000}
+        onClose={handleSuccessClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <MuiAlert elevation={6} variant="filled" onClose={handleSuccessClose} severity="success">
+          Client Added Successfully !
+        </MuiAlert>
+      </Snackbar>
     </div>
   )
 }

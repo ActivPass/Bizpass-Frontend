@@ -26,6 +26,7 @@ import {
   AddNewLeaveType,
   AddSalaryForm,
   AddShiftForm,
+  AddPayment,
   AttendanceInfo,
   AttendanceLog,
   CheckInForm,
@@ -39,6 +40,7 @@ import {
   EmployeeProfile,
   FAQ,
   Holidays,
+  InvoiceTemplate,
   LeaveSettings,
   LeaveTypes,
   NewLeaveRequest,
@@ -68,6 +70,8 @@ const route = createBrowserRouter(
         <Route path="/addclient" element={<AddClientForm />} />
         <Route path="/editclient" element={<EditClientForm />} />
         <Route path="/client-profile" element={<ClientProfile />} />
+        <Route path="/invoice/:status" element={<InvoiceTemplate />} />
+        <Route path="/add-payment" element={<AddPayment />} />
         <Route path="/income" element={<Income />} />
         <Route path="/expense" element={<Expense />} />
         <Route path="/paymentDetail/:status" element={<PaymentDetail />} />
