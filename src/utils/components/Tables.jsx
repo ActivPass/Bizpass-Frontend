@@ -26,7 +26,7 @@ import { theme } from "../../utils/index";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#e6f2ff",
+    backgroundColor: "",
     color: theme.palette.common.black,
     fontSize: 14,
     

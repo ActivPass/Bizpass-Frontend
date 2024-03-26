@@ -48,8 +48,7 @@ const AddClientForm = () => {
       <NavHeader
         current={{ name: "Add Client" }}
         previous={[
-          { name: "Home", link: "/" },
-          { name: "Clients", link: "/clients" },
+          { name: "Home", link: "/clients" },
         ]}
       />
 

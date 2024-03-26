@@ -10,6 +10,16 @@ import { IoMdFitness } from "react-icons/io"
 import { createTheme } from "@mui/material"
 export const MENUS = [
   // { name: "Dashboard", link: "/", icon: MdHomeFilled },
+  { name: "Client Zone", link: "/clients", icon: LiaUsersSolid },
+  // {
+  //   name: "Payroll",
+  //   link: "/payroll",
+  //   icon: FaRegMoneyBillAlt,
+  //   submenu: [{ name: "Payslip", link: "/Payslip", icon: BsClipboard2 }],
+  // },
+  { name: "Finance Zone", link: "/income", icon: IoAnalyticsOutline },
+  // { name: "Workout Planner", link: "/workout-management", icon: IoMdFitness },
+  // { name: "Marketing Items", link: "/marketing", icon: HiSpeakerphone },
   {
     name: "Employee Zone",
     link: "/employees",
@@ -24,16 +34,6 @@ export const MENUS = [
       // { name: "Holidays", link: "/holidays", icon: BsClipboard2 },
     ],
   },
-  { name: "Client Zone", link: "/clients", icon: LiaUsersSolid },
-  // {
-  //   name: "Payroll",
-  //   link: "/payroll",
-  //   icon: FaRegMoneyBillAlt,
-  //   submenu: [{ name: "Payslip", link: "/Payslip", icon: BsClipboard2 }],
-  // },
-  { name: "Finance Zone", link: "/income", icon: IoAnalyticsOutline },
-  // { name: "Workout Planner", link: "/workout-management", icon: IoMdFitness },
-  // { name: "Marketing Items", link: "/marketing", icon: HiSpeakerphone },
   { name: "Membership Zone", link: "/membership", icon: MdCardMembership },
 ]
 
