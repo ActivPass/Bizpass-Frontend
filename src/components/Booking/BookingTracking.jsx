@@ -9,6 +9,10 @@ import {
   AppointmentTooltip,
   GroupingPanel,
   DayView,
+  Toolbar,
+  DateNavigator,
+  TodayButton,
+  MonthView,
 } from "@devexpress/dx-react-scheduler-material-ui"
 import Grid from "@mui/material/Grid"
 import Card from "./Card"
@@ -22,16 +26,13 @@ import CircularProgress from "@mui/material/CircularProgress"
 function BookingTracking() {
   const currentDate = new Date().toISOString().split("T")[0]
   const { data: bookingsData, isLoading } = useAllBookings()
-  const bookingData = bookingsData?.data?.data?.map((data, index) => {
-    return {
-      id: index + 1,
-      courtId: index + 1,
-      startDate: data.startTime.split(".")[0].slice(0, -3),
-      endDate: data.endTime.split(".")[0].slice(0, -3),
-      title: `Booked by ${data.name}`,
-    }
-  })
-  console.log(bookingData)
+  const bookingData = bookingsData?.data?.data?.map((data, index) => ({
+    id: index + 1,
+    courtId: index + 1,
+    startDate: data.startTime.split(".")[0].slice(0, -3),
+    endDate: data.endTime.split(".")[0].slice(0, -3),
+    title: `Booked by ${data.name}`,
+  }))
   const [showAppointmentTooltip, setShowAppointmentTooltip] = useState(false)
   const resources = [
     {
@@ -47,7 +48,7 @@ function BookingTracking() {
 
   const grouping = [{ resourceName: "courtId" }]
 
-  let Incomes = [
+  const Incomes = [
     {
       id: 1,
       name: "Total Slots",
@@ -55,7 +56,6 @@ function BookingTracking() {
       img: EmpImg,
       css: "bg-orange-50 text-orange-400",
     },
-
     {
       id: 2,
       name: "Booked Slots",
@@ -95,8 +95,8 @@ function BookingTracking() {
   )
 
   const cancelBooking = cancelledBooking => {
-    const updatedBookings = bookings.filter(booking => booking.id !== cancelledBooking.id)
-    setBookings(updatedBookings)
+    const updatedBookings = bookingData.filter(booking => booking.id !== cancelledBooking.id)
+    // Update bookings state here
     setShowAppointmentTooltip(false)
   }
 
@@ -120,21 +120,24 @@ function BookingTracking() {
       />
       <section className="">
         <div className="grid sm:grid-cols-4 grid-flow-row pb-6 gap-6">
-          {Incomes.map(obj => {
-            return <Card data={obj} key={obj.id}></Card>
-          })}
+          {Incomes.map(obj => (
+            <Card data={obj} key={obj.id}></Card>
+          ))}
         </div>
       </section>
-
       <div className="p-1 sm:p-5">
         <Paper className="m-4">
           <Scheduler data={bookingData}>
-            <ViewState defaultCurrentDate={currentDate} />
+            <ViewState u defaultCurrentDate={currentDate} />
             <GroupingState grouping={grouping} />
             <DayView startDayHour={9} endDayHour={15} intervalCount={1} />
+            {/* <MonthView /> */}
             <Appointments />
             <Resources data={resources} mainResourceName="courtId" />
             <IntegratedGrouping />
+            <Toolbar />
+            <DateNavigator />
+            <TodayButton />
             <AppointmentTooltip contentComponent={Content} showCloseButton />
             <GroupingPanel />
           </Scheduler>
