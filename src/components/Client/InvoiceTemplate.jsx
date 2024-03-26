@@ -120,7 +120,7 @@ function InvoiceTemplate() {
           // { name: "Clients", link: "/clients" },
         ]}
       />
-      <div className="p-5 border rounded-lg">
+      <div className="p-5 border rounded-lg mb-5">
         <div className="">
           <Typography variant="h5" component="h5">
             Invoice Detail
