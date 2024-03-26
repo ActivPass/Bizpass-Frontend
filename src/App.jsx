@@ -53,6 +53,7 @@ import {
 } from "./components"
 import PaymentDetail from "./components/Finance/PaymentDetail"
 import BookingSetting from "./components/Booking/BookingSetting"
+import MembershipManagement from "./components/Client/MembershipManagement"
 const route = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -65,6 +66,7 @@ const route = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
         <Route path="/clients" element={<Client />} />
+        <Route path="/clients/memberships/manage" element={<MembershipManagement />} />
         <Route path="/addclient" element={<AddClientForm />} />
         <Route path="/editclient" element={<EditClientForm />} />
         <Route path="/client-profile" element={<ClientProfile />} />

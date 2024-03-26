@@ -12,6 +12,7 @@ import Present from "../../assets/images/present.svg"
 import Absent from "../../assets/images/absent.svg"
 import Money from "../../assets/images/money.svg"
 import RowNavigation from "./RowNavigation"
+import { FaRegEdit } from "react-icons/fa"
 
 const ClientTable = () => {
   const [page, setPage] = useState(0)
@@ -159,6 +160,15 @@ const ClientTable = () => {
       <div className="flex items-center justify-between">
         <p className="text-xs sm:text-base font-semibold mt-2">List Of Clients</p>
         <div className="flex space-x-4">
+          <Link
+            to="/clients/memberships/manage"
+            className="bg-[#5D87FF] text-white hover:bg-[#4777fa] hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle justify-center gap-2 items-center rounded"
+          >
+            <span>
+              <FaRegEdit className="text-3xl" />
+            </span>
+            <span>Manage Membership</span>
+          </Link>
           <Link
             to="/addclient"
             className="bg-[#5D87FF] text-white hover:bg-[#4777fa] hover:text-white border border-gray-300 px-2 py-1 mt-3 text-xs sm:text-base flex flex-row align-middle items-center rounded"
