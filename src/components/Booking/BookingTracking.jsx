@@ -12,7 +12,6 @@ import {
   Toolbar,
   DateNavigator,
   TodayButton,
-  MonthView,
 } from "@devexpress/dx-react-scheduler-material-ui"
 import Grid from "@mui/material/Grid"
 import Card from "./Card"
@@ -28,20 +27,22 @@ function BookingTracking() {
   const { data: bookingsData, isLoading } = useAllBookings()
   const bookingData = bookingsData?.data?.data?.map((data, index) => ({
     id: index + 1,
-    courtId: index + 1,
+    courtId: data.court.name,
     startDate: data.startTime.split(".")[0].slice(0, -3),
     endDate: data.endTime.split(".")[0].slice(0, -3),
     title: `Booked by ${data.name}`,
+    status: data.status,
   }))
+  console.log(bookingData)
   const [showAppointmentTooltip, setShowAppointmentTooltip] = useState(false)
   const resources = [
     {
       fieldName: "courtId",
       title: "court",
       instances: [
-        { id: 1, text: "Court 1", color: "red" },
-        { id: 2, text: "Court 2", color: "green" },
-        { id: 3, text: "Court 3", color: "red" },
+        { id: "Court 1", text: "Court 1" },
+        { id: "Court 2", text: "Court 2" },
+        { id: "Court 3", text: "Court 3" },
       ],
     },
   ]
@@ -100,6 +101,28 @@ function BookingTracking() {
     setShowAppointmentTooltip(false)
   }
 
+  const Appointment = ({ children, style, ...restProps }) => {
+    const { status } = restProps.data
+
+    let appointmentColor = "red"
+
+    if (status === "paid") {
+      appointmentColor = "green"
+    }
+
+    return (
+      <Appointments.Appointment
+        {...restProps}
+        style={{
+          ...style,
+          backgroundColor: appointmentColor,
+        }}
+      >
+        {children}
+      </Appointments.Appointment>
+    )
+  }
+
   if (isLoading) {
     return (
       <div className="w-full h-[90vh] flex items-center justify-center">
@@ -128,11 +151,11 @@ function BookingTracking() {
       <div className="p-1 sm:p-5">
         <Paper className="m-4">
           <Scheduler data={bookingData}>
-            <ViewState u defaultCurrentDate={currentDate} />
+            <ViewState defaultCurrentDate={currentDate} />
             <GroupingState grouping={grouping} />
             <DayView startDayHour={9} endDayHour={15} intervalCount={1} />
             {/* <MonthView /> */}
-            <Appointments />
+            <Appointments appointmentComponent={Appointment} />
             <Resources data={resources} mainResourceName="courtId" />
             <IntegratedGrouping />
             <Toolbar />
