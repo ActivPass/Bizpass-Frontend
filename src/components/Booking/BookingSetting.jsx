@@ -9,7 +9,7 @@ function BookingSetting() {
   const [value, setValue] = React.useState(0)
 
   const [timingsState, settimingsState] = useState({
-    monday: { isOpen: true, open: "09:00", close: "17:00" },
+    monday: { isOpen: true, open: "2024-03-23T00:00:00.000+00:00", close: "17:00" },
     tuesday: { isOpen: true, open: "09:00", close: "17:00" },
     wednesday: { isOpen: true, open: "09:00", close: "17:00" },
     thursday: { isOpen: true, open: "09:00", close: "17:00" },
@@ -17,7 +17,7 @@ function BookingSetting() {
     saturday: { isOpen: false, open: "", close: "" }, // Closed on Saturday
     sunday: { isOpen: false, open: "", close: "" }, // Closed on Sunday
   })
-  const [courts, setCourts] = useState(["court1", "court2", "court3"])
+  const [courts, setCourts] = useState(["court1", "court2", "court3", "kasdkj"])
   const [newCourtName, setNewCourtName] = useState("")
 
   const handleAddCourt = () => {
