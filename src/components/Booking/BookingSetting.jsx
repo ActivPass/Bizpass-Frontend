@@ -9,7 +9,7 @@ function BookingSetting() {
   const [value, setValue] = React.useState(0)
 
   const [timingsState, settimingsState] = useState({
-    monday: { isOpen: true, open: "09:00", close: "17:00" },
+    monday: { isOpen: true, open: "2024-03-23T00:00:00.000+00:00", close: "17:00" },
     tuesday: { isOpen: true, open: "09:00", close: "17:00" },
     wednesday: { isOpen: true, open: "09:00", close: "17:00" },
     thursday: { isOpen: true, open: "09:00", close: "17:00" },
@@ -17,6 +17,21 @@ function BookingSetting() {
     saturday: { isOpen: false, open: "", close: "" }, // Closed on Saturday
     sunday: { isOpen: false, open: "", close: "" }, // Closed on Sunday
   })
+  const [courts, setCourts] = useState(["court1", "court2", "court3", "kasdkj"])
+  const [newCourtName, setNewCourtName] = useState("")
+
+  const handleAddCourt = () => {
+    if (newCourtName.trim() !== "") {
+      setCourts([...courts, newCourtName])
+      setNewCourtName("")
+    }
+  }
+
+  const handleDeleteCourt = index => {
+    const newCourts = courts.filter((court, i) => i !== index)
+    setCourts(newCourts)
+  }
+
   const isEditing = true
 
   const dayOfWeek = dayjs().format("dddd")
@@ -50,29 +65,6 @@ function BookingSetting() {
     }))
   }
 
-  const CustomNumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
-    return (
-      <BaseNumberInput
-        slots={{
-          root: StyledInputRoot,
-          input: StyledInputElement,
-          incrementButton: StyledButton,
-          decrementButton: StyledButton,
-        }}
-        slotProps={{
-          incrementButton: {
-            children: "▴",
-          },
-          decrementButton: {
-            children: "▾",
-          },
-        }}
-        {...props}
-        ref={ref}
-      />
-    )
-  })
-
   return (
     <div className="p-1 sm:p-5 bg-[#F7F8F9] min-h-screen">
       <NavHeader
@@ -91,26 +83,6 @@ function BookingSetting() {
         </div>
         <div className="bg-white rounded-lg p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
-            <div className="mb-4">
-              <label htmlFor="minimumBookingTime" className="block text-sm font-medium text-gray-700">
-                Minium Booking Time
-              </label>
-              <input
-                type="text"
-                id="minimumBookingTime"
-                name="minimumBookingTime"
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Enter Minium Booking Time"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="noOfCourts" className="block text-sm font-medium text-gray-700">
-                No of Courts
-              </label>
-              <CustomNumberInput placeholder="No of Court" />
-            </div>
-
             {/* Start and end time fields for each day */}
             <div className="col-span-2 w-full">
               <p className="text-lg font-semibold">Working Hours</p>
@@ -154,6 +126,19 @@ function BookingSetting() {
             </div>
 
             <div className="mb-4">
+              <label htmlFor="minimumBookingTime" className="block text-sm font-medium text-gray-700">
+                Minium Booking Time
+              </label>
+              <input
+                type="text"
+                id="minimumBookingTime"
+                name="minimumBookingTime"
+                className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                placeholder="Enter Minium Booking Time"
+              />
+            </div>
+
+            <div className="mb-4">
               <label htmlFor="price" className="block text-sm font-medium text-gray-700">
                 Price
               </label>
@@ -164,6 +149,74 @@ function BookingSetting() {
                 className="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 placeholder="Enter Price"
               />
+            </div>
+
+            {/* <div className="mb-4">
+              <label htmlFor="noOfCourts" className="block text-sm font-medium text-gray-700">
+                List of Courts
+              </label>
+
+              <div className="mt-2">
+                <ul className="flex flex-col py-2">
+                  {courts.map((court, index) => (
+                    <li key={index}>{court}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex col-span-2 justify-between">
+                <input
+                  type="text"
+                  id="courts"
+                  name="courts"
+                  value={newCourtName}
+                  onChange={e => setNewCourtName(e.target.value)}
+                  className="mt-1 p-2 block w-3/4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  placeholder="Enter Court Name"
+                />
+                <button
+                  onClick={handleAddCourt}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                >
+                  Add Court
+                </button>
+              </div>
+            </div> */}
+            <div className="mb-4">
+              <label htmlFor="noOfCourts" className="block text-sm font-medium text-gray-700">
+                List of Courts
+              </label>
+
+              <div className="mt-2">
+                <ul className="flex flex-col py-2">
+                  {courts.map((court, index) => (
+                    <li key={index} className="flex justify-between items-center border-b border-gray-300 py-2">
+                      <span>{court}</span>
+                      <div>
+                        <button onClick={() => handleDeleteCourt(index)} className="text-red-500">
+                          Delete
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex col-span-2 justify-between">
+                <input
+                  type="text"
+                  id="courts"
+                  name="courts"
+                  value={newCourtName}
+                  onChange={e => setNewCourtName(e.target.value)}
+                  className="mt-1 p-2 block w-3/4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  placeholder="Enter Court Name"
+                />
+                <button
+                  onClick={handleAddCourt}
+                  className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                >
+                  Add Court
+                </button>
+              </div>
             </div>
           </div>
           <div className="flex justify-end gap-4">
